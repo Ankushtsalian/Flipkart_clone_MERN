@@ -7,6 +7,7 @@ import {
   StyledLoginContainerWrapper,
 } from "../Styles/Login";
 import LoginImg from "../Assets/Login.png";
+
 const Login = () => {
   return (
     <>

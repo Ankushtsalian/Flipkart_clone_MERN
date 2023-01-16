@@ -45,6 +45,7 @@ const LoginTitle = styled.div`
   font-size: 28px;
   font-weight: 500;
 `;
+
 const LoginDescription = styled.div`
   font-size: 18px;
   margin-top: 16px;
