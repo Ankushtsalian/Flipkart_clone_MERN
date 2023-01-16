@@ -1,20 +1,26 @@
 import React from "react";
-import { StyledLoginContainer, StyledLoginContainerdiv } from "../Styles/Login";
+import {
+  LoginDescription,
+  LoginTitle,
+  LoginTitleContainer,
+  StyledLoginContainer,
+  StyledLoginContainerWrapper,
+} from "../Styles/Login";
 import LoginImg from "../Assets/Login.png";
 const Login = () => {
   return (
     <>
-      <StyledLoginContainer>
-        <StyledLoginContainerdiv>
-          <div className="span">
-            <span className="LoginTitle">Login</span>
-            <span className="LoginDescription">
+      <StyledLoginContainerWrapper>
+        <StyledLoginContainer>
+          <LoginTitleContainer LoginImg={LoginImg}>
+            <LoginTitle>Login</LoginTitle>
+            <LoginDescription>
               Get access to your Orders, Wishlist and Recommendations
-            </span>
-          </div>
+            </LoginDescription>
+          </LoginTitleContainer>
           <div>Login</div>
-        </StyledLoginContainerdiv>
-      </StyledLoginContainer>
+        </StyledLoginContainer>
+      </StyledLoginContainerWrapper>
     </>
   );
   //    <StyledLoginContainer>
