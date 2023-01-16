@@ -263,3 +263,14 @@ p {
     width: 95vw;
   }
 }
+
+.span{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-brand-blue);
+}
+
+img{
+  height: 30%;
+  width: 40%;
+}
