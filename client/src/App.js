@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styled from "styled-components";
 
+const StyledButton = styled.button`
+  // background-color: var(--color-brand-orange);
+  background-color: ${(props) => props.backcolor};
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  &:hover {
+    background-color: darkblue;
+    cursor: pointer;
+  }
+`;
+
+const Body = styled.div`
+  background-color: var(--color-page-bg);
+  height: 100%;
+`;
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <StyledButton backcolor="black" />;
 }
 
 export default App;
