@@ -7,9 +7,10 @@ const Login = () => {
       <StyledLoginContainer>
         <StyledLoginContainerdiv>
           <div className="span">
-            <span>Login</span>
-            <span>Get access to your Orders, Wishlist and Recommendations</span>
-            <img src={LoginImg} alt="Login" />
+            <span className="LoginTitle">Login</span>
+            <span className="LoginDescription">
+              Get access to your Orders, Wishlist and Recommendations
+            </span>
           </div>
           <div>Login</div>
         </StyledLoginContainerdiv>
