@@ -8,6 +8,7 @@ const StyledNavbarWrapper = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 900;
+  top: 0;
 `;
 const LogoContainer = styled.img`
   width: 100px;

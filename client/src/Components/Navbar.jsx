@@ -14,6 +14,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
 import Login from "../Pages/Login";
+import Footer from "./Footer";
 
 const Navbar = () => {
   const { close } = useSelector((state) => state.user);
@@ -48,6 +49,7 @@ const Navbar = () => {
         </NavbarContainer>
       </StyledNavbarWrapper>
       <Outlet />
+      <Footer />
     </>
   );
 };
