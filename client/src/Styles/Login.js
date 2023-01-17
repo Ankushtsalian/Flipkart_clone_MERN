@@ -6,8 +6,6 @@ const StyledLoginContainerWrapper = styled.div`
   min-height: 100vh;
   z-index: 12;
   position: fixed;
-  /* position: relative; */
-
   top: 0;
   right: 0;
   left: 0;
@@ -25,12 +23,13 @@ const StyledLoginContainer = styled.div`
   height: 528px;
   max-width: 650px;
   min-width: 650px;
-  color: #fff;
+  color: var(--color-white-bg);
   z-index: 12;
   display: flex;
   flex-direction: row;
-  background-color: #fff;
+  background-color: var(--color-white-bg);
   color: #000;
+  border-radius: 4px;
 `;
 
 const LoginTitleContainer = styled.div`
@@ -64,6 +63,7 @@ const TextFieldContainer = styled(TextField)`
     width: 100%;
   }
 `;
+
 const TextFieldWrapper = styled.div`
   padding: 50px 30px 12px;
   min-width: 380px;
@@ -82,6 +82,16 @@ const EmailInputFieldContainer = styled.div`
     margin-bottom: 20px;
     width: 100%;
   }
+  & button {
+    cursor: pointer;
+    background: var(--color-brand-orange);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%);
+    border: none;
+    color: var(--color-white-bg);
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+  }
 `;
 
 const RegisterLink = styled.p`
@@ -96,7 +106,8 @@ const StyledCloseIcon = styled(CloseIcon)`
   color: white;
   position: absolute;
   right: 0;
-  font-size: 36px;
+  font-size: 32px !important;
+  cursor: pointer;
 `;
 
 const StyledLoginContainerWrapperdiv = styled.div`
