@@ -7,8 +7,11 @@ import {
   NavbarContainer,
   NavbarInputMenu,
   NavbarMenu,
+  Cart,
+  ShoppingCartIconContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Navbar = () => {
   return (
@@ -26,7 +29,10 @@ const Navbar = () => {
             <Button variant="outlined">Login</Button>
             <span>Become a Seller</span>
             <span>More</span>
-            <span>cart</span>
+            <ShoppingCartIconContainer>
+              <Cart />
+              Cart
+            </ShoppingCartIconContainer>
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
