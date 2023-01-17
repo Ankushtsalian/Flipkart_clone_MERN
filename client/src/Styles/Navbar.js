@@ -21,6 +21,8 @@ const Cart = styled(ShoppingCartIcon)`
   margin-right: 5px;
   @media (max-width: 720px) {
     font-size: 10px;
+    margin-bottom: 5px;
+    margin-right: 0px;
   }
 `;
 const ShoppingCartIconContainer = styled.div`
@@ -30,6 +32,7 @@ const ShoppingCartIconContainer = styled.div`
   align-items: center;
   @media (max-width: 720px) {
     flex-direction: column;
+    font-size: 10px;
   }
 `;
 const NavbarContainer = styled.div`
