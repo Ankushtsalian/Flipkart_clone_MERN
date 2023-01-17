@@ -10,7 +10,7 @@ const authSlice = createSlice({
 
   reducers: {
     handleLoginClose: (state) => {
-      state.close = false;
+      state.close = !state.close;
     },
   },
 });

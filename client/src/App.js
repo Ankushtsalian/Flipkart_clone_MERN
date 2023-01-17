@@ -11,7 +11,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Navbar />}>
-            <Route index element={<Login />} />
             <Route path="Product" element={<Product />} />
           </Route>
           <Route path="*" element={<h1>Not found</h1>} />

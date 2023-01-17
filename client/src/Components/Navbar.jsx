@@ -11,10 +11,17 @@ import {
   ShoppingCartIconContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
+import Login from "../Pages/Login";
 
 const Navbar = () => {
+  const { close } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   return (
     <>
+      <Login />
       <StyledNavbarWrapper>
         <NavbarContainer>
           <NavbarInputMenu>
@@ -25,7 +32,12 @@ const Navbar = () => {
             </Button>
           </NavbarInputMenu>
           <NavbarMenu>
-            <Button variant="outlined">Login</Button>
+            <Button
+              variant="outlined"
+              onClick={() => dispatch(handleLoginClose())}
+            >
+              Login
+            </Button>
             <span>Become a Seller</span>
             <span>More</span>
             <ShoppingCartIconContainer>
