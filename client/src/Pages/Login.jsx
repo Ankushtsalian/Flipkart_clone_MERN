@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   EmailInputFieldContainer,
   LoginDescription,
@@ -13,13 +13,18 @@ import {
   StyledLoginContainerWrapperdiv,
 } from "../Styles/Login";
 import LoginImg from "../Assets/Login.png";
+import { useDispatch, useSelector } from "react-redux";
+import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
+  const { close } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   return (
-    <>
+    close && (
       <StyledLoginContainerWrapper>
         <StyledLoginContainerWrapperdiv>
-          <StyledCloseIcon />
+          <StyledCloseIcon onClick={() => dispatch(handleLoginClose())} />
           <StyledLoginContainer>
             <LoginTitleContainer LoginImg={LoginImg}>
               <LoginTitle>Login</LoginTitle>
@@ -48,9 +53,8 @@ const Login = () => {
           </StyledLoginContainer>
         </StyledLoginContainerWrapperdiv>
       </StyledLoginContainerWrapper>
-    </>
+    )
   );
-  //    <StyledLoginContainer>
 };
 
 export default Login;
