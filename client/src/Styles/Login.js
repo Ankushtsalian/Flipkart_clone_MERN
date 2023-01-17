@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const StyledLoginContainerWrapper = styled.div`
   min-height: 100vh;
-  z-index: 12;
+  z-index: 991;
   position: fixed;
   top: 0;
   right: 0;
