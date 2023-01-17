@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import TextField from "@mui/material/TextField";
+import CloseIcon from "@mui/icons-material/Close";
 
 const StyledLoginContainerWrapper = styled.div`
   min-height: 100vh;
   z-index: 12;
   position: fixed;
+  /* position: relative; */
+
   top: 0;
   right: 0;
   left: 0;
@@ -67,7 +70,7 @@ const TextFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  color: var(--color-grey-grade4);
   & a {
     color: var(--color-brand-blue);
   }
@@ -85,9 +88,20 @@ const RegisterLink = styled.p`
   display: flex;
   justify-content: center;
   font-size: 14px;
-  & a {
-    color: var(--color-brand-blue);
-  }
+  font-weight: 600;
+  color: var(--color-brand-blue);
+`;
+
+const StyledCloseIcon = styled(CloseIcon)`
+  color: white;
+  position: absolute;
+  right: 0;
+  font-size: 36px;
+`;
+
+const StyledLoginContainerWrapperdiv = styled.div`
+  position: relative;
+  min-width: 750px;
 `;
 
 export {
@@ -100,4 +114,6 @@ export {
   TextFieldWrapper,
   EmailInputFieldContainer,
   RegisterLink,
+  StyledCloseIcon,
+  StyledLoginContainerWrapperdiv,
 };
