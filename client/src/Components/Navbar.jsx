@@ -48,7 +48,9 @@ const Navbar = () => {
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      <Outlet />
+      <div style={{ minHeight: "83.5vh" }}>
+        <Outlet />
+      </div>
       <Footer />
     </>
   );

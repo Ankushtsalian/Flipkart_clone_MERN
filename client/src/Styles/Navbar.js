@@ -111,12 +111,13 @@ const NavbarMenu = styled.div`
   & button:hover {
     color: var(--color-brand-blue);
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     background-color: var(--color-white-bg);
     border-radius: 0;
     height: 32px;
     width: 25%;
     margin-right: 10px;
+    text-transform: none;
     @media (max-width: 720px) {
       font-size: 12px;
       width: 10%;
