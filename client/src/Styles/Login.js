@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TextField from "@mui/material/TextField";
 
 const StyledLoginContainerWrapper = styled.div`
   min-height: 100vh;
@@ -19,7 +20,7 @@ const StyledLoginContainerWrapper = styled.div`
 const StyledLoginContainer = styled.div`
   margin: 0 auto;
   height: 528px;
-  max-width: 750px;
+  max-width: 650px;
   min-width: 650px;
   color: #fff;
   z-index: 12;
@@ -53,10 +54,50 @@ const LoginDescription = styled.div`
   color: var(--color-grey-grade12);
 `;
 
+const TextFieldContainer = styled(TextField)`
+  && {
+    font-size: 22px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+`;
+const TextFieldWrapper = styled.div`
+  padding: 50px 30px 12px;
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & a {
+    color: var(--color-brand-blue);
+  }
+`;
+
+const EmailInputFieldContainer = styled.div`
+  && {
+    font-size: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+`;
+
+const RegisterLink = styled.p`
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  & a {
+    color: var(--color-brand-blue);
+  }
+`;
+
 export {
   StyledLoginContainer,
   StyledLoginContainerWrapper,
   LoginTitleContainer,
   LoginTitle,
   LoginDescription,
+  TextFieldContainer,
+  TextFieldWrapper,
+  EmailInputFieldContainer,
+  RegisterLink,
 };
