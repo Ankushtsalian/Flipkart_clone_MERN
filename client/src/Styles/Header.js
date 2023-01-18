@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import HeaderCarousel from "../Components/HeaderCarousel";
+
 const HeaderWrapper = styled.header`
   position: relative;
   top: 57px;
@@ -28,6 +28,7 @@ const HeaderContainer = styled.div`
 const HeaderValue = styled.a`
   cursor: pointer;
   font-size: 14px;
+  color: var(--color-black);
   :hover {
     color: var(--color-dark-blue1);
   }

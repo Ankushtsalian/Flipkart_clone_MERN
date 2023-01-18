@@ -52,7 +52,7 @@ const Navbar = () => {
         style={{
           minHeight: "83.5vh",
           position: "relative",
-          minWidth: "1500px",
+          minWidth: "1000px",
         }}
       >
         <Outlet />
