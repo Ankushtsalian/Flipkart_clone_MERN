@@ -8,7 +8,7 @@ const HeaderWrapper = styled.header`
   bottom: 57px;
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
   /* bottom: 0; */
-  z-index: 0;
+  z-index: 3;
   background-color: var(--color-white-bg);
   /* color: var(--color-white-bg); */
   height: 112px;
@@ -45,11 +45,17 @@ const HeaderValueSvg = styled.img`
   max-height: 70px;
 `;
 const HeaderCarouselContainer = styled(HeaderCarousel)`
-  object-fit: fill;
-  max-width: 70px;
+  /* object-fit: fill;
+  max-width: 70px;*/
   max-height: 70px;
+  z-index: 0;
   & .carousel .thumbs {
     display: none;
+  }
+  & .carousel .control-prev.control-arrow {
+    z-index: 1;
+    background-color: red;
+    height: 10px !important;
   }
 `;
 
