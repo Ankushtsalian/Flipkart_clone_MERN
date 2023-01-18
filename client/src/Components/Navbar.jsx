@@ -26,7 +26,7 @@ const Navbar = () => {
       <StyledNavbarWrapper>
         <NavbarContainer>
           <NavbarInputMenu>
-            <LogoContainer src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fk-plus_3b0baa.png" />
+            <LogoContainer src="/images/flipkart-plus.png" />
             <Input placeholder="Search for products, brands and more" />
             <Button variant="outlined">
               <SearchIcon />
@@ -48,7 +48,13 @@ const Navbar = () => {
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      <div style={{ minHeight: "83.5vh" }}>
+      <div
+        style={{
+          minHeight: "83.5vh",
+          position: "relative",
+          minWidth: "1000px",
+        }}
+      >
         <Outlet />
       </div>
       <Footer />
