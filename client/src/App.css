@@ -190,6 +190,7 @@ body {
   font-size: 0.875rem;
   font-family: Roboto,Arial,sans-serif;
   letter-spacing: 0;
+  display: block;
 }
 html,
 body,

@@ -26,7 +26,7 @@ const Navbar = () => {
       <StyledNavbarWrapper>
         <NavbarContainer>
           <NavbarInputMenu>
-            <LogoContainer src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/fk-plus_3b0baa.png" />
+            <LogoContainer src="/images/flipkart-plus.png" />
             <Input placeholder="Search for products, brands and more" />
             <Button variant="outlined">
               <SearchIcon />
