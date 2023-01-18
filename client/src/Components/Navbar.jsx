@@ -48,7 +48,13 @@ const Navbar = () => {
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      <div style={{ minHeight: "83.5vh" }}>
+      <div
+        style={{
+          minHeight: "83.5vh",
+          position: "relative",
+          minWidth: "1500px",
+        }}
+      >
         <Outlet />
       </div>
       <Footer />

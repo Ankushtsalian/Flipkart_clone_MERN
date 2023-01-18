@@ -1,9 +1,10 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-const Product = () => {
+
+const HeaderCarousel = () => {
   return (
-    <div style={{ position: "relative", top: "57px", bottom: "57px" }}>
+    <div style={{ marginTop: "58px" }}>
       <Carousel autoPlay>
         <div>
           <img alt="" src="/images/BannerHeader1.jpg" />
@@ -11,9 +12,9 @@ const Product = () => {
         <div>
           <img alt="" src="/images/BannerHeader1.jpg" />
         </div>
-      </Carousel>
+      </Carousel>{" "}
     </div>
   );
 };
 
-export default Product;
+export default HeaderCarousel;

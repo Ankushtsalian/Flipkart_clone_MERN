@@ -6,11 +6,7 @@ import {
   FooterValueSvg,
   FooterNav,
 } from "../Styles/Footer";
-// import Footer1 from "../Assets/Footer1.svg";
-// import Footer2 from "../Assets/Footer2.svg";
-// import Footer3 from "../Assets/Footer3.svg";
-// import Footer4 from "../Assets/Footer4.svg";
-// import Footer5 from "../Assets/Footer5.svg";
+
 import { footerData } from "../Utils/footerData";
 const Footer = () => {
   return (

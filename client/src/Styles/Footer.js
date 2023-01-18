@@ -15,7 +15,7 @@ const FooterWrapper = styled.footer`
 const FooterContainer = styled.div`
   margin: 0 auto;
   height: 100%;
-  max-width: 1648px;
+  max-width: 1548px;
   /* max-width: calc(100%-1068px); */
   display: flex;
   flex-direction: row;

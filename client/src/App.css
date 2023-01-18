@@ -267,3 +267,6 @@ p {
   }
 }
 
+.carousel .thumbs ,.carousel .carousel-status {
+  display: none;
+}
