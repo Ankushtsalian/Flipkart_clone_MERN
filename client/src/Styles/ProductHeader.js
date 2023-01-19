@@ -82,9 +82,6 @@ const ProductMenuContainer = styled.div`
     }
   }
   :hover {
-    & button {
-      opacity: 1;
-    }
     & div {
       opacity: 1;
       visibility: visible;
@@ -96,44 +93,37 @@ const ProductMenu = styled.div`
   /* min-width: 1248px; */
   display: flex;
   justify-content: space-around;
-  margin-bottom: 28px;
   position: absolute;
   top: 72px;
   left: 12%;
   right: 12%;
-  padding: 6px 24px 10px;
-  margin-bottom: 0;
+  /* padding: 6px 24px 10px; */
   background-color: var(--color-white-bg);
   box-shadow: 0 1px 2px 1px rgb(0 0 0 / 16%);
   opacity: 0;
   visibility: hidden;
   translate: 0 24px;
-  translate: 0 24px;
   transition: 0.3s;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  height: 560px;
+  & :nth-child(even) {
+    background-color: var(--color-grey-grade7);
+  }
   :hover {
-    & button {
+    & div {
       opacity: 1;
     }
   }
-  & button {
+  & div {
     border: 0;
     padding: 0;
-    background: transparent;
     cursor: pointer;
     line-height: 1;
     color: inherit;
     font-family: "Euclid Circular A";
-    font-size: 20px;
-    width: 10%;
-    padding: 0 24px;
-    height: 100%;
-    opacity: 1;
-    height: 60px;
-    @media (min-width: 500px) {
-      font-size: 16px;
-    }
+    width: 100%;
+    font-size: 16px;
   }
 `;
 export {

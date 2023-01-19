@@ -4,9 +4,14 @@ import { ProductMenu } from "../Styles/ProductHeader";
 const ProductList = () => {
   return (
     <ProductMenu>
-      <button>UX/UI Design</button>
-      <button>Web Applications</button>
-      <button>SEO Advice</button>
+      <div>
+        UX/UI Design
+        <div>UX/UI Design</div>
+        <a href="/">UX/U22I Design</a>
+      </div>
+      <div>Web Applications</div>
+      <div>SEO Advice</div>
+      <div>SEO Advice</div>
     </ProductMenu>
   );
 };
