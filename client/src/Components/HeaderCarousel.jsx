@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const HeaderCarousel = () => {
   return (
-    <div style={{}}>
+    <div style={{ marginTop: "8px", maxHeight: "500px", overflow: "hidden" }}>
       <Carousel autoPlay>
         <div style={{ marginTop: "58px" }}>
           <img alt="" src="/images/BannerHeader1.jpg" />
@@ -12,7 +12,7 @@ const HeaderCarousel = () => {
         <div style={{ marginTop: "58px" }}>
           <img alt="" src="/images/BannerHeader1.jpg" />
         </div>
-      </Carousel>
+      </Carousel>{" "}
     </div>
   );
 };
