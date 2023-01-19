@@ -1,18 +1,32 @@
 import React from "react";
+// import {chevron}
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {
+  ProductMenu,
+  ProductMenuContainer,
+  ProductMenuWrapper,
+  StyledProductHeaderWrapper,
+} from "../Styles/ProductHeader";
 const Product = () => {
   return (
-    <div style={{ position: "relative", top: "57px", bottom: "57px" }}>
-      <Carousel autoPlay>
-        <div>
-          <img alt="" src="/images/BannerHeader1.jpg" />
-        </div>
-        <div>
-          <img alt="" src="/images/BannerHeader1.jpg" />
-        </div>
-      </Carousel>
-    </div>
+    <>
+      <StyledProductHeaderWrapper>
+        <ProductMenuWrapper>
+          <ProductMenuContainer>
+            <button>
+              Services
+              <img src="/images/chevron.svg" alt="" />
+            </button>
+            <ProductMenu>
+              <button>UX/UI Design</button>
+              <button>Web Applications</button>
+              <button>SEO Advice</button>
+            </ProductMenu>
+          </ProductMenuContainer>
+        </ProductMenuWrapper>
+      </StyledProductHeaderWrapper>
+    </>
   );
 };
 
