@@ -12,12 +12,10 @@ const StyledProductHeaderWrapper = styled.nav`
   justify-content: space-between;
   align-items: stretch;
   height: 72px;
-  top: 200px;
   opacity: 0.85;
-  color: #fff !important;
-  border-bottom: 1px solid #000;
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+  color: var(--color-black);
+  background-color: var(--color-white-bg);
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
 `;
 
 const ProductMenuWrapper = styled.div`
@@ -123,16 +121,17 @@ const ProductMenu = styled.div`
   @media (min-width: 500px) {
     position: absolute;
     top: 58px;
-    left: 0;
+    left: 50%;
     width: 280px;
     padding: 6px 24px 10px;
     margin-bottom: 0;
     place-items: start;
     --tw-bg-opacity: 1;
-    background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+    background-color: var(--color-white-bg);
+    box-shadow: 0px 8px 10px gray, -10px 8px 15px gray, 10px 8px 15px gray;
     border: 1px solid #fff;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     translate: 0 24px;
     transition: 0.3s;
   }
