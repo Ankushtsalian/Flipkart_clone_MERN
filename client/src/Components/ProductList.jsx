@@ -47,7 +47,7 @@ const ProductList = () => {
   return (
     <>
       <ProductMenu>
-        {[...prod, ...prod].map((p, i) => {
+        {[...prod, ...prod, prod[0]].map((p, i) => {
           return (
             <div key={i}>
               <div>

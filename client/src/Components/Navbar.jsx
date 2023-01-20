@@ -53,7 +53,6 @@ const Navbar = () => {
           minHeight: "83.5vh",
           position: "relative",
           minWidth: "1300px",
-          position: "relative",
           top: "57px",
           bottom: "57px",
         }}
