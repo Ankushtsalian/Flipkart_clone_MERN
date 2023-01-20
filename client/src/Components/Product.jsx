@@ -13,10 +13,10 @@ const Product = () => {
     <>
       <StyledProductHeaderWrapper>
         <ProductMenuWrapper>
-          {new Array(15).fill(0).map((_, i) => (
+          {new Array(5).fill(0).map((_, i) => (
             <ProductMenuContainer key={i}>
               <button>
-                Services
+                Electronics
                 <Chevron />
               </button>
               <ProductList />
