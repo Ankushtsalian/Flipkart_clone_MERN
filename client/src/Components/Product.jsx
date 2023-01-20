@@ -9,22 +9,42 @@ import {
 import Chevron from "./Chevron";
 import ProductList from "./ProductList";
 const Product = () => {
+  const productMenu = [
+    "Electronics",
+    "TVs & Appliances",
+    "Men",
+    "Women",
+    "Baby & Kids",
+    "Home & Furniture",
+    "Sports, Books & More",
+    "Flights",
+    "Offer zone",
+  ];
   return (
-    <>
-      <StyledProductHeaderWrapper>
-        <ProductMenuWrapper>
-          {new Array(15).fill(0).map((_, i) => (
-            <ProductMenuContainer key={i}>
-              <button>
-                Services
-                <Chevron />
-              </button>
-              <ProductList />
-            </ProductMenuContainer>
-          ))}
-        </ProductMenuWrapper>
-      </StyledProductHeaderWrapper>
-    </>
+    // <div
+    // style={{
+    // minHeight: "83.5vh",
+    // position: "relative",
+    // minWidth: "1300px",
+
+    // top: "57px",
+    // bottom: "57px",
+    // }}
+    // >
+    <StyledProductHeaderWrapper>
+      <ProductMenuWrapper>
+        {productMenu.map((product, i) => (
+          <ProductMenuContainer key={i}>
+            <button>
+              {product}
+              <Chevron />
+            </button>
+            <ProductList />
+          </ProductMenuContainer>
+        ))}
+      </ProductMenuWrapper>
+    </StyledProductHeaderWrapper>
+    // </div>
   );
 };
 

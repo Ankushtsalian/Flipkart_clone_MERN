@@ -4,13 +4,14 @@ const StyledProductHeaderWrapper = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 1;
-  font-weight: 900;
+  /* font-weight: bold; */
+
   font-size: large;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: stretch;
-  height: 72px;
+  height: 40px;
   opacity: 0.85;
   color: var(--color-black);
   background-color: var(--color-white-bg);
@@ -47,21 +48,21 @@ const ProductMenuContainer = styled.div`
   flex-direction: column;
 
   & button {
+    font-weight: bold;
+
     border: 0;
     padding: 0;
     background: transparent;
     cursor: pointer;
     line-height: 1;
     color: inherit;
-    font-family: "Euclid Circular A";
-    font-size: 20px;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     height: 100%;
-    flex-direction: row;
 
     & svg {
       height: 15px;
@@ -85,45 +86,59 @@ const ProductMenuContainer = styled.div`
     & div {
       opacity: 1;
       visibility: visible;
-      translate: 0 0;
+      /* translate: 0 0; */
     }
   }
 `;
 const ProductMenu = styled.div`
   /* min-width: 1248px; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: absolute;
-  top: 72px;
+  top: 40px;
   left: 12%;
   right: 12%;
-  /* padding: 6px 24px 10px; */
   background-color: var(--color-white-bg);
   box-shadow: 0 1px 2px 1px rgb(0 0 0 / 16%);
   opacity: 0;
   visibility: hidden;
-  translate: 0 24px;
+  /* translate: 0 24px; */
   transition: 0.3s;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  height: 560px;
-  & :nth-child(even) {
-    background-color: var(--color-grey-grade7);
-  }
-  :hover {
+  /* min-height: 100%; */
+  padding: 0 20px;
+
+  & div {
+    width: 100%;
     & div {
-      opacity: 1;
+      padding: 20px;
+      cursor: pointer;
+      line-height: 1;
+      color: inherit;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-weight: normal;
+      & li {
+        padding: 5px;
+
+        font-weight: normal;
+      }
+      & li:hover {
+        font-weight: bold;
+        color: var(--color-brand-blue);
+      }
+      & span {
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
     }
   }
-  & div {
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    line-height: 1;
-    color: inherit;
-    font-family: "Euclid Circular A";
-    width: 100%;
-    font-size: 16px;
+  & > :nth-child(even) {
+    background-color: var(--color-grey-grade7);
   }
 `;
 export {
