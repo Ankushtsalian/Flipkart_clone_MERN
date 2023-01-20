@@ -8,15 +8,24 @@ import Home from "./Pages/Home";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navbar />}>
-          <Route index element={<Home />} />
-          <Route path="Product" element={<Product />} />
-        </Route>
-        <Route path="*" element={<h1>Not found</h1>} />
-      </Routes>
-    </Router>
+    <div
+      style={{
+        minWidth: "1528px",
+        // position: "relative",
+        // top: "57px",
+        // bottom: "57px",
+      }}
+    >
+      <Router>
+        <Routes>
+          <Route path="/" element={<Navbar />}>
+            <Route index element={<Home />} />
+            <Route path="Product" element={<Product />} />
+          </Route>
+          <Route path="*" element={<h1>Not found</h1>} />
+        </Routes>
+      </Router>{" "}
+    </div>
   );
 }
 

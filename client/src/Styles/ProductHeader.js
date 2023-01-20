@@ -11,7 +11,7 @@ const StyledProductHeaderWrapper = styled.nav`
   display: flex;
   justify-content: center;
   align-items: stretch;
-  height: 5%;
+  height: 40px;
   opacity: 0.85;
   color: var(--color-black);
   background-color: var(--color-white-bg);
@@ -93,7 +93,7 @@ const ProductMenuContainer = styled.div`
 const ProductMenu = styled.div`
   /* min-width: 1248px; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: absolute;
   top: 40px;
   left: 12%;
@@ -106,30 +106,39 @@ const ProductMenu = styled.div`
   transition: 0.3s;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  min-height: 450px;
-  & :nth-child(even) {
-    background-color: var(--color-grey-grade7);
-  }
-  :hover {
-    & div {
-      opacity: 1;
-    }
-  }
-  & > div {
-    border: 0;
-    padding: 20px;
-    cursor: pointer;
-    line-height: 1;
-    color: inherit;
+  /* min-height: 100%; */
+  padding: 0 20px;
+
+  & div {
     width: 100%;
-    font-weight: bold;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    & > div:hover {
-      color: var(--color-brand-blue);
+    & div {
+      padding: 20px;
+      cursor: pointer;
+      line-height: 1;
+      color: inherit;
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      font-weight: normal;
+      & li {
+        padding: 5px;
+
+        font-weight: normal;
+      }
+      & li:hover {
+        font-weight: bold;
+        color: var(--color-brand-blue);
+      }
+      & span {
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
     }
+  }
+  & > :nth-child(even) {
+    background-color: var(--color-grey-grade7);
   }
 `;
 export {

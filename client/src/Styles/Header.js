@@ -4,8 +4,8 @@ import HeaderCarousel from "../Components/HeaderCarousel";
 
 const HeaderWrapper = styled.header`
   position: relative;
-  top: 57px;
-  bottom: 57px;
+  /* top: 57px; */
+  /* bottom: 57px; */
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
   /* bottom: 0; */
   z-index: 3;
