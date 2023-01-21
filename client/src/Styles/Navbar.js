@@ -26,6 +26,7 @@ const NavbarContainer = styled.div`
 const NavbarInputMenu = styled.div`
   width: 70%;
   height: var(--nav-max-height);
+  margin-right: 20px;
 
   & > a {
     display: flex;
@@ -116,20 +117,24 @@ const NavbarMenu = styled.div`
       height: 2rem;
       border-radius: 0;
       font-size: var(--font-size-16);
-      padding: 1rem 2.5rem;
+      padding: 0.85rem 2.25rem;
       font-weight: 600;
+      text-transform: none;
     }
   }
 `;
 
 const ShoppingCartIconContainer = styled.div``;
-const Cart = styled(ShoppingCartIcon)``;
+const Cart = styled(ShoppingCartIcon)`
+  padding-right: 0.25rem;
+`;
 
 const MainContainer = styled.div`
   min-height: 813.5vh;
   position: relative;
-  min-width: 100%;
   top: 57px;
+  min-width: var(--width-min);
+  /* width: 100%; */
 `;
 export {
   StyledNavbarWrapper,

@@ -65,15 +65,15 @@ const Navbar = () => {
             </div>
             <ShoppingCartIconContainer>
               <Cart />
-              Cart
+              <span>Cart</span>
             </ShoppingCartIconContainer>
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
 
-      <MainContainer>
-        <Outlet />
-      </MainContainer>
+      {/* <MainContainer> */}
+      <Outlet />
+      {/* </MainContainer> */}
       <Footer />
     </>
   );

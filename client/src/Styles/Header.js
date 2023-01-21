@@ -23,6 +23,10 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  & > div {
+    min-width: 70px;
+  }
 `;
 
 const HeaderValue = styled.a`
@@ -40,6 +44,7 @@ const HeaderNav = styled.div`
   flex-direction: column;
   align-items: center;
   /* min-width: 10%; */
+  min-width: 70px;
 `;
 const HeaderValueSvg = styled.img`
   object-fit: fill;
