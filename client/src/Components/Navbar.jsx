@@ -9,6 +9,7 @@ import {
   NavbarMenu,
   Cart,
   ShoppingCartIconContainer,
+  InputContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
@@ -30,14 +31,21 @@ const Navbar = () => {
             <Link to="/">
               <LogoContainer src="/images/flipkart-plus.png" />
             </Link>
-            <div>
-              <Input placeholder="Search for products, brands and more" />
-            </div>
-            <div>
-              <Button variant="outlined">
-                <SearchIcon />
-              </Button>
-            </div>
+            <InputContainer>
+              <form>
+                <div>
+                  <div>
+                    <Input
+                      // disableUnderline={true}
+                      placeholder="Search for products, brands and more"
+                    />
+                  </div>
+                  <Button variant="outlined">
+                    <SearchIcon />
+                  </Button>
+                </div>
+              </form>
+            </InputContainer>
           </NavbarInputMenu>
           <NavbarMenu>
             <div>
@@ -48,20 +56,18 @@ const Navbar = () => {
                 Login
               </Button>
             </div>
+            {/* <div> */}
             <div>
-              <div>
-                <span>Become a Seller</span>
-              </div>
-              <div>
-                <span>More</span>
-              </div>
-              <div>
-                <ShoppingCartIconContainer>
-                  <Cart />
-                  Cart
-                </ShoppingCartIconContainer>
-              </div>
+              <span>Become a Seller</span>
+            </div>{" "}
+            <span>More</span>
+            <div>
+              <ShoppingCartIconContainer>
+                <Cart />
+                Cart
+              </ShoppingCartIconContainer>
             </div>
+            {/* </div> */}
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
