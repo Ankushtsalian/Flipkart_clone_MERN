@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Login />
+      {close && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>
@@ -56,33 +56,30 @@ const Navbar = () => {
                 Login
               </Button>
             </div>
-            {/* <div> */}
             <div>
               <span>Become a Seller</span>
-            </div>{" "}
-            <span>More</span>
-            <div>
-              <ShoppingCartIconContainer>
-                <Cart />
-                Cart
-              </ShoppingCartIconContainer>
             </div>
-            {/* </div> */}
+            <div>
+              <span>More</span>
+            </div>
+            <ShoppingCartIconContainer>
+              <Cart />
+              Cart
+            </ShoppingCartIconContainer>
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      {/* <div
+      <div
         style={{
           minHeight: "83.5vh",
           position: "relative",
           minWidth: "100%",
           top: "57px",
           bottom: "57px",
-          backgroundColor: "red",
         }}
-      > */}
-      {/* <Outlet /> */}
-      {/* </div> */}
+      >
+        {/* <Outlet /> */}
+      </div>
       <Footer />
     </>
   );

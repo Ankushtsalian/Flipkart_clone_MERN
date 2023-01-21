@@ -12,7 +12,7 @@ const HeaderWrapper = styled.header`
   background-color: var(--color-white-bg);
   /* color: var(--color-white-bg); */
   height: 112px;
-  width: 100%;
+  min-width: 100%;
 `;
 
 const HeaderContainer = styled.div`

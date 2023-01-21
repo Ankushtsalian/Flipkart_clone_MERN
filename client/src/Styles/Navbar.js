@@ -7,15 +7,14 @@ const StyledNavbarWrapper = styled.nav`
   width: 100%;
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
   background-color: var(--color-brand-blue);
 `;
 
 const NavbarContainer = styled.div`
   max-width: var(--nav-width);
   width: 100%;
-  display: flex;
   height: 100%;
+  display: flex;
   margin: 0 auto;
   & > div {
     display: flex;
@@ -25,25 +24,20 @@ const NavbarContainer = styled.div`
 const NavbarInputMenu = styled.div`
   width: 70%;
   height: var(--nav-max-height);
-  & button,
-  & button:hover {
-  }
-  & input {
-  }
+
   & > a {
     display: flex;
     min-width: var(--nav-logo-min-width);
     max-height: var(--nav-max-height);
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   & .css-q0jhri-MuiInputBase-root-MuiInput-root {
     width: 100%;
-    margin: 0 auto 0 12px;
+    /* margin: 0 auto 0 12px; */
     border-radius: 2px 0 0 2px;
-    font-size: 14px;
-    font-size: 10px;
+    font-size: var(--font-size-10);
   }
 `;
 const LogoContainer = styled.img`
@@ -62,11 +56,11 @@ const InputContainer = styled.div`
 
   & > form {
     width: 100%;
-    height: 36px;
-    max-width: 564px;
+    height: 2.25rem;
+    max-width: var(--nav-input-max-width);
     position: relative;
     display: inline-block;
-    background-color: #fff;
+    background-color: var(--color-white-bg);
 
     & > div {
       display: flex;
@@ -78,20 +72,21 @@ const InputContainer = styled.div`
           width: 100%;
           margin: 0 auto 0 12px;
           border-radius: 2px 0 0 2px;
-          font-size: 14px;
+          font-size: var(--font-size-14);
           height: 100%;
           position: relative;
           top: 1px;
         }
       }
 
-      & > button {
-        height: 36px;
-        width: 44px;
+      & > button,
+      button:hover {
+        height: 2.25rem;
+        width: 2.75rem;
         border-radius: 2px;
         padding: 4px 0 0 8px;
-        background-color: #fff;
-        border: 2px solid #fff;
+        background-color: var(--color-white-bg);
+        border: 2px solid var(--color-white-bg);
       }
     }
   }
@@ -99,37 +94,28 @@ const InputContainer = styled.div`
 
 const NavbarMenu = styled.div`
   width: 50%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   display: flex;
+  color: var(--color-white-bg);
   & > div {
-    min-width: var(--nav-btn-min-width);
-
-    align-items: center;
-
     height: var(--nav-height);
+    margin: 0 1.5rem;
+    max-width: var(--nav-profile-max-width);
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
 
     & > button,
     & > button:hover {
-      background-color: #fff;
-      /* display: flex;
-      flex-direction: row; */
+      background-color: var(--color-white-bg);
       height: 2rem;
       border-radius: 0;
-      font-size: 16px;
-      padding: 15px 40px;
+      font-size: var(--font-size-16);
+      padding: 1rem 2.5rem;
       font-weight: 600;
-    }
-  }
-  & > div {
-    flex: 0 0 auto;
-    margin: 0 20px;
-    max-width: var(--nav-profile-max-width);
-    /* justify-content: space-between; */
-    display: flex;
-    height: 56px;
-    & > div {
-      min-width: var(--nav-btn-min-width);
     }
   }
 `;
