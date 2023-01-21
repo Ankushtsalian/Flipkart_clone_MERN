@@ -2,138 +2,140 @@ import styled from "styled-components";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const StyledNavbarWrapper = styled.nav`
-  height: 56px;
-  background-color: var(--color-brand-blue);
-  font-size: 16px;
   position: fixed;
+  max-height: var(--nav-max-height);
+  min-width: var(--width-min);
   width: 100%;
-  z-index: 900;
-  top: 0;
-  display: block;
-`;
-const LogoContainer = styled.img`
-  width: 100px;
-  max-height: 30px;
-  @media (max-width: 720px) {
-    /* width: 50px; */
-    /* max-height: 15px; */
-  }
-`;
-const Cart = styled(ShoppingCartIcon)`
-  margin-right: 5px;
-  /* @media (max-width: 720px) {
-    font-size: 10px;
-    margin-bottom: 5px;
-    margin-right: 0px;
-  } */
-`;
-const ShoppingCartIconContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  /* @media (max-width: 720px) { */
-  /* flex-direction: column;
-    font-size: 10px; */
-  /* } */
+  background-color: var(--color-brand-blue);
+  z-index: var(--z-index-navbar);
 `;
+
 const NavbarContainer = styled.div`
-  min-height: 100%;
-  margin: 0 auto;
-  max-width: 1248px;
+  max-width: var(--nav-width);
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-between;
-  /* @media (max-width: 720px) {
-    max-width: 648px;
-  } */
+  margin: 0 auto;
+  & > div {
+    display: flex;
+  }
 `;
 
 const NavbarInputMenu = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  align-items: center;
-  z-index: 12;
-  & button,
-  & button:hover {
-    color: var(--color-brand-blue);
-    font-weight: 600;
-    background-color: var(--color-white-bg);
-    border-radius: 2px;
-    border: 1px solid #fff;
-    height: 36px;
-    padding: 4px 0 4px 8px;
-    margin: -3px;
-    /* @media (max-width: 720px) {
-      height: 26px;
-      padding: 2px 0 2px 4px;
-    } */
-  }
-  & input {
-    height: 36px;
-    min-width: 235px;
-    background-color: white;
-    z-index: 12;
-    padding: 0 16px;
-    max-width: 564px;
-    /* @media (max-width: 720px) {
-      min-width: 120px;
-      height: 26px;
-    } */
+  width: 70%;
+  height: var(--nav-max-height);
+  margin-right: 20px;
+
+  & > a {
+    display: flex;
+    min-width: var(--nav-logo-min-width);
+    max-height: var(--nav-max-height);
+    align-items: center;
+    justify-content: flex-start;
   }
 
   & .css-q0jhri-MuiInputBase-root-MuiInput-root {
     width: 100%;
-    margin: 0 auto 0 12px;
+    /* margin: 0 auto 0 12px; */
     border-radius: 2px 0 0 2px;
-    font-size: 14px;
-    /* @media (max-width: 720px) {
-      font-size: 10px;
-    } */
+    font-size: var(--font-size-10);
   }
 `;
-const NavbarMenu = styled.div`
+const LogoContainer = styled.img`
+  max-width: 100px;
+  max-height: 30px;
+`;
+const InputContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  min-width: 40%;
-  margin-left: 30px;
+  justify-content: flex-start;
+  height: 100%;
+  min-width: 304px;
+  /* width: calc(100% - 540px); */
+  width: 100%;
+  margin: 0 auto 0 12px;
   align-items: center;
-  color: var(--color-white-bg);
-  font-weight: 600;
-  /* @media (max-width: 720px) { */
-  /* font-size: 10px; */
-  /* margin-left: 10px; */
 
-  /* justify-content: flex-start; */
-  /* } */
-  & button,
-  & button:hover {
-    color: var(--color-brand-blue);
-    font-weight: 600;
-    font-size: 16px;
+  & > form {
+    width: 100%;
+    height: 2.25rem;
+    max-width: var(--nav-input-max-width);
+    position: relative;
+    display: inline-block;
     background-color: var(--color-white-bg);
-    border-radius: 0;
-    height: 32px;
-    width: 25%;
-    margin-right: 10px;
-    text-transform: none;
-    /* @media (max-width: 720px) {
-      font-size: 12px;
-      width: 10%; */
-    /* margin-right: 5px; */
-    /* height: 22px; */
-    /* } */
-  }
-  & span {
-    /* @media (max-width: 720px) { */
-    /* font-size: 10px; */
-    /* margin: 0; */
-    /* } */
+
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      & > div {
+        width: 100%;
+        & .css-q0jhri-MuiInputBase-root-MuiInput-root {
+          width: 100%;
+          margin: 0 auto 0 12px;
+          border-radius: 2px 0 0 2px;
+          font-size: var(--font-size-14);
+          height: 100%;
+          position: relative;
+          top: 1px;
+        }
+      }
+
+      & > button,
+      button:hover {
+        height: 2.25rem;
+        width: 2.75rem;
+        border-radius: 2px;
+        padding: 4px 0 0 8px;
+        background-color: var(--color-white-bg);
+        border: 2px solid var(--color-white-bg);
+      }
+    }
   }
 `;
 
+const NavbarMenu = styled.div`
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: var(--color-white-bg);
+  & > div {
+    height: var(--nav-height);
+    margin: 0 1.5rem;
+    max-width: var(--nav-profile-max-width);
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+
+    & > button,
+    & > button:hover {
+      background-color: var(--color-white-bg);
+      height: 2rem;
+      border-radius: 0;
+      font-size: var(--font-size-16);
+      padding: 0.85rem 2.25rem;
+      font-weight: 600;
+      text-transform: none;
+    }
+  }
+`;
+
+const ShoppingCartIconContainer = styled.div``;
+const Cart = styled(ShoppingCartIcon)`
+  padding-right: 0.25rem;
+`;
+
+const MainContainer = styled.div`
+  min-height: 813.5vh;
+  position: relative;
+  top: 57px;
+  min-width: var(--width-min);
+  /* width: 100%; */
+`;
 export {
   StyledNavbarWrapper,
   LogoContainer,
@@ -142,4 +144,6 @@ export {
   NavbarInputMenu,
   Cart,
   ShoppingCartIconContainer,
+  InputContainer,
+  MainContainer,
 };

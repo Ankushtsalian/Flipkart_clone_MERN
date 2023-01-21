@@ -1,6 +1,6 @@
 import { Button, Input } from "@mui/material";
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {
   LogoContainer,
   StyledNavbarWrapper,
@@ -9,6 +9,8 @@ import {
   NavbarMenu,
   Cart,
   ShoppingCartIconContainer,
+  InputContainer,
+  MainContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,44 +24,56 @@ const Navbar = () => {
 
   return (
     <>
-      <Login />
+      {close && <Login />}
+
       <StyledNavbarWrapper>
         <NavbarContainer>
           <NavbarInputMenu>
-            <LogoContainer src="/images/flipkart-plus.png" />
-            <Input placeholder="Search for products, brands and more" />
-            <Button variant="outlined">
-              <SearchIcon />
-            </Button>
+            <Link to="/">
+              <LogoContainer src="/images/flipkart-plus.png" />
+            </Link>
+            <InputContainer>
+              <form>
+                <div>
+                  <div>
+                    <Input
+                      // disableUnderline={true}
+                      placeholder="Search for products, brands and more"
+                    />
+                  </div>
+                  <Button variant="outlined">
+                    <SearchIcon />
+                  </Button>
+                </div>
+              </form>
+            </InputContainer>
           </NavbarInputMenu>
           <NavbarMenu>
-            <Button
-              variant="outlined"
-              onClick={() => dispatch(handleLoginClose())}
-            >
-              Login
-            </Button>
-            <span>Become a Seller</span>
-            <span>More</span>
+            <div>
+              <Button
+                variant="outlined"
+                onClick={() => dispatch(handleLoginClose())}
+              >
+                Login
+              </Button>
+            </div>
+            <div>
+              <span>Become a Seller</span>
+            </div>
+            <div>
+              <span>More</span>
+            </div>
             <ShoppingCartIconContainer>
               <Cart />
-              Cart
+              <span>Cart</span>
             </ShoppingCartIconContainer>
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      <div
-        style={{
-          minHeight: "83.5vh",
-          position: "relative",
-          minWidth: "1300px",
-          position: "relative",
-          top: "57px",
-          bottom: "57px",
-        }}
-      >
-        <Outlet />
-      </div>
+
+      {/* <MainContainer> */}
+      <Outlet />
+      {/* </MainContainer> */}
       <Footer />
     </>
   );

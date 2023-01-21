@@ -1,3 +1,4 @@
+import { color } from "@mui/system";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
@@ -21,30 +22,21 @@ const Product = () => {
     "Offer zone",
   ];
   return (
-    // <div
-    // style={{
-    // minHeight: "83.5vh",
-    // position: "relative",
-    // minWidth: "1300px",
-
-    // top: "57px",
-    // bottom: "57px",
-    // }}
-    // >
-    <StyledProductHeaderWrapper>
-      <ProductMenuWrapper>
-        {productMenu.map((product, i) => (
-          <ProductMenuContainer key={i}>
-            <button>
-              {product}
-              <Chevron />
-            </button>
-            <ProductList />
-          </ProductMenuContainer>
-        ))}
-      </ProductMenuWrapper>
-    </StyledProductHeaderWrapper>
-    // </div>
+    <>
+      <StyledProductHeaderWrapper>
+        <ProductMenuWrapper>
+          {productMenu.map((product, i) => (
+            <ProductMenuContainer key={i}>
+              <button>
+                {product}
+                <Chevron />
+              </button>
+              <ProductList />
+            </ProductMenuContainer>
+          ))}
+        </ProductMenuWrapper>
+      </StyledProductHeaderWrapper>
+    </>
   );
 };
 

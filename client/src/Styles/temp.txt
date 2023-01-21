@@ -210,3 +210,16 @@ Smart Bands
 Health Care Appliances
 Bp Monitors
 Weighing Scale
+
+
+    scroll-behavior: smooth;
+//button jump
+    Transform:scale(0.98)
+//occupy 2 row w 2 col
+    grid-column:1 /span2
+    grid-row:1 /span2
+//Y JUMP
+  transform: translateY(-15PX);
+  //add it abover comp
+  transition: transform 0.2s ease-in;
+
