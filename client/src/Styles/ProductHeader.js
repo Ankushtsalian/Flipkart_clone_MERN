@@ -12,7 +12,7 @@ const StyledProductHeaderWrapper = styled.nav`
   justify-content: center;
   align-items: stretch;
   height: 40px;
-  opacity: 0.85;
+  opacity: 1;
   color: var(--color-black);
   background-color: var(--color-white-bg);
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);

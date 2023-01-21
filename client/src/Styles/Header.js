@@ -12,7 +12,7 @@ const HeaderWrapper = styled.header`
   background-color: var(--color-white-bg);
   /* color: var(--color-white-bg); */
   height: 112px;
-  /* width: 100%; */
+  width: 100%;
 `;
 
 const HeaderContainer = styled.div`
@@ -29,6 +29,8 @@ const HeaderValue = styled.a`
   cursor: pointer;
   font-size: 14px;
   color: var(--color-black);
+  /* width: 100%; */
+
   :hover {
     color: var(--color-dark-blue1);
   }
@@ -37,11 +39,11 @@ const HeaderNav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100px;
+  /* min-width: 10%; */
 `;
 const HeaderValueSvg = styled.img`
   object-fit: fill;
-  max-width: 70px;
+  /* max-width: 100%; */
   max-height: 70px;
 `;
 const HeaderCarouselContainer = styled(HeaderCarousel)`

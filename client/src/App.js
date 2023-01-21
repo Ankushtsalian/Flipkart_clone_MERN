@@ -10,7 +10,7 @@ function App() {
   return (
     <div
       style={{
-        minWidth: "1528px",
+        minWidth: "100%",
         // position: "relative",
         // top: "57px",
         // bottom: "57px",
