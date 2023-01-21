@@ -10,6 +10,7 @@ import {
   Cart,
   ShoppingCartIconContainer,
   InputContainer,
+  MainContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,17 +70,10 @@ const Navbar = () => {
           </NavbarMenu>
         </NavbarContainer>
       </StyledNavbarWrapper>
-      <div
-        style={{
-          minHeight: "83.5vh",
-          position: "relative",
-          minWidth: "100%",
-          top: "57px",
-          bottom: "57px",
-        }}
-      >
-        {/* <Outlet /> */}
-      </div>
+
+      <MainContainer>
+        <Outlet />
+      </MainContainer>
       <Footer />
     </>
   );

@@ -2,12 +2,14 @@ import styled from "styled-components";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const StyledNavbarWrapper = styled.nav`
+  position: fixed;
   max-height: var(--nav-max-height);
   min-width: var(--width-min);
   width: 100%;
   display: flex;
   flex-direction: row;
   background-color: var(--color-brand-blue);
+  z-index: var(--z-index-navbar);
 `;
 
 const NavbarContainer = styled.div`
@@ -93,7 +95,7 @@ const InputContainer = styled.div`
 `;
 
 const NavbarMenu = styled.div`
-  width: 50%;
+  width: 60%;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -122,6 +124,13 @@ const NavbarMenu = styled.div`
 
 const ShoppingCartIconContainer = styled.div``;
 const Cart = styled(ShoppingCartIcon)``;
+
+const MainContainer = styled.div`
+  min-height: 813.5vh;
+  position: relative;
+  min-width: 100%;
+  top: 57px;
+`;
 export {
   StyledNavbarWrapper,
   LogoContainer,
@@ -131,4 +140,5 @@ export {
   Cart,
   ShoppingCartIconContainer,
   InputContainer,
+  MainContainer,
 };
