@@ -1,6 +1,7 @@
 import { color } from "@mui/system";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { MainContainer } from "../Styles/Navbar";
 import {
   ProductMenu,
   ProductMenuContainer,
@@ -23,19 +24,21 @@ const Product = () => {
   ];
   return (
     <>
-      <StyledProductHeaderWrapper>
-        <ProductMenuWrapper>
-          {productMenu.map((product, i) => (
-            <ProductMenuContainer key={i}>
-              <button>
-                {product}
-                <Chevron />
-              </button>
-              <ProductList />
-            </ProductMenuContainer>
-          ))}
-        </ProductMenuWrapper>
-      </StyledProductHeaderWrapper>
+      <MainContainer>
+        <StyledProductHeaderWrapper>
+          <ProductMenuWrapper>
+            {productMenu.map((product, i) => (
+              <ProductMenuContainer key={i}>
+                <button>
+                  {product}
+                  <Chevron />
+                </button>
+                <ProductList />
+              </ProductMenuContainer>
+            ))}
+          </ProductMenuWrapper>
+        </StyledProductHeaderWrapper>
+      </MainContainer>
     </>
   );
 };

@@ -71,9 +71,7 @@ const Navbar = () => {
         </NavbarContainer>
       </StyledNavbarWrapper>
 
-      {/* <MainContainer> */}
       <Outlet />
-      {/* </MainContainer> */}
       <Footer />
     </>
   );

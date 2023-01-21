@@ -12,7 +12,7 @@ import {
   StyledLoginContainerWrapperdiv,
 } from "../Styles/Login";
 import LoginImg from "../Assets/Login.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
