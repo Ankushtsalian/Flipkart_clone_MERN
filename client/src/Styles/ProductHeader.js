@@ -21,7 +21,6 @@ const StyledProductHeaderWrapper = styled.nav`
 const ProductMenuWrapper = styled.div`
   position: relative;
   width: 100%;
-  width: 80%;
   left: -9999px;
   z-index: 2;
   height: 100%;
@@ -46,6 +45,13 @@ const ProductMenuContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+
+  /* & > div {
+    min-width: 100px;
+    flex: 0 0 auto;
+  } */
 
   & button {
     font-weight: bold;
@@ -86,7 +92,7 @@ const ProductMenuContainer = styled.div`
     & div {
       opacity: 1;
       visibility: visible;
-      /* translate: 0 0; */
+      translate: 0 0;
     }
   }
 `;
@@ -102,11 +108,10 @@ const ProductMenu = styled.div`
   box-shadow: 0 1px 2px 1px rgb(0 0 0 / 16%);
   opacity: 0;
   visibility: hidden;
-  /* translate: 0 24px; */
+  translate: 0 24px;
   transition: 0.3s;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  /* min-height: 100%; */
   padding: 0 20px;
 
   & div {
