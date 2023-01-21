@@ -35,7 +35,7 @@ const Header = () => {
         </HeaderContainer>
       </HeaderWrapper>
 
-      {/* <HeaderCarouselContainer /> */}
+      <HeaderCarouselContainer />
     </MainContainer>
   );
 };

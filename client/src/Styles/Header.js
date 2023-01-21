@@ -4,13 +4,9 @@ import HeaderCarousel from "../Components/HeaderCarousel";
 
 const HeaderWrapper = styled.header`
   position: relative;
-  /* top: 57px; */
-  /* bottom: 57px; */
   box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
-  /* bottom: 0; */
   z-index: 3;
   background-color: var(--color-white-bg);
-  /* color: var(--color-white-bg); */
   height: 112px;
   min-width: 100%;
 `;
@@ -33,7 +29,6 @@ const HeaderValue = styled.a`
   cursor: pointer;
   font-size: 14px;
   color: var(--color-black);
-  /* width: 100%; */
 
   :hover {
     color: var(--color-dark-blue1);
@@ -43,25 +38,23 @@ const HeaderNav = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* min-width: 10%; */
   min-width: 70px;
 `;
 const HeaderValueSvg = styled.img`
   object-fit: fill;
-  /* max-width: 100%; */
   max-height: 70px;
 `;
 const HeaderCarouselContainer = styled(HeaderCarousel)`
-  /* object-fit: fill;
-  max-width: 70px;*/
+  min-width: var(--width-min);
   max-height: 70px;
+  width: 100%;
   z-index: 0;
+  margin: 0 !important;
   & .carousel .thumbs {
     display: none;
   }
   & .carousel .control-prev.control-arrow {
     z-index: 1;
-    background-color: red;
     height: 10px !important;
   }
 `;

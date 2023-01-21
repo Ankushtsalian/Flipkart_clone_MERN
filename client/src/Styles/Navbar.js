@@ -130,11 +130,11 @@ const Cart = styled(ShoppingCartIcon)`
 `;
 
 const MainContainer = styled.div`
-  min-height: 813.5vh;
+  min-height: 183.5vh;
   position: relative;
   top: 57px;
   min-width: var(--width-min);
-  /* width: 100%; */
+  width: 100%;
 `;
 export {
   StyledNavbarWrapper,
