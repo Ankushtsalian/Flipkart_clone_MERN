@@ -6,24 +6,27 @@ import {
   FooterValueSvg,
   FooterNav,
 } from "../Styles/Footer";
+import { MainContainer } from "../Styles/Navbar";
 
 import { footerData } from "../Utils/footerData";
 const Footer = () => {
   return (
-    <FooterWrapper>
-      <FooterContainer>
-        {footerData.map((data, index) => {
-          return (
-            <FooterNav key={index}>
-              {data?.svg && (
-                <FooterValueSvg src={data?.svg} alt="./Assets/Footer1.svg" />
-              )}
-              {data.value && <FooterValue>{data.value}</FooterValue>}
-            </FooterNav>
-          );
-        })}
-      </FooterContainer>
-    </FooterWrapper>
+    <MainContainer>
+      <FooterWrapper>
+        <FooterContainer>
+          {footerData.map((data, index) => {
+            return (
+              <FooterNav key={index}>
+                {data?.svg && (
+                  <FooterValueSvg src={data?.svg} alt="./Assets/Footer1.svg" />
+                )}
+                {data.value && <FooterValue>{data.value}</FooterValue>}
+              </FooterNav>
+            );
+          })}
+        </FooterContainer>
+      </FooterWrapper>
+    </MainContainer>
   );
 };
 

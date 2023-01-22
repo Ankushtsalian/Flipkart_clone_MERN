@@ -23,7 +23,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div style={{ minWidth: "var(--width-min)" }}>
       {close && <Login />}
 
       <StyledNavbarWrapper>
@@ -73,7 +73,7 @@ const Navbar = () => {
 
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 

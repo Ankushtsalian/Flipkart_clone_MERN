@@ -130,9 +130,8 @@ const Cart = styled(ShoppingCartIcon)`
 `;
 
 const MainContainer = styled.div`
-  min-height: 183.5vh;
   position: relative;
-  top: 57px;
+  top: 56px;
   min-width: var(--width-min);
   width: 100%;
 `;
