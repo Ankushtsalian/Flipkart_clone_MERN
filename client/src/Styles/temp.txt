@@ -223,3 +223,92 @@ Weighing Scale
   //add it abover comp
   transition: transform 0.2s ease-in;
 
+============================
+  <div
+  
+        style={{
+          minWidth: "978px",
+          width: "100%",
+          // border: "2px solid green",
+          padding: "10px",
+          minHeight: "50vh",
+          maxWidth: "1680px",
+          display: "grid",
+          gridTemplateColumns: "1fr 5fr",
+          margin: "0 auto",
+          gap: "50px",
+          position: "relative",
+          minHeight: "100%",
+          top: "6rem",
+          flex: "0 0 auto",
+          flexWrap: "wrap",
+          // overflow: "scroll",
+          // bottom: "300px",
+          // marginBottom: "100px",
+          // zIndex: "999",
+        }}
+      >
+        <div
+          style={{
+            minWidth: "100%",
+            maxWidth: "100%",
+            backgroundColor: "#fff",
+            flexWrap: "wrap",
+            margin: "0 auto",
+            overflowX: "hidden",
+            minHeight: "100%",
+            padding: "20px",
+            marginRight: "50px",
+          }}
+        >
+          11StyledNavbarWrapper11, 11MainContainer, 11StyledNavbarWrapper11,
+          11MainContainer, LogoContainer, NavbarContainer, NavbarMenu,
+          NavbarInputMenu, Cart, ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer, MainContainer,
+          StyledNavbarWrapper, LogoContainer, NavbarContainer, NavbarMenu,
+          NavbarInputMenu, Cart, ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer, 11StyledNavbarWrapper11,
+          11MainContainer,
+        </div>
+        <div
+          style={{
+            minWidth: "100%",
+            backgroundColor: "#fff",
+
+            margin: "0 auto",
+            minHeight: "100%",
+            padding: "20px",
+          }}
+        >
+          StyledNavbarWrapper, LogoContainer, NavbarContainer, NavbarMenu,
+          NavbarInputMenu, Cart, ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer,
+          MainContainer,StyledNavbarWrapper, LogoContainer, NavbarContainer,
+          NavbarMenu, NavbarInputMenu, Cart, ShoppingCartIconContainer,
+          InputContainer, MainContainer,StyledNavbarWrapper, LogoContainer,
+          NavbarContainer, NavbarMenu, NavbarInputMenu, Cart,
+          ShoppingCartIconContainer, InputContainer, MainContainer,
+        </div>
+      </div>
