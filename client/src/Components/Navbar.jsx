@@ -23,7 +23,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div style={{ minWidth: "var(--width-min)" }}>
       {close && <Login />}
 
       <StyledNavbarWrapper>
@@ -71,11 +71,9 @@ const Navbar = () => {
         </NavbarContainer>
       </StyledNavbarWrapper>
 
-      {/* <MainContainer> */}
       <Outlet />
-      {/* </MainContainer> */}
       <Footer />
-    </>
+    </div>
   );
 };
 

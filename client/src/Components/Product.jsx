@@ -1,6 +1,8 @@
+import { Hidden } from "@mui/material";
 import { color } from "@mui/system";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { MainContainer } from "../Styles/Navbar";
 import {
   ProductMenu,
   ProductMenuContainer,
@@ -8,6 +10,7 @@ import {
   StyledProductHeaderWrapper,
 } from "../Styles/ProductHeader";
 import Chevron from "./Chevron";
+import ProductLayout from "./ProductLayout";
 import ProductList from "./ProductList";
 const Product = () => {
   const productMenu = [
@@ -23,19 +26,22 @@ const Product = () => {
   ];
   return (
     <>
-      <StyledProductHeaderWrapper>
-        <ProductMenuWrapper>
-          {productMenu.map((product, i) => (
-            <ProductMenuContainer key={i}>
-              <button>
-                {product}
-                <Chevron />
-              </button>
-              <ProductList />
-            </ProductMenuContainer>
-          ))}
-        </ProductMenuWrapper>
-      </StyledProductHeaderWrapper>
+      <MainContainer>
+        <StyledProductHeaderWrapper>
+          <ProductMenuWrapper>
+            {productMenu.map((product, i) => (
+              <ProductMenuContainer key={i}>
+                <button>
+                  {product}
+                  <Chevron />
+                </button>
+                <ProductList />
+              </ProductMenuContainer>
+            ))}
+          </ProductMenuWrapper>
+        </StyledProductHeaderWrapper>
+      </MainContainer>
+      <ProductLayout />
     </>
   );
 };

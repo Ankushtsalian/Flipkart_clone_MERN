@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  position: fixed;
+  /* position: sticky; */
   margin-top: 56px;
   border: 1px solid black;
   bottom: 0;
-  z-index: 890;
+  z-index: 0;
   background-color: var(--color-grey-grade5);
   color: var(--color-white-bg);
   height: 80px;
