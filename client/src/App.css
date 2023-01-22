@@ -327,3 +327,8 @@ p {
 .carousel .control-next.control-arrow:before{
   border-left: 8px solid var(--color-black)!important;
 }
+.css-eg0mwd-MuiSlider-thumb{
+  width: 12px !important;
+  color: #fff !important;
+  height: 12px !important;
+}

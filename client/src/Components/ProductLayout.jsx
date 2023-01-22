@@ -16,7 +16,7 @@ const ProductLayout = () => {
       <StyledProductMainWrapper>
         <AsideProductWrapper>
           <AsideProductContainer>
-            --------ASIDE PRODUCT-------- <PriceRange />
+            <PriceRange />
           </AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>

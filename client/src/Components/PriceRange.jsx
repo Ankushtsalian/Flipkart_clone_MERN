@@ -19,7 +19,7 @@ const PriceRange = () => {
   };
 
   return (
-    <div style={{ border: "1px solid black", padding: "5px" }}>
+    <div style={{ padding: "5px", fontWeight: "bold" }}>
       <div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div>
