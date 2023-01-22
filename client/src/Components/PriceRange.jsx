@@ -3,7 +3,6 @@ import React from "react";
 
 const PriceRange = () => {
   const [value1, setValue1] = React.useState([20, 37]);
-  const [value2, setValue2] = React.useState([20, 37]);
 
   const minDistance = 10;
   const handleChange1 = (event, newValue, activeThumb) => {
