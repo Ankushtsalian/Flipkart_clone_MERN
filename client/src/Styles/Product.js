@@ -5,7 +5,7 @@ const StyledProductMainWrapper = styled.nav`
   width: 100%;
   padding: 0 0 10px 0;
   max-width: 1680px;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

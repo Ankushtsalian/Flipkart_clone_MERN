@@ -48,13 +48,13 @@ const PriceRange = () => {
             justifyContent: "center",
           }}
         >
-          <div style={{ flexGrow: "2" }}>
+          <div style={{ flexGrow: "2", minWidth: "30px", marginRight: "5px" }}>
             <input
               onChange={(e) => setValue1(e.target.value)}
               value={value1[0]}
               name="min"
               style={{
-                maxWidth: "40px",
+                maxWidth: "100%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -68,6 +68,8 @@ const PriceRange = () => {
               flexGrow: "2",
               display: "flex",
               justifyContent: "flex-end",
+              minWidth: "30px",
+              marginLeft: "5px",
             }}
           >
             <input
@@ -75,7 +77,7 @@ const PriceRange = () => {
               value={value1[1]}
               name="max"
               style={{
-                maxWidth: "40px",
+                maxWidth: "100%",
               }}
             />
           </div>
