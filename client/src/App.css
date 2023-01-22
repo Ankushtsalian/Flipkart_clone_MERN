@@ -110,7 +110,7 @@ Variables
   --color-light-grey-orange: #fef7e9;
   --color-mustard: #af7b1c;
   --header-width-min: 790px;
-  --width-min: 61rem;
+  --width-min: 61.125rem;
   --width-max: 1680px;
   --product-page-gutter: 24px;
   --product-section-title-width: 110px;
@@ -204,9 +204,19 @@ body {
 }
 html,
 body,
-.wrapper {
+.wrapper,#root {
   height: 100%;
  
+
+ 
+}
+body::-webkit-scrollbar {
+  width: 0.2em;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: #000000;
 }
 ul {
   list-style-type: none;
@@ -317,4 +327,3 @@ p {
 .carousel .control-next.control-arrow:before{
   border-left: 8px solid var(--color-black)!important;
 }
-

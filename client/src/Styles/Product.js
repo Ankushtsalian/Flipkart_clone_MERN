@@ -4,37 +4,55 @@ const StyledProductMainWrapper = styled.nav`
   min-width: 978px;
   width: 100%;
   padding: 10px;
-  min-height: 50vh;
   max-width: 1680px;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
   margin: 0 auto;
   gap: 50px;
   position: relative;
   min-height: 100%;
-  top: 3rem;
+  top: 7rem;
+  margin-bottom: 30px;
   flex: 0 0 auto;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 `;
 
-const AsideWrapper = styled.aside`
-  min-width: 100%;
-  max-width: 100%;
+const AsideProductWrapper = styled.aside`
+  min-width: 15.66%;
+`;
+const AsideProductContainer = styled.aside`
+  /* max-width: 40%; */
+  /* max-width: 100%; */
   background-color: #fff;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  /* flex-wrap: wrap; */
+  /* margin: 0 auto; */
   overflow-x: hidden;
-  min-height: 100%;
-  padding: 20px;
-  margin-right: 50px;
+  /* max-height: 100%; */
+  padding: 30px;
+  /* margin-right: 20px; */
+  border: 2px solid red;
 `;
 
-const SectionWrapper = styled.section`
-  min-width: 100%;
+const SectionProductWrapper = styled.aside`
+  min-width: 80%;
+`;
+
+const SectionProductContainer = styled.section`
+  /* max-width: 100%; */
   background-color: #fff;
-  margin: 0 auto;
-  min-height: 100%;
+  /* margin: 0 auto; */
+  /* min-height: 100%; */
   padding: 20px;
+  border: 2px solid red;
 `;
 
-export { StyledProductMainWrapper, AsideWrapper, SectionWrapper };
+export {
+  StyledProductMainWrapper,
+  AsideProductContainer,
+  AsideProductWrapper,
+  SectionProductWrapper,
+  SectionProductContainer,
+};
