@@ -8,6 +8,7 @@ import {
   SectionWrapper,
   StyledProductMainWrapper,
 } from "../Styles/Product";
+import PriceRange from "./PriceRange";
 
 const ProductLayout = () => {
   return (
@@ -15,7 +16,7 @@ const ProductLayout = () => {
       <StyledProductMainWrapper>
         <AsideProductWrapper>
           <AsideProductContainer>
-            --------ASIDE PRODUCT--------
+            <PriceRange />
           </AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>

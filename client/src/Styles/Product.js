@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledProductMainWrapper = styled.nav`
   min-width: 978px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   max-width: 1680px;
 
   display: flex;
@@ -11,7 +11,7 @@ const StyledProductMainWrapper = styled.nav`
   justify-content: flex-start;
 
   margin: 0 auto;
-  gap: 50px;
+  gap: 10px;
   position: relative;
   min-height: 100%;
   top: 7rem;
@@ -21,7 +21,7 @@ const StyledProductMainWrapper = styled.nav`
 `;
 
 const AsideProductWrapper = styled.aside`
-  min-width: 15.66%;
+  min-width: 16.66%;
 `;
 const AsideProductContainer = styled.aside`
   /* max-width: 40%; */
@@ -31,13 +31,13 @@ const AsideProductContainer = styled.aside`
   /* margin: 0 auto; */
   overflow-x: hidden;
   /* max-height: 100%; */
-  padding: 30px;
+  padding: 20px;
   /* margin-right: 20px; */
   border: 2px solid red;
 `;
 
 const SectionProductWrapper = styled.aside`
-  min-width: 80%;
+  min-width: 83%;
 `;
 
 const SectionProductContainer = styled.section`
