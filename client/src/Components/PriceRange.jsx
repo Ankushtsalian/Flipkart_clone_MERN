@@ -73,7 +73,7 @@ const PriceRange = () => {
             }}
           >
             <input
-              onChange={(e) => setValue2(e.target.value)}
+              onChange={(e) => setValue1(e.target.value)}
               value={value1[1]}
               name="max"
               style={{
