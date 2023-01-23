@@ -28,7 +28,8 @@ const PriceRangeDropdownContainer = styled.div`
 `;
 const PriceRangeSeperator = styled.div`
   flex: 1 1 0%;
-  min-width: 20px;
+  min-width: 30px;
+  text-align: center;
 `;
 const PriceRangeDropdown = styled.input`
   max-width: 100%;
