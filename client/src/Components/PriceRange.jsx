@@ -2,18 +2,24 @@ import { Slider } from "@mui/material";
 import React from "react";
 
 const PriceRange = () => {
-  const [value1, setValue1] = React.useState([20, 37]);
+  const [priceRange, setPriceRange] = React.useState([20, 37]);
 
   const minDistance = 10;
-  const handleChange1 = (event, newValue, activeThumb) => {
+  const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
 
     if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
+      setPriceRange([
+        Math.min(newValue[0], priceRange[1] - minDistance),
+        priceRange[1],
+      ]);
     } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
+      setPriceRange([
+        priceRange[0],
+        Math.max(newValue[1], priceRange[0] + minDistance),
+      ]);
     }
   };
 
@@ -32,8 +38,8 @@ const PriceRange = () => {
           <div>
             <Slider
               getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
+              value={priceRange}
+              onChange={handleChange}
               valueLabelDisplay="auto"
               defaultValue={[20, 37]}
               //   getAriaValueText={valuetext}
@@ -49,8 +55,8 @@ const PriceRange = () => {
         >
           <div style={{ flexGrow: "2", minWidth: "30px", marginRight: "5px" }}>
             <input
-              onChange={(e) => setValue1(e.target.value)}
-              value={value1[0]}
+              onChange={(e) => setPriceRange(e.target.value)}
+              value={priceRange[0]}
               name="min"
               style={{
                 maxWidth: "100%",
@@ -72,8 +78,8 @@ const PriceRange = () => {
             }}
           >
             <input
-              onChange={(e) => setValue1(e.target.value)}
-              value={value1[1]}
+              onChange={(e) => setPriceRange(e.target.value)}
+              value={priceRange[1]}
               name="max"
               style={{
                 maxWidth: "100%",
