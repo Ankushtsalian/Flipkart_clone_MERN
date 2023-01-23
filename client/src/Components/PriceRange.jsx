@@ -12,6 +12,7 @@ import {
   PriceRangeDropdownWrapper,
   PriceRangeHeader,
   PriceRangeSeperator,
+  StyledPriceRangeContainer,
   StyledPriceRangeWrapper,
 } from "../Styles/PriceRange";
 
@@ -44,7 +45,16 @@ const PriceRange = () => {
   };
   return (
     <StyledPriceRangeWrapper>
-      <div>
+      <div
+        style={{
+          fontSize: "22px",
+          padding: "1rem",
+          borderBottom: "1px solid var(--color-white)",
+        }}
+      >
+        Filters
+      </div>
+      <StyledPriceRangeContainer>
         <PriceRangeHeader>
           <div>
             <span>PRICE</span>
@@ -57,7 +67,8 @@ const PriceRange = () => {
             </PriceClearContainer>
           )}
         </PriceRangeHeader>
-        <div>
+
+        <div style={{ padding: "10px 0" }}>
           <div>
             <Slider
               getAriaLabel={() => "Minimum distance"}
@@ -88,7 +99,7 @@ const PriceRange = () => {
             />
           </PriceRangeDropdownContainer>
         </PriceRangeDropdownWrapper>
-      </div>
+      </StyledPriceRangeContainer>
     </StyledPriceRangeWrapper>
   );
 };

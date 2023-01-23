@@ -31,7 +31,7 @@ const AsideProductContainer = styled.aside`
   /* margin: 0 auto; */
   overflow-x: hidden;
   /* max-height: 100%; */
-  padding: 20px;
+  padding: 0 0 20px;
   /* margin-right: 20px; */
   /* border: 2px solid red; */
 `;
