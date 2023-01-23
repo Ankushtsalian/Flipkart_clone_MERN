@@ -2,9 +2,16 @@ import { Slider } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handlePriceChange } from "../Redux/Auth-Store/Auth-Slice";
+import {
+  PriceRangeDropdown,
+  PriceRangeDropdownContainer,
+  PriceRangeDropdownWrapper,
+  PriceRangeHeader,
+  PriceRangeSeperator,
+  StyledPriceRangeWrapper,
+} from "../Styles/PriceRange";
 
 const PriceRange = () => {
-  // const [priceRange, setPriceRange] = React.useState([20, 37]);
   const { priceRange } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -33,16 +40,16 @@ const PriceRange = () => {
   };
 
   return (
-    <div style={{ padding: "5px", fontWeight: "bold" }}>
+    <StyledPriceRangeWrapper>
       <div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <PriceRangeHeader>
           <div>
             <span>PRICE</span>
           </div>
           <div>
             <span>CLEAR</span>
           </div>
-        </div>
+        </PriceRangeHeader>
         <div>
           <div>
             <Slider
@@ -56,48 +63,26 @@ const PriceRange = () => {
             />
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ flexGrow: "2", minWidth: "30px", marginRight: "5px" }}>
-            <input
+        <PriceRangeDropdownWrapper>
+          <PriceRangeDropdownContainer>
+            <PriceRangeDropdown
               onChange={(e) => handlePriceChange(e.target.value)}
               value={priceRange[0]}
               name="min"
-              style={{
-                maxWidth: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
             />
-          </div>
+          </PriceRangeDropdownContainer>
 
-          <div style={{ flex: "1 1 0%", minWidth: "20px" }}>to</div>
-          <div
-            style={{
-              flexGrow: "2",
-              display: "flex",
-              justifyContent: "flex-end",
-              minWidth: "30px",
-              marginLeft: "5px",
-            }}
-          >
-            <input
+          <PriceRangeSeperator>to</PriceRangeSeperator>
+          <PriceRangeDropdownContainer>
+            <PriceRangeDropdown
               onChange={(e) => handlePriceChange(e.target.value)}
               value={priceRange[1]}
               name="max"
-              style={{
-                maxWidth: "100%",
-              }}
             />
-          </div>
-        </div>
+          </PriceRangeDropdownContainer>
+        </PriceRangeDropdownWrapper>
       </div>
-    </div>
+    </StyledPriceRangeWrapper>
   );
 };
 
