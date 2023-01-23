@@ -1,9 +1,15 @@
 import styled from "styled-components";
 const StyledPriceRangeWrapper = styled.section`
-  padding: 10px 0;
   font-weight: bold;
   width: 100%;
 `;
+
+const FilterSection = styled.section`
+  font-size: 18px;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-white);
+`;
+
 const StyledPriceRangeContainer = styled.section`
   padding: 1rem;
   font-weight: bold;
@@ -13,6 +19,7 @@ const StyledPriceRangeContainer = styled.section`
 const PriceRangeHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  font-size: 13px;
   /* padding: 10px 0; */
 `;
 const PriceRangeDropdownWrapper = styled.div`
@@ -44,6 +51,7 @@ const PriceClearContainer = styled.div`
 
 export {
   StyledPriceRangeWrapper,
+  FilterSection,
   StyledPriceRangeContainer,
   PriceRangeHeader,
   PriceRangeDropdownWrapper,

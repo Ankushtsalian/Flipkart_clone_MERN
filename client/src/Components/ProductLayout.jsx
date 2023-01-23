@@ -18,7 +18,9 @@ const ProductLayout = () => {
         <AsideProductWrapper>
           <AsideProductContainer>
             <PriceRange />
-            <FilterDropdown />
+            {new Array(5).fill(0).map((_, i) => (
+              <FilterDropdown />
+            ))}
           </AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>

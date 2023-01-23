@@ -6,6 +6,7 @@ import {
   handleResetPriceRange,
 } from "../Redux/Auth-Store/Auth-Slice";
 import {
+  FilterSection,
   PriceClearContainer,
   PriceRangeDropdown,
   PriceRangeDropdownContainer,
@@ -45,20 +46,10 @@ const PriceRange = () => {
   };
   return (
     <StyledPriceRangeWrapper>
-      <div
-        style={{
-          fontSize: "22px",
-          padding: "1rem",
-          borderBottom: "1px solid var(--color-white)",
-        }}
-      >
-        Filters
-      </div>
+      <FilterSection>Filters</FilterSection>
       <StyledPriceRangeContainer>
         <PriceRangeHeader>
-          <div>
-            <span>PRICE</span>
-          </div>
+          <span>PRICE</span>
           {(priceRange[0] !== 0 || priceRange[1] !== 100) && (
             <PriceClearContainer
               onClick={() => dispatch(handleResetPriceRange())}
@@ -71,12 +62,9 @@ const PriceRange = () => {
         <div style={{ padding: "10px 0" }}>
           <div>
             <Slider
-              getAriaLabel={() => "Minimum distance"}
               value={priceRange}
               onChange={handleChange}
               valueLabelDisplay="auto"
-              defaultValue={[20, 37]}
-              //   getAriaValueText={valuetext}
               disableSwap
             />
           </div>
