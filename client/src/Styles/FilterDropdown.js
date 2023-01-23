@@ -16,7 +16,6 @@ const StyledFilterDropdownWrapper = styled.section`
 `;
 
 const AccordionSummaryHeader = styled.div`
-  width: 33%;
   flex-shrink: 0;
   font-weight: bold;
   font-size: 13px;

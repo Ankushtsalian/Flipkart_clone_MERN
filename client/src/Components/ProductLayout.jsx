@@ -12,14 +12,23 @@ import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
 
 const ProductLayout = () => {
+  const filterValue = [
+    "BRAND",
+    "COLOR",
+    "MATERIAL",
+    "AVAILABILITY",
+    "THEME",
+    "POPULAR COLLECTIONS",
+    "GST INVOICE AVAILABLE",
+  ];
   return (
     <>
       <StyledProductMainWrapper>
         <AsideProductWrapper>
           <AsideProductContainer>
             <PriceRange />
-            {new Array(5).fill(0).map((_, i) => (
-              <FilterDropdown />
+            {filterValue.map((filter, i) => (
+              <FilterDropdown filter={filter} key={filter} />
             ))}
           </AsideProductContainer>
         </AsideProductWrapper>
