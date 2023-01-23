@@ -42,8 +42,6 @@ const PriceRange = () => {
       );
     }
   };
-  console.log(priceRange);
-  console.log(priceRange[0] !== 0 || priceRange[1] !== 100);
   return (
     <StyledPriceRangeWrapper>
       <div>
