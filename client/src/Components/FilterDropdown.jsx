@@ -34,6 +34,24 @@ const FilterDropdown = () => {
             />
             <FilterInputValue>realme</FilterInputValue>
           </FilterInput>
+          <FilterInput>
+            <Checkbox
+              // value="checkedB"
+              // color="primary"
+              // onClick={e => handleClickCheckbox(e)}
+              size="small"
+            />
+            <FilterInputValue>realme</FilterInputValue>
+          </FilterInput>
+          <FilterInput>
+            <Checkbox
+              // value="checkedB"
+              // color="primary"
+              // onClick={e => handleClickCheckbox(e)}
+              size="small"
+            />
+            <FilterInputValue>realme</FilterInputValue>
+          </FilterInput>
         </AccordionDetails>
       </Accordion>
     </StyledFilterDropdownWrapper>
