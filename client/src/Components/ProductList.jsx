@@ -56,7 +56,7 @@ const ProductList = () => {
                   {Object.values(p)
                     .flat()
                     .map((arr, i) => (
-                      <li> {arr}</li>
+                      <li key={i}> {arr}</li>
                     ))}
                 </ul>
               </div>

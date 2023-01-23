@@ -1,25 +1,34 @@
 import { Slider } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { handlePriceChange } from "../Redux/Auth-Store/Auth-Slice";
 
 const PriceRange = () => {
-  const [priceRange, setPriceRange] = React.useState([20, 37]);
+  // const [priceRange, setPriceRange] = React.useState([20, 37]);
+  const { priceRange } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const minDistance = 10;
+
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
 
     if (activeThumb === 0) {
-      setPriceRange([
-        Math.min(newValue[0], priceRange[1] - minDistance),
-        priceRange[1],
-      ]);
+      dispatch(
+        handlePriceChange([
+          Math.min(newValue[0], priceRange[1] - minDistance),
+          priceRange[1],
+        ])
+      );
     } else {
-      setPriceRange([
-        priceRange[0],
-        Math.max(newValue[1], priceRange[0] + minDistance),
-      ]);
+      dispatch(
+        handlePriceChange([
+          priceRange[0],
+          Math.max(newValue[1], priceRange[0] + minDistance),
+        ])
+      );
     }
   };
 
@@ -55,7 +64,7 @@ const PriceRange = () => {
         >
           <div style={{ flexGrow: "2", minWidth: "30px", marginRight: "5px" }}>
             <input
-              onChange={(e) => setPriceRange(e.target.value)}
+              onChange={(e) => handlePriceChange(e.target.value)}
               value={priceRange[0]}
               name="min"
               style={{
@@ -78,7 +87,7 @@ const PriceRange = () => {
             }}
           >
             <input
-              onChange={(e) => setPriceRange(e.target.value)}
+              onChange={(e) => handlePriceChange(e.target.value)}
               value={priceRange[1]}
               name="max"
               style={{
