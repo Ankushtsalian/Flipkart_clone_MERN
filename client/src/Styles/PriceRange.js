@@ -28,6 +28,10 @@ const PriceRangeDropdown = styled.input`
   justify-content: center;
   align-items: center;
 `;
+const PriceClearContainer = styled.div`
+  color: blue;
+  cursor: pointer;
+`;
 
 export {
   StyledPriceRangeWrapper,
@@ -36,4 +40,5 @@ export {
   PriceRangeDropdownContainer,
   PriceRangeDropdown,
   PriceRangeSeperator,
+  PriceClearContainer,
 };

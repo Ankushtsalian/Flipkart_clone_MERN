@@ -1,8 +1,12 @@
 import { Slider } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { handlePriceChange } from "../Redux/Auth-Store/Auth-Slice";
 import {
+  handlePriceChange,
+  handleResetPriceRange,
+} from "../Redux/Auth-Store/Auth-Slice";
+import {
+  PriceClearContainer,
   PriceRangeDropdown,
   PriceRangeDropdownContainer,
   PriceRangeDropdownWrapper,
@@ -12,7 +16,7 @@ import {
 } from "../Styles/PriceRange";
 
 const PriceRange = () => {
-  const { priceRange } = useSelector((state) => state.user);
+  const { priceRange, isPriceChanged } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const minDistance = 10;
@@ -38,7 +42,8 @@ const PriceRange = () => {
       );
     }
   };
-
+  console.log(priceRange);
+  console.log(priceRange[0] !== 0 || priceRange[1] !== 100);
   return (
     <StyledPriceRangeWrapper>
       <div>
@@ -46,9 +51,13 @@ const PriceRange = () => {
           <div>
             <span>PRICE</span>
           </div>
-          <div>
-            <span>CLEAR</span>
-          </div>
+          {(priceRange[0] !== 0 || priceRange[1] !== 100) && (
+            <PriceClearContainer
+              onClick={() => dispatch(handleResetPriceRange())}
+            >
+              <span>CLEAR</span>
+            </PriceClearContainer>
+          )}
         </PriceRangeHeader>
         <div>
           <div>
