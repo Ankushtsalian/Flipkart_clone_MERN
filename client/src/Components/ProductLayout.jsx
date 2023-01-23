@@ -8,6 +8,7 @@ import {
   SectionWrapper,
   StyledProductMainWrapper,
 } from "../Styles/Product";
+import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
 
 const ProductLayout = () => {
@@ -17,6 +18,9 @@ const ProductLayout = () => {
         <AsideProductWrapper>
           <AsideProductContainer>
             <PriceRange />
+            {new Array(5).fill(0).map((_, i) => (
+              <FilterDropdown />
+            ))}
           </AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>

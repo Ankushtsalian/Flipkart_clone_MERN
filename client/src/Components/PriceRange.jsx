@@ -1,89 +1,94 @@
 import { Slider } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handlePriceChange,
+  handleResetPriceRange,
+} from "../Redux/Auth-Store/Auth-Slice";
+import {
+  FilterSection,
+  PriceClearContainer,
+  PriceRangeDropdown,
+  PriceRangeDropdownContainer,
+  PriceRangeDropdownWrapper,
+  PriceRangeHeader,
+  PriceRangeSeperator,
+  StyledPriceRangeContainer,
+  StyledPriceRangeWrapper,
+} from "../Styles/PriceRange";
 
 const PriceRange = () => {
-  const [value1, setValue1] = React.useState([20, 37]);
-  const [value2, setValue2] = React.useState([20, 37]);
+  const { priceRange, isPriceChanged } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const minDistance = 10;
-  const handleChange1 = (event, newValue, activeThumb) => {
+
+  const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
 
     if (activeThumb === 0) {
-      setValue1([Math.min(newValue[0], value1[1] - minDistance), value1[1]]);
+      dispatch(
+        handlePriceChange([
+          Math.min(newValue[0], priceRange[1] - minDistance),
+          priceRange[1],
+        ])
+      );
     } else {
-      setValue1([value1[0], Math.max(newValue[1], value1[0] + minDistance)]);
+      dispatch(
+        handlePriceChange([
+          priceRange[0],
+          Math.max(newValue[1], priceRange[0] + minDistance),
+        ])
+      );
     }
   };
-
   return (
-    <div style={{ padding: "5px", fontWeight: "bold" }}>
-      <div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <span>PRICE</span>
-          </div>
-          <div>
-            <span>CLEAR</span>
-          </div>
-        </div>
-        <div>
+    <StyledPriceRangeWrapper>
+      <FilterSection>Filters</FilterSection>
+      <StyledPriceRangeContainer>
+        <PriceRangeHeader>
+          <span>PRICE</span>
+          {(priceRange[0] !== 0 || priceRange[1] !== 100) && (
+            <PriceClearContainer
+              onClick={() => dispatch(handleResetPriceRange())}
+            >
+              <span>CLEAR</span>
+            </PriceClearContainer>
+          )}
+        </PriceRangeHeader>
+
+        <div style={{ padding: "10px 0" }}>
           <div>
             <Slider
-              getAriaLabel={() => "Minimum distance"}
-              value={value1}
-              onChange={handleChange1}
+              value={priceRange}
+              onChange={handleChange}
               valueLabelDisplay="auto"
-              defaultValue={[20, 37]}
-              //   getAriaValueText={valuetext}
               disableSwap
             />
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ flexGrow: "2", minWidth: "30px", marginRight: "5px" }}>
-            <input
-              onChange={(e) => setValue1(e.target.value)}
-              value={value1[0]}
+        <PriceRangeDropdownWrapper>
+          <PriceRangeDropdownContainer>
+            <PriceRangeDropdown
+              onChange={(e) => handlePriceChange(e.target.value)}
+              value={priceRange[0]}
               name="min"
-              style={{
-                maxWidth: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
             />
-          </div>
+          </PriceRangeDropdownContainer>
 
-          <div style={{ flex: "1 1 0%", minWidth: "20px" }}>to</div>
-          <div
-            style={{
-              flexGrow: "2",
-              display: "flex",
-              justifyContent: "flex-end",
-              minWidth: "30px",
-              marginLeft: "5px",
-            }}
-          >
-            <input
-              onChange={(e) => setValue2(e.target.value)}
-              value={value1[1]}
+          <PriceRangeSeperator>to</PriceRangeSeperator>
+          <PriceRangeDropdownContainer>
+            <PriceRangeDropdown
+              onChange={(e) => handlePriceChange(e.target.value)}
+              value={priceRange[1]}
               name="max"
-              style={{
-                maxWidth: "100%",
-              }}
             />
-          </div>
-        </div>
-      </div>
-    </div>
+          </PriceRangeDropdownContainer>
+        </PriceRangeDropdownWrapper>
+      </StyledPriceRangeContainer>
+    </StyledPriceRangeWrapper>
   );
 };
 
