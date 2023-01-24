@@ -59,7 +59,7 @@ const PriceRange = () => {
           )}
         </PriceRangeHeader>
 
-        <div style={{ padding: "10px 0" }}>
+        <div style={{ padding: "10px" }}>
           <div>
             <Slider
               value={priceRange}

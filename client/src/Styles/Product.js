@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 const StyledProductMainWrapper = styled.nav`
   min-width: 978px;
+  /* max-width: 1500px; */
   width: 100%;
-  padding: 0 0 10px 0;
-  max-width: 1680px;
+  padding: 0 10px 10px;
+  /* max-width: 1680px; */
   font-size: 13px;
   display: flex;
   flex-direction: row;
@@ -37,7 +38,7 @@ const AsideProductContainer = styled.aside`
 `;
 
 const SectionProductWrapper = styled.aside`
-  min-width: 83%;
+  min-width: 80%;
 `;
 
 const SectionProductContainer = styled.section`

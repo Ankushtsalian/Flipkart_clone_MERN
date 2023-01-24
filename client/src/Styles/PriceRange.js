@@ -36,6 +36,7 @@ const PriceRangeDropdownContainer = styled.div`
 const PriceRangeSeperator = styled.div`
   flex: 1 1 0%;
   min-width: 30px;
+  padding: 5px;
   text-align: center;
 `;
 const PriceRangeDropdown = styled.input`
@@ -43,6 +44,7 @@ const PriceRangeDropdown = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 `;
 const PriceClearContainer = styled.div`
   color: blue;
