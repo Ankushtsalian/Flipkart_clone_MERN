@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please Provide password"],
     minlenth: 6,
-    maxlength: 50,
+    maxlength: 70,
   },
   role: {
     type: String,
@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save", async function () {
   //this.isModified Shows field  that are modified through user.save()
   if (!this.isModified("password")) return;
-
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
 });
