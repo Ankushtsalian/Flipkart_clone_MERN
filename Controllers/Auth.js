@@ -4,6 +4,8 @@ const { attachCookiesToResponse, createTokenUser } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
 
+/**---------------------------------------register--------------------------------------- */
+
 const register = async (req, res) => {
   let { name, email, password, role } = req.body;
   const emailAlreadyExists = await User.findOne({ email });
@@ -31,6 +33,10 @@ const register = async (req, res) => {
   });
 };
 
+/**---------------------------------------register--------------------------------------- */
+
+/**---------------------------------------verifyEmail--------------------------------------- */
+
 const verifyEmail = async (req, res) => {
   const { verificationToken, email } = req.body;
   const user = await User.findOne({ email });
@@ -50,6 +56,10 @@ const verifyEmail = async (req, res) => {
 
   res.status(StatusCodes.OK).json({ msg: "Email Verified" });
 };
+
+/**---------------------------------------verifyEmail--------------------------------------- */
+
+/**---------------------------------------login--------------------------------------- */
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -75,4 +85,7 @@ const login = async (req, res) => {
 
   attachCookiesToResponse({ res, tokenPayload });
 };
+
+/**---------------------------------------login--------------------------------------- */
+
 module.exports = { register, login, verifyEmail };
