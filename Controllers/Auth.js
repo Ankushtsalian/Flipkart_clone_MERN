@@ -8,7 +8,7 @@ const register = async (req, res) => {
   const emailAlreadyExists = await User.findOne({ email });
 
   if (emailAlreadyExists)
-    throw new CustomError.BadRequestError("Email Already Exists");
+    throw new CustomError.BadRequestError("Email Already Exist");
 
   // check if account is first in dB if so make role as ADMIN
 
