@@ -15,4 +15,4 @@ const register = async (req, res) => {
 
   attachCookiesToResponse({ res, tokenPayload });
 };
-module.exports = { register, login, logout, deleteAllUser };
+module.exports = { register };

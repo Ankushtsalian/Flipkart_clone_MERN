@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+const { register } = require("./Controllers/Auth");
 const connectDB = require("./db/connect");
 const app = express();
 
 const port = process.env.PORT || 5000;
+
+app.get("/", register);
 
 const start = async () => {
   try {
