@@ -1,4 +1,5 @@
 const { StatusCodes } = require("http-status-codes");
+const { createJWToken } = require("../../eCommerce API/utils");
 
 const attachCookiesToResponse = ({ res, tokenPayload }) => {
   const token = createJWToken({ tokenPayload });

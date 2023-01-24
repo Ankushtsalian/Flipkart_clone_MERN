@@ -1,6 +1,6 @@
 const User = require("../Models/User");
 const CustomError = require("../errors");
-const { attachCookiesToResponse } = require("../Utils");
+const { attachCookiesToResponse, createTokenUser } = require("../Utils");
 
 const register = async (req, res) => {
   const { name, email } = req.body;
