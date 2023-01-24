@@ -29,4 +29,29 @@ const register = async (req, res) => {
     msg: "Success! Please check your email to verify account",
   });
 };
-module.exports = { register };
+
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password)
+    throw new CustomError.BadRequestError("Please Provide Email and Password");
+
+  const user = await User.findOne({
+    email,
+  });
+
+  if (!user) throw new CustomError.UnauthenticatedError("User doesn't Exists");
+
+  const isPasswordValid = await user.comparePassword(password);
+
+  if (!isPasswordValid)
+    throw new CustomError.UnauthenticatedError("Please check your credentials");
+
+  if (!user.isVerified)
+    throw new CustomError.UnauthenticatedError("Please Verify your Email");
+
+  const tokenPayload = createTokenUser(user);
+
+  attachCookiesToResponse({ res, tokenPayload });
+};
+module.exports = { register, login };
