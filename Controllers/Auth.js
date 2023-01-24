@@ -27,13 +27,6 @@ const register = async (req, res) => {
 
   res.status(StatusCodes.OK).json({
     msg: "Success! Please check your email to verify account",
-    verificationToken: user.verificationToken,
   });
-
-  //send verificationToken only for testing purpose
-
-  //   const tokenPayload = createTokenUser(user);
-
-  //   attachCookiesToResponse({ res, tokenPayload });
 };
 module.exports = { register };
