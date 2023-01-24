@@ -9,6 +9,7 @@ import { MainContainer } from "../Styles/Navbar";
 const VerifyEmail = () => {
   const [error, setError] = useState(false);
   const query = useQuery();
+
   const verifyToken = async () => {
     try {
       const { data } = await axios.post("http://localhost:5000/verify-email", {
@@ -16,15 +17,12 @@ const VerifyEmail = () => {
         email: query.get("email"),
       });
     } catch (error) {
-      // console.log(error.response);
       setError(true);
     }
   };
 
   useEffect(() => {
-    // if (!isLoading) {
     verifyToken();
-    // }
   }, []);
 
   if (error) {

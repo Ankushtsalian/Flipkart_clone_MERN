@@ -1,6 +1,4 @@
 import "./App.css";
-import styled from "styled-components";
-import Login from "./Pages/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Product from "./Components/Product";

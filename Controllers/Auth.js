@@ -3,7 +3,6 @@ const CustomError = require("../errors");
 const {
   attachCookiesToResponse,
   createTokenUser,
-  sendEmail,
   sendVerificationEmail,
 } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
