@@ -1,6 +1,10 @@
 const User = require("../Models/User");
 const CustomError = require("../errors");
-const { attachCookiesToResponse, createTokenUser } = require("../Utils");
+const {
+  attachCookiesToResponse,
+  createTokenUser,
+  sendEmail,
+} = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
 
@@ -27,6 +31,8 @@ const register = async (req, res) => {
     verificationToken,
     role,
   });
+
+  await sendEmail();
 
   res.status(StatusCodes.OK).json({
     msg: "Success! Please check your email to verify account",
