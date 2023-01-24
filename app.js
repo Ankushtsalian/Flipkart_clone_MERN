@@ -1,23 +1,27 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
 require("./db/connect");
+require("dotenv").config();
 
-// mongoose.set("strictQuery", false);
 const express = require("express");
 const app = express();
-const register = require("./Routers/User");
-const connectDB = require("./db/connect");
+
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
-const port = process.env.PORT || 5000;
+const connectDB = require("./db/connect");
+const user = require("./Routers/User");
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+const port = process.env.PORT || 5000;
+
 if (process.env.NODE_ENV !== "production") {
   app.use(morgan("tiny"));
 }
+
 app.use(cookieParser(process.env.JWT_SECRET));
-app.use("/", register);
+
+app.use("/", user);
 
 const start = async () => {
   try {
