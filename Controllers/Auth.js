@@ -2,6 +2,7 @@ const User = require("../Models/User");
 const CustomError = require("../errors");
 const { attachCookiesToResponse, createTokenUser } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
+const crypto = require("crypto");
 
 const register = async (req, res) => {
   let { name, email, password, role } = req.body;
@@ -15,7 +16,7 @@ const register = async (req, res) => {
   const isFirstAccount = (await User.countDocuments({})) === 0;
   role = isFirstAccount ? "Admin" : "User";
 
-  const verificationToken = "FAKE TOKEN";
+  const verificationToken = crypto.randomBytes(40).toString("hex");
 
   const user = await User.create({
     name,
