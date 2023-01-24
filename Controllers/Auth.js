@@ -4,6 +4,7 @@ const {
   attachCookiesToResponse,
   createTokenUser,
   sendEmail,
+  sendVerificationEmail,
 } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
@@ -24,7 +25,7 @@ const register = async (req, res) => {
 
   const verificationToken = crypto.randomBytes(40).toString("hex");
 
-  await User.create({
+  const user = await User.create({
     name,
     email,
     password,
@@ -32,7 +33,21 @@ const register = async (req, res) => {
     role,
   });
 
-  await sendEmail();
+  const origin = "http://localhost:3000";
+  // const newOrigin = 'https://react-node-user-workflow-front-end.netlify.app';
+
+  //   const tempOrigin = req.get("origin");
+  // const protocol = req.protocol;
+  // const host = req.get('host');
+  // const forwardedHost = req.get('x-forwarded-host');
+  // const forwardedProtocol = req.get('x-forwarded-proto');
+
+  await sendVerificationEmail({
+    name: user.name,
+    email: user.email,
+    verificationToken: user.verificationToken,
+    origin,
+  });
 
   res.status(StatusCodes.OK).json({
     msg: "Success! Please check your email to verify account",
@@ -57,7 +72,7 @@ const verifyEmail = async (req, res) => {
 
   (user.isVerified = true), (user.verified = Date.now());
   user.verificationToken = "";
-  console.log(user);
+
   await user.save();
 
   res.status(StatusCodes.OK).json({ msg: "Email Verified" });

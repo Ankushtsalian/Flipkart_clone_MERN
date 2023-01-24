@@ -4,6 +4,8 @@ require("express-async-errors");
 
 const express = require("express");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
