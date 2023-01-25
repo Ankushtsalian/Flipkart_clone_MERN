@@ -7,6 +7,7 @@ const {
 } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
+const Token = require("../Models/Token");
 
 /**---------------------------------------register--------------------------------------- */
 
@@ -103,7 +104,19 @@ const login = async (req, res) => {
 
   const tokenPayload = createTokenUser(user);
 
-  attachCookiesToResponse({ res, tokenPayload });
+  // check for existing token
+
+  // create refresh token
+
+  refreshToken = crypto.randomBytes(40).toString("hex");
+  const userAgent = req.headers["user-agent"];
+  const ip = req.ip;
+  const userToken = { refreshToken, ip, userAgent, user: user._id };
+
+  const token = await Token.create(userToken);
+  res.json({ tokenPayload, token });
+
+  // attachCookiesToResponse({ res, tokenPayload });
 };
 
 /**---------------------------------------login--------------------------------------- */
