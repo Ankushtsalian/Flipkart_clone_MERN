@@ -39,11 +39,6 @@ const attachCookiesToResponse = ({ res, tokenPayload, refreshToken }) => {
     signed: true,
     expires: new Date(Date.now() + longerExp),
   });
-
-  res.status(StatusCodes.OK).json({
-    accessTokenJWT,
-    refreshTokenJWT,
-  });
 };
 
 /**------------------------------REFER---------------------------------- */

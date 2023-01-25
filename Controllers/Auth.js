@@ -123,6 +123,9 @@ const login = async (req, res) => {
     refreshToken = existingToken.refreshToken;
     console.log({ refreshToken });
     attachCookiesToResponse({ res, tokenPayload, refreshToken });
+
+    res.status(StatusCodes.OK).json({ user: tokenPayload });
+
     return;
   }
 
@@ -136,8 +139,23 @@ const login = async (req, res) => {
   await Token.create(userToken);
 
   attachCookiesToResponse({ res, tokenPayload, refreshToken });
+  res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
 /**---------------------------------------login--------------------------------------- */
 
-module.exports = { register, login, verifyEmail };
+const logout = async (req, res) => {
+  // await Token.findOneAndDelete({ user: req.user.userId });
+
+  res.cookie("accessToken", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.cookie("refreshToken", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(StatusCodes.OK).json({ msg: "user logged out!" });
+};
+
+module.exports = { register, login, verifyEmail, logout };

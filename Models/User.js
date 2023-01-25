@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
-const { createJWToken, verifyJWToken } = require("../utils/index");
+const {
+  createJWToken,
+  verifyJWToken,
+  isTokenValid,
+} = require("../utils/index");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -51,7 +55,7 @@ userSchema.methods.comparePassword = async function (candidatePassword) {
 };
 
 userSchema.methods.verifyJWT = async function (tokenPayload) {
-  const token = verifyJWToken({ tokenPayload });
+  const token = isTokenValid({ tokenPayload });
   return token;
 };
 
