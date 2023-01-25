@@ -1,17 +1,58 @@
 const { StatusCodes } = require("http-status-codes");
-const { createJWToken } = require("../../eCommerce API/utils");
+const jwt = require("jsonwebtoken");
 
-const attachCookiesToResponse = ({ res, tokenPayload }) => {
-  const token = createJWToken({ tokenPayload });
-  const oneDay = 1000 * 60 * 60 * 24;
+/**-----------------------------------------------------createJWT--------------------------------------------------------- */
 
-  res.cookie("token", token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE_ENV === "production",
-    signed: true,
+const createJWT = ({ payload }) => {
+  const token = jwt.sign(payload, process.env.JWT_SECRET);
+  return token;
+};
+
+/**-----------------------------------------------------isTokenValid--------------------------------------------------------- */
+
+const isTokenValid = (token) => jwt.verify(token, process.env.JWT_SECRET);
+
+/**------------------------------------------------------attachCookiesToResponse-------------------------------------------------------- */
+
+const attachCookiesToResponse = ({ res, tokenPayload, refreshToken }) => {
+  //Short term
+  const accessTokenJWT = createJWT({ payload: { tokenPayload } });
+
+  //long term
+  const refreshTokenJWT = createJWT({
+    payload: { tokenPayload, refreshToken },
   });
 
-  res.status(StatusCodes.OK).json({ tokenTest: token });
+  const oneDay = 1000 * 60 * 60 * 24;
+  const longerExp = 1000 * 60 * 60 * 24 * 30;
+
+  res.cookie("accessToken", accessTokenJWT, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    signed: true,
+    expires: new Date(Date.now() + 2000),
+  });
+
+  res.cookie("refreshToken", refreshTokenJWT, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    signed: true,
+    expires: new Date(Date.now() + longerExp),
+  });
 };
-module.exports = { attachCookiesToResponse };
+
+/**------------------------------REFER---------------------------------- */
+// const attachSingleCookieToResponse = ({ res, tokenPayload }) => {
+//   const token = createJWT({ payload: tokenPayload });
+
+//   const oneDay = 1000 * 60 * 60 * 24;
+
+//   res.cookie('token', token, {
+//     httpOnly: true,
+//     expires: new Date(Date.now() + oneDay),
+//     secure: process.env.NODE_ENV === 'production',
+//     signed: true,
+//   });
+// };
+
+module.exports = { attachCookiesToResponse, createJWT, isTokenValid };
