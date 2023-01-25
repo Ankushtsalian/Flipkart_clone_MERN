@@ -1,14 +1,10 @@
 const User = require("../Models/User");
 const CustomError = require("../errors");
-const {
-  attachCookiesToResponse,
-  createTokenUser,
-  sendVerificationEmail,
-} = require("../Utils");
+const { createTokenUser, sendVerificationEmail } = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
 const Token = require("../Models/Token");
-const { isTokenValid } = require("../utils/JWT");
+const createRefreshToken = require("../Utils/createRefreshToken");
 
 /**---------------------------------------register--------------------------------------- */
 
@@ -106,40 +102,7 @@ const login = async (req, res) => {
   const tokenPayload = createTokenUser(user);
 
   // create refresh token
-
-  let refreshToken = "";
-
-  // check for existing token
-
-  const existingToken = await Token.findOne({ user: user._id });
-
-  //if token exists in dB skip Re-creation of token
-
-  if (existingToken) {
-    const { isValid } = existingToken;
-    if (!isValid) {
-      throw new CustomError.UnauthenticatedError("Invalid Credentials");
-    }
-    refreshToken = existingToken.refreshToken;
-
-    attachCookiesToResponse({ res, tokenPayload, refreshToken });
-
-    res.status(StatusCodes.OK).json({ user: tokenPayload });
-
-    return;
-  }
-
-  //else if no token exists in dB create new token
-
-  refreshToken = crypto.randomBytes(40).toString("hex");
-  const userAgent = req.headers["user-agent"];
-  const ip = req.ip;
-  const userToken = { refreshToken, ip, userAgent, user: user._id };
-
-  await Token.create(userToken);
-
-  attachCookiesToResponse({ res, tokenPayload, refreshToken });
-  res.status(StatusCodes.OK).json({ user: tokenPayload });
+  createRefreshToken(req, res, tokenPayload, user);
 };
 
 /**---------------------------------------login--------------------------------------- */

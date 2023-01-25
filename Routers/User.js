@@ -9,8 +9,8 @@ router.get("/logout", authenticateUser, logout);
 router.post("/verify-email", verifyEmail);
 router.get("/test", authenticateUser, (req, res) => {
   res.json({
-    refreshToken: req.headers.cookie,
-    accessToken: req.headers.cookie,
+    refreshToken: req.signedCookies,
+    accessToken: req.signedCookies,
   });
 });
 
