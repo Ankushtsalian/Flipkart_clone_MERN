@@ -40,13 +40,9 @@ const attachCookiesToResponse = ({ res, tokenPayload, refreshToken }) => {
     expires: new Date(Date.now() + longerExp),
   });
 
-  console.log(isTokenValid(refreshTokenJWT));
-
   res.status(StatusCodes.OK).json({
-    tokenTest: {
-      accessTokenJWT,
-      refreshTokenJWT,
-    },
+    accessTokenJWT,
+    refreshTokenJWT,
   });
 };
 
