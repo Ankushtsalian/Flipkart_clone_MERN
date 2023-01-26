@@ -1,5 +1,12 @@
 const express = require("express");
-const { register, login, verifyEmail, logout } = require("../Controllers/Auth");
+const {
+  register,
+  login,
+  verifyEmail,
+  logout,
+  forgotPassword,
+  resetPassword,
+} = require("../Controllers/Auth");
 const { authenticateUser } = require("../middleware/authentication");
 const router = express.Router();
 
@@ -13,5 +20,7 @@ router.get("/test", authenticateUser, (req, res) => {
     accessToken: req.signedCookies,
   });
 });
+router.post("/reset-password", resetPassword);
+router.post("/forgot-password", forgotPassword);
 
 module.exports = router;

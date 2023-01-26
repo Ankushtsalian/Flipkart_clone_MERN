@@ -17,7 +17,7 @@ const Header = () => {
         <HeaderContainer>
           {headerData.map((data, index) => {
             return (
-              <div>
+              <div key={index}>
                 <HeaderNav key={index}>
                   {data?.svg && (
                     <HeaderValueSvg
