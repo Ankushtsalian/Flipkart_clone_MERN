@@ -7,7 +7,7 @@ import { useQuery } from "../Hooks/useQuery";
 import { MainContainer } from "../Styles/Navbar";
 
 const ResetPassword = () => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState(0);
   const [password, setPassword] = useState("");
   const query = useQuery();
 
@@ -21,7 +21,7 @@ const ResetPassword = () => {
           password,
         }
       );
-      console.log(data);
+      alert(data + "  PLEASE LOGIN WITH NEW PASSWORD");
     } catch (error) {
       alert(error.response.data.msg);
       setError(error.response.status);
@@ -32,7 +32,7 @@ const ResetPassword = () => {
   //     verifyToken();
   //   }, []);
 
-  if (error !== 400) {
+  if (error && error !== 400) {
     return (
       <MainContainer className="page">
         {/* <h4>There was an error, please double check your Reset link </h4> */}
