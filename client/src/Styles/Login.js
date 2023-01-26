@@ -67,6 +67,7 @@ const TextFieldContainer = styled(TextField)`
 const TextFieldWrapper = styled.div`
   padding: 50px 30px 12px;
   min-width: 380px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,10 +78,14 @@ const TextFieldWrapper = styled.div`
 `;
 
 const EmailInputFieldContainer = styled.div`
-  && {
+  && p {
     font-size: 12px;
     margin-bottom: 20px;
     width: 100%;
+  }
+  && a {
+    margin: 0 5px;
+    font-weight: 600;
   }
   & button {
     cursor: pointer;
@@ -100,6 +105,21 @@ const RegisterLink = styled.p`
   font-size: 14px;
   font-weight: 600;
   color: var(--color-brand-blue);
+
+  & button:hover {
+    font-size: 16px;
+    color: var(--color-brand-blue);
+    transition: 0.71s all;
+  }
+  & button {
+    cursor: pointer;
+    background-color: transparent;
+
+    font-weight: 600;
+    border: none;
+    margin-left: 5px;
+    color: var(--color-brand-orange);
+  }
 `;
 
 const StyledCloseIcon = styled(CloseIcon)`

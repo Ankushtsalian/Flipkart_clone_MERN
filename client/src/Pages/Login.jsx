@@ -12,10 +12,15 @@ import {
   StyledLoginContainerWrapperdiv,
 } from "../Styles/Login";
 import LoginImg from "../Assets/Login.png";
-import { useDispatch } from "react-redux";
-import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  handleLoginClose,
+  handleLoginSignupToggle,
+} from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
+  const { isLoginPage } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
 
   return (
@@ -24,16 +29,30 @@ const Login = () => {
         <StyledCloseIcon onClick={() => dispatch(handleLoginClose())} />
         <StyledLoginContainer>
           <LoginTitleContainer LoginImg={LoginImg}>
-            <LoginTitle>Login</LoginTitle>
+            <LoginTitle>
+              {isLoginPage ? "Login" : "Looks like you're new here!"}
+            </LoginTitle>
             <LoginDescription>
               Get access to your Orders, Wishlist and Recommendations
             </LoginDescription>
           </LoginTitleContainer>
           <TextFieldWrapper>
             <EmailInputFieldContainer>
+              {!isLoginPage && (
+                <TextFieldContainer
+                  id="standard-basic"
+                  label="Name"
+                  variant="standard"
+                />
+              )}
               <TextFieldContainer
                 id="standard-basic"
                 label="Enter Email/Mobile number"
+                variant="standard"
+              />
+              <TextFieldContainer
+                id="standard-basic"
+                label="Password"
                 variant="standard"
               />
               <p>
@@ -41,10 +60,13 @@ const Login = () => {
                 <a href="#">Terms of Use</a> and
                 <a href="#">Privacy Policy.</a>
               </p>
-              <button>Password</button>
+              <button>{isLoginPage ? "Login" : "SignUp"}</button>
             </EmailInputFieldContainer>
             <RegisterLink>
-              New to Flikart? <a href="#">Create an account</a>
+              {isLoginPage ? "New to Flikart?" : "Existing User!"}
+              <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                {isLoginPage ? "Create an account" : "Login"}
+              </button>
             </RegisterLink>
           </TextFieldWrapper>
         </StyledLoginContainer>
