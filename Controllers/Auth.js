@@ -135,6 +135,8 @@ const forgotPassword = async (req, res) => {
 
   const user = await User.findOne({ email });
 
+  //check for user because client who is not in dB can check whether user email is in dB or not
+
   if (user) {
     const passwordToken = crypto.randomBytes(70).toString("hex");
     // send email
