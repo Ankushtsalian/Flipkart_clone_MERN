@@ -170,25 +170,30 @@ const forgotPassword = async (req, res) => {
 
 /**---------------------------------------forgotPassword--------------------------------------- */
 const resetPassword = async (req, res) => {
-  // const { token, email, password } = req.body;
-  // if (!token || !email || !password) {
-  //   throw new CustomError.BadRequestError("Please provide all values");
-  // }
-  // const user = await User.findOne({ email });
+  const { token, email, password } = req.body;
+  if (!token || !email || !password) {
+    throw new CustomError.BadRequestError("Please provide all values");
+  }
+  const user = await User.findOne({ email });
 
-  // if (user) {
-  //   const currentDate = new Date();
+  if (user) {
+    const currentDate = new Date();
 
-  //   if (
-  //     user.passwordToken === createHash(token) &&
-  //     user.passwordTokenExpirationDate > currentDate
-  //   ) {
-  //     user.password = password;
-  //     user.passwordToken = null;
-  //     user.passwordTokenExpirationDate = null;
-  //     await user.save();
-  //   }
-  // }
+    if (user.passwordTokenExpirationDate < currentDate)
+      throw new CustomError.UnauthenticatedError(
+        "Authentication Invalid! Reset link Expired"
+      );
+
+    if (
+      user.passwordToken === createHash(token) &&
+      user.passwordTokenExpirationDate > currentDate
+    ) {
+      user.password = password;
+      user.passwordToken = null;
+      user.passwordTokenExpirationDate = null;
+      await user.save();
+    }
+  }
 
   res.send("reset password");
 };
