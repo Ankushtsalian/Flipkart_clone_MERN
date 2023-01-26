@@ -4,6 +4,7 @@ const initialState = {
   close: true,
   priceRange: [0, 100],
   isPriceChanged: false,
+  isLoginPage: true,
 };
 
 const authSlice = createSlice({
@@ -13,6 +14,9 @@ const authSlice = createSlice({
   reducers: {
     handleLoginClose: (state) => {
       state.close = !state.close;
+    },
+    handleLoginSignupToggle: (state) => {
+      state.isLoginPage = !state.isLoginPage;
     },
     handlePriceChange: (state, { payload }) => {
       state.priceRange = payload;
@@ -24,6 +28,10 @@ const authSlice = createSlice({
   },
 });
 
-export const { handleLoginClose, handlePriceChange, handleResetPriceRange } =
-  authSlice.actions;
+export const {
+  handleLoginClose,
+  handlePriceChange,
+  handleResetPriceRange,
+  handleLoginSignupToggle,
+} = authSlice.actions;
 export default authSlice.reducer;
