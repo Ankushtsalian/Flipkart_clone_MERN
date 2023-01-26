@@ -142,6 +142,9 @@ const forgotPassword = async (req, res) => {
 
   //check for user because client who is not in dB can check whether user email is in dB or not
 
+  if (!user?.isVerified)
+    throw new CustomError.UnauthenticatedError("Please Verify your Email");
+
   if (user) {
     const passwordToken = crypto.randomBytes(70).toString("hex");
     // send email
