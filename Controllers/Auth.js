@@ -1,6 +1,11 @@
 const User = require("../Models/User");
 const CustomError = require("../errors");
-const { createTokenUser, sendVerificationEmail } = require("../Utils");
+const {
+  createTokenUser,
+  sendVerificationEmail,
+  createHash,
+  sendResetPassswordEmail,
+} = require("../Utils");
 const { StatusCodes } = require("http-status-codes");
 const crypto = require("crypto");
 const Token = require("../Models/Token");
@@ -141,7 +146,7 @@ const forgotPassword = async (req, res) => {
     const passwordToken = crypto.randomBytes(70).toString("hex");
     // send email
     const origin = "http://localhost:3000";
-    await sendResetPasswordEmail({
+    await sendResetPassswordEmail({
       name: user.name,
       email: user.email,
       token: passwordToken,
