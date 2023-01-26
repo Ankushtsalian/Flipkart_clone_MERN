@@ -5,15 +5,17 @@ const authenticateUser = async (req, res, next) => {
   const { refreshToken, accessToken } = req.signedCookies;
 
   try {
-    //if you have access token then refresh token will be present but not V/V
-
+    /**
+     * if you have access token then refresh token will be present but not V/V
+     *  no need of re-creation just send back that verified token
+     */
     if (accessToken) {
       const payload = isTokenValid(accessToken);
       req.user = payload.tokenPayload;
       return next();
     }
 
-    //USEFULL when there are no access token generally when access token expired oronly refresh token is present in UI
+    //USEFULL when there are no access token generally when access token expired or only refresh token is present in UI
 
     const payload = isTokenValid(refreshToken);
 
