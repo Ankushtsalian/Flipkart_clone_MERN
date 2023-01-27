@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { verifyForgotPasswordThunk } from "./Auth-Thunk";
+import { ResetPasswordThunk, verifyForgotPasswordThunk } from "./Auth-Thunk";
 
 const initialState = {
   close: true,
@@ -7,13 +7,21 @@ const initialState = {
   isPriceChanged: false,
   isLoginPage: true,
   isForgotPassword: false,
+  isResetPassword: false,
   email: "",
 };
 
 export const verifyForgotPassword = createAsyncThunk(
   "auth/verifyForgotPassword",
   (formInput, thunkAPI) => {
-    return verifyForgotPasswordThunk("forgot-password", formInput, thunkAPI);
+    return verifyForgotPasswordThunk("/forgot-password", formInput, thunkAPI);
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  (formInput, thunkAPI) => {
+    return ResetPasswordThunk("/reset-password", formInput, thunkAPI);
   }
 );
 
@@ -28,6 +36,7 @@ const authSlice = createSlice({
     handleLoginSignupToggle: (state) => {
       state.isLoginPage = !state.isLoginPage;
       state.isForgotPassword = false;
+      state.isResetPassword = false;
     },
     handlePriceChange: (state, { payload }) => {
       state.priceRange = payload;
@@ -38,12 +47,21 @@ const authSlice = createSlice({
     },
     handleForgotPassword: (state) => {
       state.isForgotPassword = !state.isForgotPassword;
+      state.isResetPassword = false;
     },
-    handleVerifyForgotPassword: (state) => {
-      state.isForgotPassword = !state.isForgotPassword;
+    handleResetPassword: (state) => {
+      state.isForgotPassword = false;
+      state.isResetPassword = true;
     },
     handleEmail: (state, { payload }) => {
       state.email = payload;
+    },
+    handlePassword: (state, { payload }) => {
+      state.password = payload;
+    },
+    handleReset: (state) => {
+      state.isForgotPassword = false;
+      state.isResetPassword = false;
     },
   },
   extraReducers: (builder) => {
@@ -69,6 +87,28 @@ const authSlice = createSlice({
         // state.errorStatusCode = errorStatusCode;
       }
     );
+    builder.addCase(resetPassword.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(resetPassword.fulfilled, (state, { payload }) => {
+      // state.errorMessage = "";
+      // state.errorStatusCode = 0;
+      // state.isLoading = false;
+      // state.tokenLog = payload;
+      // addTokenToLocalStorage(state.tokenLog);
+    });
+
+    builder.addCase(
+      resetPassword.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        // removeTokenFromLocalStorage();
+        // state.isLoading = false;
+        // state.tokenLog = "";
+        // state.errorMessage = message;
+        // state.errorStatusCode = errorStatusCode;
+      }
+    );
   },
 });
 
@@ -79,6 +119,9 @@ export const {
   handleLoginSignupToggle,
   handleForgotPassword,
   handleVerifyForgotPassword,
+  handleResetPassword,
   handleEmail,
+  handleReset,
+  handlePassword,
 } = authSlice.actions;
 export default authSlice.reducer;

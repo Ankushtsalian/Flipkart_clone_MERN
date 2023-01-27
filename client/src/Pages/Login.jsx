@@ -18,16 +18,19 @@ import {
   handleForgotPassword,
   handleLoginClose,
   handleLoginSignupToggle,
-  handleVerifyForgotPassword,
+  handlePassword,
+  resetPassword,
   verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
+import { useQuery } from "../Hooks/useQuery";
 
 const Login = () => {
-  const { isLoginPage, isForgotPassword, email } = useSelector(
-    (state) => state.user
-  );
+  const { isLoginPage, isForgotPassword, email, isResetPassword, password } =
+    useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+
+  const query = useQuery();
 
   return (
     <StyledLoginContainerWrapper>
@@ -50,24 +53,31 @@ const Login = () => {
           </LoginTitleContainer>
           <TextFieldWrapper>
             <EmailInputFieldContainer>
-              {!isForgotPassword && !isLoginPage && (
+              {!isForgotPassword && !isResetPassword && !isLoginPage && (
                 <TextFieldContainer
                   id="standard-basic"
                   label="Name"
                   variant="standard"
                 />
               )}
-              <TextFieldContainer
-                id="standard-basic"
-                label="Enter Email/Mobile number"
-                variant="standard"
-                onChange={(event) => dispatch(handleEmail(event.target.value))}
-              />
+              {!isResetPassword && (
+                <TextFieldContainer
+                  id="standard-basic"
+                  label="Enter Email/Mobile number"
+                  variant="standard"
+                  onChange={(event) =>
+                    dispatch(handleEmail(event.target.value))
+                  }
+                />
+              )}
               {!isForgotPassword && (
                 <TextFieldContainer
                   id="standard-basic"
                   label="Password"
                   variant="standard"
+                  onChange={(event) =>
+                    dispatch(handlePassword(event.target.value))
+                  }
                 />
               )}
               <p>
@@ -76,6 +86,7 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               {!isForgotPassword &&
+                !isResetPassword &&
                 (isLoginPage ? (
                   <button onClick={() => dispatch(handleLoginSignupToggle())}>
                     Login
@@ -85,6 +96,21 @@ const Login = () => {
                     Create an account
                   </button>
                 ))}
+              {isResetPassword && !isForgotPassword && (
+                <button
+                  onClick={() =>
+                    dispatch(
+                      resetPassword({
+                        token: query.get("token"),
+                        email: query.get("email"),
+                        password,
+                      })
+                    )
+                  }
+                >
+                  Reset Password
+                </button>
+              )}
 
               {isForgotPassword && (
                 <button

@@ -15,3 +15,18 @@ export const verifyForgotPasswordThunk = async (url, formInput, thunkAPI) => {
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
+
+export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
+  try {
+    const response = await customFetch.post(url, formInput);
+
+    alert(response.data);
+
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    const { errorStatusCode, message } = errorMessage(error);
+    alert(message);
+    return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};
