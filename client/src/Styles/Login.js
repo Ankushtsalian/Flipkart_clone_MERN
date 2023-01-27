@@ -78,12 +78,12 @@ const TextFieldWrapper = styled.div`
 `;
 
 const EmailInputFieldContainer = styled.div`
-  && p {
+  & p {
     font-size: 12px;
     margin-bottom: 20px;
     width: 100%;
   }
-  && a {
+  & a {
     margin: 0 5px;
     font-weight: 600;
   }
@@ -96,6 +96,14 @@ const EmailInputFieldContainer = styled.div`
     width: 100%;
     height: 48px;
     font-size: 15px;
+    margin-bottom: 10px;
+  }
+  & > span {
+    color: var(--color-brand-orange);
+  }
+  & > span:hover {
+    cursor: pointer;
+    color: var(--color-brand-blue);
   }
 `;
 
@@ -107,7 +115,6 @@ const RegisterLink = styled.p`
   color: var(--color-brand-blue);
 
   & button:hover {
-    font-size: 16px;
     color: var(--color-brand-blue);
     transition: 0.71s all;
   }

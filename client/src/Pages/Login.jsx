@@ -14,6 +14,7 @@ import {
 import LoginImg from "../Assets/Login.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  handleForgotPassword,
   handleLoginClose,
   handleLoginSignupToggle,
 } from "../Redux/Auth-Store/Auth-Slice";
@@ -61,6 +62,9 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               <button>{isLoginPage ? "Login" : "SignUp"}</button>
+              <span onClick={() => dispatch(handleForgotPassword())}>
+                Forgot Password
+              </span>
             </EmailInputFieldContainer>
             <RegisterLink>
               {isLoginPage ? "New to Flikart?" : "Existing User!"}

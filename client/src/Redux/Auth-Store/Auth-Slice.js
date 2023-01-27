@@ -25,6 +25,9 @@ const authSlice = createSlice({
     handleResetPriceRange: (state) => {
       state.priceRange = [0, 100];
     },
+    handleForgotPassword: (state) => {
+      console.log("WORKING");
+    },
   },
 });
 
@@ -33,5 +36,6 @@ export const {
   handlePriceChange,
   handleResetPriceRange,
   handleLoginSignupToggle,
+  handleForgotPassword,
 } = authSlice.actions;
 export default authSlice.reducer;

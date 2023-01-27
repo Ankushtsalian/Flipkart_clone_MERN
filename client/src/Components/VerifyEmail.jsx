@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useQuery } from "../Hooks/useQuery";
 import { MainContainer } from "../Styles/Navbar";
 
@@ -10,6 +10,7 @@ const VerifyEmail = () => {
   const [error, setError] = useState(0);
   const [loading, setLoading] = useState(false);
   const query = useQuery();
+  const navigate = useNavigate();
 
   const verifyToken = async () => {
     try {
@@ -20,21 +21,27 @@ const VerifyEmail = () => {
       });
       setLoading(false);
     } catch (error) {
-      setLoading(false);
+      console.log(error.message);
 
-      alert(error.response.data.msg);
       setError(error.response.status);
     }
   };
-
+  console.log(error);
   useEffect(() => {
     if (!error) verifyToken();
   }, []);
 
+  useEffect(() => {
+    if (error || error !== 400) {
+      alert(error.response.data.msg || error.message);
+      navigate("/");
+    }
+  }, [error]);
+
   if (loading)
     return <MainContainer className="page">LOADING... </MainContainer>;
 
-  if (error && error !== 400) {
+  if (error || error !== 400) {
     return (
       <MainContainer className="page">
         {/* <h4>There was an error, please double check your Reset link </h4> */}

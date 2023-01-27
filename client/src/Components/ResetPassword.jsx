@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useQuery } from "../Hooks/useQuery";
 import { MainContainer } from "../Styles/Navbar";
 
@@ -10,6 +10,7 @@ const ResetPassword = () => {
   const [error, setError] = useState(0);
   const [password, setPassword] = useState("");
   const query = useQuery();
+  const navigate = useNavigate();
 
   const verifyToken = async () => {
     try {
@@ -24,22 +25,20 @@ const ResetPassword = () => {
       alert(data + "  PLEASE LOGIN WITH NEW PASSWORD");
     } catch (error) {
       alert(error.response.data.msg);
+
       setError(error.response.status);
     }
   };
 
-  //   useEffect(() => {
-  //     verifyToken();
-  //   }, []);
+  useEffect(() => {
+    verifyToken();
+  }, []);
 
-  if (error && error !== 400) {
-    return (
-      <MainContainer className="page">
-        {/* <h4>There was an error, please double check your Reset link </h4> */}
-        <Navigate to="/" />
-      </MainContainer>
-    );
-  }
+  useEffect(() => {
+    verifyToken();
+    if (error || error !== 400) navigate("/");
+  }, [error]);
+
   return (
     <MainContainer>
       {/* <h2>Account Confirmed</h2>
