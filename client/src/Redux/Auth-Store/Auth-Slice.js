@@ -5,6 +5,7 @@ const initialState = {
   priceRange: [0, 100],
   isPriceChanged: false,
   isLoginPage: true,
+  isForgotPassword: false,
 };
 
 const authSlice = createSlice({
@@ -17,6 +18,7 @@ const authSlice = createSlice({
     },
     handleLoginSignupToggle: (state) => {
       state.isLoginPage = !state.isLoginPage;
+      state.isForgotPassword = false;
     },
     handlePriceChange: (state, { payload }) => {
       state.priceRange = payload;
@@ -26,7 +28,7 @@ const authSlice = createSlice({
       state.priceRange = [0, 100];
     },
     handleForgotPassword: (state) => {
-      console.log("WORKING");
+      state.isForgotPassword = !state.isForgotPassword;
     },
   },
 });

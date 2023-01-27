@@ -20,7 +20,7 @@ import {
 } from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
-  const { isLoginPage } = useSelector((state) => state.user);
+  const { isLoginPage, isForgotPassword } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -30,16 +30,22 @@ const Login = () => {
         <StyledCloseIcon onClick={() => dispatch(handleLoginClose())} />
         <StyledLoginContainer>
           <LoginTitleContainer LoginImg={LoginImg}>
-            <LoginTitle>
-              {isLoginPage ? "Login" : "Looks like you're new here!"}
-            </LoginTitle>
-            <LoginDescription>
-              Get access to your Orders, Wishlist and Recommendations
-            </LoginDescription>
+            {!isForgotPassword ? (
+              <>
+                <LoginTitle>
+                  {isLoginPage ? "Login" : "Looks like you're new here!"}
+                </LoginTitle>
+                <LoginDescription>
+                  Get access to your Orders, Wishlist and Recommendations
+                </LoginDescription>
+              </>
+            ) : (
+              <LoginDescription>Please verify you account</LoginDescription>
+            )}
           </LoginTitleContainer>
           <TextFieldWrapper>
             <EmailInputFieldContainer>
-              {!isLoginPage && (
+              {!isForgotPassword && !isLoginPage && (
                 <TextFieldContainer
                   id="standard-basic"
                   label="Name"
@@ -51,20 +57,30 @@ const Login = () => {
                 label="Enter Email/Mobile number"
                 variant="standard"
               />
-              <TextFieldContainer
-                id="standard-basic"
-                label="Password"
-                variant="standard"
-              />
+              {!isForgotPassword && (
+                <TextFieldContainer
+                  id="standard-basic"
+                  label="Password"
+                  variant="standard"
+                />
+              )}
               <p>
                 By continuing, you agree to Flipkart's
                 <a href="#">Terms of Use</a> and
                 <a href="#">Privacy Policy.</a>
               </p>
-              <button>{isLoginPage ? "Login" : "SignUp"}</button>
-              <span onClick={() => dispatch(handleForgotPassword())}>
-                Forgot Password
-              </span>
+              <button>
+                {!isForgotPassword
+                  ? isLoginPage
+                    ? "Login"
+                    : "SignUp"
+                  : "continue"}
+              </button>
+              {!isForgotPassword && (
+                <span onClick={() => dispatch(handleForgotPassword())}>
+                  Forgot Password
+                </span>
+              )}
             </EmailInputFieldContainer>
             <RegisterLink>
               {isLoginPage ? "New to Flikart?" : "Existing User!"}
