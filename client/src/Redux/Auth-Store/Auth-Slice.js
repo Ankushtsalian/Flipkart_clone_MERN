@@ -6,6 +6,7 @@ const initialState = {
   isPriceChanged: false,
   isLoginPage: true,
   isForgotPassword: false,
+  email: "",
 };
 
 const authSlice = createSlice({
@@ -30,6 +31,12 @@ const authSlice = createSlice({
     handleForgotPassword: (state) => {
       state.isForgotPassword = !state.isForgotPassword;
     },
+    handleVerifyForgotPassword: (state) => {
+      state.isForgotPassword = !state.isForgotPassword;
+    },
+    handleEmail: (state, { payload }) => {
+      state.email = payload;
+    },
   },
 });
 
@@ -39,5 +46,7 @@ export const {
   handleResetPriceRange,
   handleLoginSignupToggle,
   handleForgotPassword,
+  handleVerifyForgotPassword,
+  handleEmail,
 } = authSlice.actions;
 export default authSlice.reducer;

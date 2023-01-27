@@ -14,9 +14,11 @@ import {
 import LoginImg from "../Assets/Login.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  handleEmail,
   handleForgotPassword,
   handleLoginClose,
   handleLoginSignupToggle,
+  handleVerifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
@@ -56,6 +58,7 @@ const Login = () => {
                 id="standard-basic"
                 label="Enter Email/Mobile number"
                 variant="standard"
+                onChange={(event) => dispatch(handleEmail(event.target.value))}
               />
               {!isForgotPassword && (
                 <TextFieldContainer
@@ -69,13 +72,23 @@ const Login = () => {
                 <a href="#">Terms of Use</a> and
                 <a href="#">Privacy Policy.</a>
               </p>
-              <button>
-                {!isForgotPassword
-                  ? isLoginPage
-                    ? "Login"
-                    : "SignUp"
-                  : "continue"}
-              </button>
+              {!isForgotPassword &&
+                (isLoginPage ? (
+                  <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                    Login
+                  </button>
+                ) : (
+                  <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                    Create an account
+                  </button>
+                ))}
+
+              {isForgotPassword && (
+                <button onClick={() => dispatch(handleVerifyForgotPassword())}>
+                  Continue
+                </button>
+              )}
+
               {!isForgotPassword && (
                 <span onClick={() => dispatch(handleForgotPassword())}>
                   Forgot Password
