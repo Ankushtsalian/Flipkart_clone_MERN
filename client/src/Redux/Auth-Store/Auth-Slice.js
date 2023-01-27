@@ -9,6 +9,8 @@ const initialState = {
   isForgotPassword: false,
   isResetPassword: false,
   email: "",
+  password: "",
+  errorStatusCode: 0,
 };
 
 export const verifyForgotPassword = createAsyncThunk(
@@ -52,6 +54,7 @@ const authSlice = createSlice({
     handleResetPassword: (state) => {
       state.isForgotPassword = false;
       state.isResetPassword = true;
+      state.isLoginPage = false;
     },
     handleEmail: (state, { payload }) => {
       state.email = payload;
@@ -80,11 +83,12 @@ const authSlice = createSlice({
     builder.addCase(
       verifyForgotPassword.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoginPage = !state.isLoginPage;
         // removeTokenFromLocalStorage();
         // state.isLoading = false;
         // state.tokenLog = "";
         // state.errorMessage = message;
-        // state.errorStatusCode = errorStatusCode;
+        state.errorStatusCode = errorStatusCode;
       }
     );
     builder.addCase(resetPassword.pending, (state) => {
@@ -92,8 +96,11 @@ const authSlice = createSlice({
     });
 
     builder.addCase(resetPassword.fulfilled, (state, { payload }) => {
+      state.isResetPassword = false;
+
+      state.password = "";
       // state.errorMessage = "";
-      // state.errorStatusCode = 0;
+      state.errorStatusCode = 0;
       // state.isLoading = false;
       // state.tokenLog = payload;
       // addTokenToLocalStorage(state.tokenLog);
@@ -102,8 +109,13 @@ const authSlice = createSlice({
     builder.addCase(
       resetPassword.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
+        state.isResetPassword = false;
+        state.email = "";
+        state.password = "";
+        state.errorStatusCode = errorStatusCode;
+
         // removeTokenFromLocalStorage();
-        // state.isLoading = false;
+        state.isLoading = false;
         // state.tokenLog = "";
         // state.errorMessage = message;
         // state.errorStatusCode = errorStatusCode;

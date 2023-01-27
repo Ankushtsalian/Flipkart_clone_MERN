@@ -16,6 +16,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginClose,
+  handleLoginSignupToggle,
   handleResetPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import Login from "../Pages/Login";
@@ -24,14 +25,21 @@ import { useQuery } from "../Hooks/useQuery";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const { close, isResetPassword } = useSelector((state) => state.user);
+  const { close, isResetPassword, isLoginPage, errorStatusCode } = useSelector(
+    (state) => state.user
+  );
   const dispatch = useDispatch();
   const query = useQuery();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (query.get("reset")) dispatch(handleResetPassword());
+    if (query.get("resetPassword")) dispatch(handleResetPassword());
+    // if (!query.get("resetPassword") && !isResetPassword)
+    //   dispatch(handleLoginSignupToggle());
   }, []);
+  useEffect(() => {
+    if (errorStatusCode && errorStatusCode !== 400) navigate("/");
+  }, [errorStatusCode]);
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>

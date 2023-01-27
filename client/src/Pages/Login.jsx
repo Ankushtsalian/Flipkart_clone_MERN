@@ -85,18 +85,17 @@ const Login = () => {
                 <a href="#">Terms of Use</a> and
                 <a href="#">Privacy Policy.</a>
               </p>
-              {!isForgotPassword &&
-                !isResetPassword &&
-                (isLoginPage ? (
-                  <button onClick={() => dispatch(handleLoginSignupToggle())}>
-                    Login
-                  </button>
-                ) : (
-                  <button onClick={() => dispatch(handleLoginSignupToggle())}>
-                    Create an account
-                  </button>
-                ))}
-              {isResetPassword && !isForgotPassword && (
+              {!isForgotPassword && !isResetPassword && isLoginPage && (
+                <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                  Login
+                </button>
+              )}
+              {!isForgotPassword && !isResetPassword && !isLoginPage && (
+                <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                  Create an account
+                </button>
+              )}
+              {isResetPassword && (
                 <button
                   onClick={() =>
                     dispatch(

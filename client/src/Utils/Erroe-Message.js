@@ -4,7 +4,8 @@ const errorMessage = (error, thunkAPI) => {
     error.message ||
     error.toString();
   alert(message);
-  return { errorStatusCode: error.response.status, message };
+  if (error.response.status !== 400)
+    return { errorStatusCode: error.response.status, message };
 };
 
 export default errorMessage;
