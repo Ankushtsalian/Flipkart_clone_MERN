@@ -65,6 +65,7 @@ const Login = () => {
                   id="standard-basic"
                   label="Enter Email/Mobile number"
                   variant="standard"
+                  value={email}
                   onChange={(event) =>
                     dispatch(handleEmail(event.target.value))
                   }
@@ -75,6 +76,7 @@ const Login = () => {
                   id="standard-basic"
                   label="Password"
                   variant="standard"
+                  value={password}
                   onChange={(event) =>
                     dispatch(handlePassword(event.target.value))
                   }

@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginClose,
   handleLoginSignupToggle,
+  handleReset,
   handleResetPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import Login from "../Pages/Login";
@@ -34,11 +35,13 @@ const Navbar = () => {
 
   useEffect(() => {
     if (query.get("resetPassword")) dispatch(handleResetPassword());
-    // if (!query.get("resetPassword") && !isResetPassword)
-    //   dispatch(handleLoginSignupToggle());
   }, []);
+
   useEffect(() => {
-    if (errorStatusCode && errorStatusCode !== 400) navigate("/");
+    if (errorStatusCode && errorStatusCode !== 400) {
+      dispatch(handleReset());
+      navigate("/");
+    }
   }, [errorStatusCode]);
 
   return (

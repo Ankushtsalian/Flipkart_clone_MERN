@@ -65,6 +65,9 @@ const authSlice = createSlice({
     handleReset: (state) => {
       state.isForgotPassword = false;
       state.isResetPassword = false;
+      state.email = "";
+      state.password = "";
+      state.errorStatusCode = 0;
     },
   },
   extraReducers: (builder) => {
