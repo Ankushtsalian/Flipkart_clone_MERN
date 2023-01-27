@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { verifyForgotPasswordThunk } from "./Auth-Thunk";
 
 const initialState = {
   close: true,
@@ -8,6 +9,13 @@ const initialState = {
   isForgotPassword: false,
   email: "",
 };
+
+export const verifyForgotPassword = createAsyncThunk(
+  "auth/verifyForgotPassword",
+  (formInput, thunkAPI) => {
+    return verifyForgotPasswordThunk("forgot-password", formInput, thunkAPI);
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
@@ -37,6 +45,30 @@ const authSlice = createSlice({
     handleEmail: (state, { payload }) => {
       state.email = payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(verifyForgotPassword.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(verifyForgotPassword.fulfilled, (state, { payload }) => {
+      // state.errorMessage = "";
+      // state.errorStatusCode = 0;
+      // state.isLoading = false;
+      // state.tokenLog = payload;
+      // addTokenToLocalStorage(state.tokenLog);
+    });
+
+    builder.addCase(
+      verifyForgotPassword.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        // removeTokenFromLocalStorage();
+        // state.isLoading = false;
+        // state.tokenLog = "";
+        // state.errorMessage = message;
+        // state.errorStatusCode = errorStatusCode;
+      }
+    );
   },
 });
 

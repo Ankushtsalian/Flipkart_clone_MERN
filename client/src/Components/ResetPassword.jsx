@@ -30,21 +30,12 @@ const ResetPassword = () => {
     }
   };
 
-  useEffect(() => {
-    verifyToken();
-  }, []);
-
-  useEffect(() => {
-    verifyToken();
-    if (error || error !== 400) navigate("/");
-  }, [error]);
+  // useEffect(() => {
+  if (error && error !== 400) navigate("/");
+  // }, [error]);
 
   return (
     <MainContainer>
-      {/* <h2>Account Confirmed</h2>
-      <Link to="/" className="btn">
-        Please login
-      </Link> */}
       <input value={password} onChange={(e) => setPassword(e.target.value)} />
       <button onClick={verifyToken}>Reset</button>
     </MainContainer>

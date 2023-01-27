@@ -19,10 +19,13 @@ import {
   handleLoginClose,
   handleLoginSignupToggle,
   handleVerifyForgotPassword,
+  verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 
 const Login = () => {
-  const { isLoginPage, isForgotPassword } = useSelector((state) => state.user);
+  const { isLoginPage, isForgotPassword, email } = useSelector(
+    (state) => state.user
+  );
 
   const dispatch = useDispatch();
 
@@ -84,7 +87,9 @@ const Login = () => {
                 ))}
 
               {isForgotPassword && (
-                <button onClick={() => dispatch(handleVerifyForgotPassword())}>
+                <button
+                  onClick={() => dispatch(verifyForgotPassword({ email }))}
+                >
                   Continue
                 </button>
               )}
