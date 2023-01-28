@@ -12,7 +12,7 @@ export const loginUserThunk = async (url, formInput, thunkAPI) => {
     return response.data.msg;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
-    alert(message);
+
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
@@ -26,7 +26,7 @@ export const registerUserThunk = async (url, formInput, thunkAPI) => {
     return response.data.msg.token;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
-    alert(message);
+
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
@@ -41,7 +41,7 @@ export const verifyForgotPasswordThunk = async (url, formInput, thunkAPI) => {
     return response.data.msg.token;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
-    alert(message);
+
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
@@ -56,7 +56,7 @@ export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
     return response.data;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
-    alert("message");
+
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };

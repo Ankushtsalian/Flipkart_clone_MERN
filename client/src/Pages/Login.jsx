@@ -61,6 +61,7 @@ const Login = () => {
                   id="standard-basic"
                   label="Name"
                   variant="standard"
+                  required
                 />
               )}
               {!isResetPassword && (
@@ -69,6 +70,7 @@ const Login = () => {
                   id="standard-basic"
                   label="Enter Email/Mobile number"
                   variant="standard"
+                  required
                   value={email}
                   onChange={(event) =>
                     dispatch(handleEmail(event.target.value))
@@ -81,6 +83,7 @@ const Login = () => {
                   label="Password"
                   type="password"
                   variant="standard"
+                  required
                   value={password}
                   onChange={(event) =>
                     dispatch(handlePassword(event.target.value))

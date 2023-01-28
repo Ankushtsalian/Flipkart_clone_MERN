@@ -142,7 +142,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         // state.tokenLog = "";
         // state.errorMessage = message;
-        // state.errorStatusCode = errorStatusCode;
       }
     );
   },
