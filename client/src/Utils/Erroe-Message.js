@@ -6,7 +6,7 @@ const errorMessage = (error, thunkAPI) => {
   alert(message);
   if (error.response.status !== 400)
     return { errorStatusCode: error.response.status, message };
-  return;
+  if (error.response.status === 400) return { errorStatusCode: 0, message };
 };
 
 export default errorMessage;

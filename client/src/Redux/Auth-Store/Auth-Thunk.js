@@ -56,7 +56,7 @@ export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
     return response.data;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
-
+    alert("message");
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };

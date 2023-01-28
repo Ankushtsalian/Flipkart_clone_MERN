@@ -87,6 +87,7 @@ const authSlice = createSlice({
       state.isResetPassword = false;
       state.email = "";
       state.password = "";
+      state.isLoading = false;
       state.errorStatusCode = 0;
     },
   },
@@ -132,7 +133,7 @@ const authSlice = createSlice({
     builder.addCase(
       resetPassword.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
-        state.isResetPassword = false;
+        state.isResetPassword = errorStatusCode !== 400 || false;
         state.email = "";
         state.password = "";
         state.errorStatusCode = errorStatusCode;

@@ -1,8 +1,7 @@
-import axios from "axios";
 import React from "react";
-import { useEffect } from "react";
+import axios from "axios";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "../Hooks/useQuery";
 import { MainContainer } from "../Styles/Navbar";
 
@@ -31,7 +30,7 @@ const ResetPassword = () => {
   };
 
   // useEffect(() => {
-  if (error && error !== 400) navigate("/");
+  if (error && error !== 400) return navigate("/");
   // }, [error]);
 
   return (
