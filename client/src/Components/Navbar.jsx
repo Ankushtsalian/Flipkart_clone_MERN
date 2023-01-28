@@ -1,6 +1,6 @@
 import { Button, Input } from "@mui/material";
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import {
   LogoContainer,
   StyledNavbarWrapper,
@@ -14,17 +14,41 @@ import {
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { handleLoginClose } from "../Redux/Auth-Store/Auth-Slice";
+import {
+  handleLoginClose,
+  handleLoginSignupToggle,
+  handleReset,
+  handleResetPassword,
+} from "../Redux/Auth-Store/Auth-Slice";
 import Login from "../Pages/Login";
 import Footer from "./Footer";
+import { useQuery } from "../Hooks/useQuery";
+import { useEffect } from "react";
+import Loader from "./Loader";
 
 const Navbar = () => {
-  const { close } = useSelector((state) => state.user);
+  const { close, isResetPassword, isLoading, errorStatusCode } = useSelector(
+    (state) => state.user
+  );
   const dispatch = useDispatch();
+  const query = useQuery();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (query.get("resetPassword")) dispatch(handleResetPassword());
+  }, []);
+
+  useEffect(() => {
+    console.log({ errorStatusCode });
+    if (errorStatusCode && errorStatusCode !== 400) {
+      dispatch(handleReset());
+      navigate("/");
+    }
+  }, [errorStatusCode]);
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>
-      {close && <Login />}
+      {!isLoading && close && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>
@@ -71,8 +95,13 @@ const Navbar = () => {
         </NavbarContainer>
       </StyledNavbarWrapper>
 
-      <Outlet />
-      <Footer />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Outlet /> <Footer />
+        </>
+      )}
     </div>
   );
 };

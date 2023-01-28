@@ -17,6 +17,9 @@ const register = async (req, res) => {
   let { name, email, password, role } = req.body;
   const emailAlreadyExists = await User.findOne({ email });
 
+  if (!email || !password || !name)
+    throw new CustomError.BadRequestError("Please Provide Email and Password");
+
   if (emailAlreadyExists)
     throw new CustomError.BadRequestError("Email Already Exist");
 
@@ -86,7 +89,7 @@ const verifyEmail = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log({ email, password });
   if (!email || !password)
     throw new CustomError.BadRequestError("Please Provide Email and Password");
 
@@ -174,6 +177,7 @@ const forgotPassword = async (req, res) => {
 /**---------------------------------------forgotPassword--------------------------------------- */
 const resetPassword = async (req, res) => {
   const { token, email, password } = req.body;
+
   if (!token || !email || !password) {
     throw new CustomError.BadRequestError("Please provide all values");
   }

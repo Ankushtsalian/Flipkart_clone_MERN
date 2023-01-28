@@ -5,7 +5,16 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(cors());
+
+app.use(
+  cors({
+    origin:
+      process.env.NODE_ENV !== "production"
+        ? "http://localhost:3000"
+        : "https://e-commerce-node-qttl.onrender.com",
+    credentials: true,
+  })
+);
 
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
