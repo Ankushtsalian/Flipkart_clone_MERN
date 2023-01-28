@@ -24,9 +24,10 @@ import Login from "../Pages/Login";
 import Footer from "./Footer";
 import { useQuery } from "../Hooks/useQuery";
 import { useEffect } from "react";
+import Loader from "./Loader";
 
 const Navbar = () => {
-  const { close, isResetPassword, isLoginPage, errorStatusCode } = useSelector(
+  const { close, isResetPassword, isLoading, errorStatusCode } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const Navbar = () => {
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>
-      {close && <Login />}
+      {!isLoading && close && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>
@@ -94,8 +95,13 @@ const Navbar = () => {
         </NavbarContainer>
       </StyledNavbarWrapper>
 
-      <Outlet />
-      <Footer />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Outlet /> <Footer />
+        </>
+      )}
     </div>
   );
 };

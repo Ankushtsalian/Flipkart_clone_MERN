@@ -7,6 +7,7 @@ import {
 } from "./Auth-Thunk";
 
 const initialState = {
+  isLoading: false,
   close: true,
   priceRange: [0, 100],
   isPriceChanged: false,
