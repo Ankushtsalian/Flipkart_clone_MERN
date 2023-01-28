@@ -19,6 +19,8 @@ import {
   handleLoginClose,
   handleLoginSignupToggle,
   handlePassword,
+  loginUser,
+  registerUser,
   resetPassword,
   verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
@@ -91,12 +93,16 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               {!isForgotPassword && !isResetPassword && isLoginPage && (
-                <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                <button
+                  onClick={() => dispatch(loginUser({ email, password }))}
+                >
                   Login
                 </button>
               )}
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
-                <button onClick={() => dispatch(handleLoginSignupToggle())}>
+                <button
+                  onClick={() => dispatch(registerUser({ email, password }))}
+                >
                   Create an account
                 </button>
               )}

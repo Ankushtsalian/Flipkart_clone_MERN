@@ -86,7 +86,7 @@ const verifyEmail = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log({ email, password });
   if (!email || !password)
     throw new CustomError.BadRequestError("Please Provide Email and Password");
 

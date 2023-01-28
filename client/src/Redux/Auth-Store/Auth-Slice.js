@@ -1,5 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ResetPasswordThunk, verifyForgotPasswordThunk } from "./Auth-Thunk";
+import {
+  loginUserThunk,
+  registerUserThunk,
+  ResetPasswordThunk,
+  verifyForgotPasswordThunk,
+} from "./Auth-Thunk";
 
 const initialState = {
   close: true,
@@ -12,6 +17,20 @@ const initialState = {
   password: "",
   errorStatusCode: 0,
 };
+
+export const loginUser = createAsyncThunk(
+  "user/loginUser",
+  (formInput, thunkAPI) => {
+    return loginUserThunk("/login", formInput, thunkAPI);
+  }
+);
+
+export const registerUser = createAsyncThunk(
+  "user/registerUser",
+  (formInput, thunkAPI) => {
+    return registerUserThunk("/register", formInput, thunkAPI);
+  }
+);
 
 export const verifyForgotPassword = createAsyncThunk(
   "auth/verifyForgotPassword",
