@@ -55,6 +55,7 @@ const Login = () => {
             <EmailInputFieldContainer>
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
                 <TextFieldContainer
+                  autoComplete="off"
                   id="standard-basic"
                   label="Name"
                   variant="standard"
@@ -62,6 +63,7 @@ const Login = () => {
               )}
               {!isResetPassword && (
                 <TextFieldContainer
+                  autoComplete="off"
                   id="standard-basic"
                   label="Enter Email/Mobile number"
                   variant="standard"
@@ -75,6 +77,7 @@ const Login = () => {
                 <TextFieldContainer
                   id="standard-basic"
                   label="Password"
+                  type="password"
                   variant="standard"
                   value={password}
                   onChange={(event) =>

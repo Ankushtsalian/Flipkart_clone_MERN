@@ -78,7 +78,7 @@ const authSlice = createSlice({
     builder.addCase(verifyForgotPassword.fulfilled, (state, { payload }) => {
       // state.errorMessage = "";
       // state.errorStatusCode = 0;
-      // state.isLoading = false;
+      state.isLoading = false;
       // state.tokenLog = payload;
       // addTokenToLocalStorage(state.tokenLog);
     });
@@ -88,7 +88,7 @@ const authSlice = createSlice({
       (state, { payload: { errorStatusCode, message } }) => {
         state.isLoginPage = !state.isLoginPage;
         // removeTokenFromLocalStorage();
-        // state.isLoading = false;
+        state.isLoading = false;
         // state.tokenLog = "";
         // state.errorMessage = message;
         state.errorStatusCode = errorStatusCode;
@@ -104,7 +104,7 @@ const authSlice = createSlice({
       state.password = "";
       // state.errorMessage = "";
       state.errorStatusCode = 0;
-      // state.isLoading = false;
+      state.isLoading = false;
       // state.tokenLog = payload;
       // addTokenToLocalStorage(state.tokenLog);
     });

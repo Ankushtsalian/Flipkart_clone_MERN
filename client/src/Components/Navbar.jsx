@@ -38,6 +38,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    console.log({ errorStatusCode });
     if (errorStatusCode && errorStatusCode !== 400) {
       dispatch(handleReset());
       navigate("/");
