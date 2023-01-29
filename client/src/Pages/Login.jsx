@@ -26,6 +26,7 @@ import {
   verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import { useQuery } from "../Hooks/useQuery";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -38,8 +39,14 @@ const Login = () => {
   } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const query = useQuery();
+
+  const handleLogin = () => {
+    dispatch(loginUser({ email, password }));
+    navigate("/");
+  };
 
   return (
     <StyledLoginContainerWrapper>
@@ -104,11 +111,7 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               {!isForgotPassword && !isResetPassword && isLoginPage && (
-                <button
-                  onClick={() => dispatch(loginUser({ email, password }))}
-                >
-                  Login
-                </button>
+                <button onClick={handleLogin}>Login</button>
               )}
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
                 <button

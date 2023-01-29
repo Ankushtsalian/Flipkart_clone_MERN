@@ -7,9 +7,9 @@ export const loginUserThunk = async (url, formInput, thunkAPI) => {
       withCredentials: true,
     });
 
-    console.log(response.data);
+    console.log(response.data.user);
 
-    return response.data.msg;
+    return response.data.user;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
 

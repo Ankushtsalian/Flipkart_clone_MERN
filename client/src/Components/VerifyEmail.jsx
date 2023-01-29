@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "../Hooks/useQuery";
@@ -18,7 +17,6 @@ const VerifyEmail = () => {
   const query = useQuery();
 
   useEffect(() => {
-    console.log("whY");
     if (
       !errorStatusCode &&
       !emailVerified &&
@@ -37,14 +35,6 @@ const VerifyEmail = () => {
       navigate("/LOGIN");
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (errorStatusCode) {
-  //     console.log({ errorStatusCode });
-  //     dispatch(handleReset());
-  //     navigate("/");
-  //   }
-  // }, [errorStatusCode]);
 
   if (isLoading) return <Loader />;
 

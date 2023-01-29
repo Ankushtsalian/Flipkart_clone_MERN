@@ -27,7 +27,7 @@ import { useEffect } from "react";
 import Loader from "./Loader";
 
 const Navbar = () => {
-  const { loginModalOpen, isLoading, errorStatusCode } = useSelector(
+  const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
@@ -73,12 +73,16 @@ const Navbar = () => {
           </NavbarInputMenu>
           <NavbarMenu>
             <div>
-              <Button
-                variant="outlined"
-                onClick={() => dispatch(handleLoginClose())}
-              >
-                Login
-              </Button>
+              {user?.name ? (
+                <div>{user?.name}</div>
+              ) : (
+                <Button
+                  variant="outlined"
+                  onClick={() => dispatch(handleLoginClose())}
+                >
+                  Login
+                </Button>
+              )}
             </div>
             <div>
               <span>Become a Seller</span>

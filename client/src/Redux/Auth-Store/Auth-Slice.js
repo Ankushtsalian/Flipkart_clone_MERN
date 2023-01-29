@@ -19,6 +19,7 @@ const initialState = {
   password: "",
   errorStatusCode: 0,
   emailVerified: false,
+  user: {},
 };
 
 export const loginUser = createAsyncThunk(
@@ -103,6 +104,7 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.errorStatusCode = 0;
       state.emailVerified = false;
+      state.user = {};
     },
   },
   extraReducers: (builder) => {
@@ -114,6 +116,7 @@ const authSlice = createSlice({
       // state.errorMessage = "";
       // state.errorStatusCode = 0;
       state.isLoading = false;
+      state.user = payload;
 
       // state.tokenLog = payload;
       // addTokenToLocalStorage(state.tokenLog);
