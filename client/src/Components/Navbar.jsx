@@ -10,13 +10,11 @@ import {
   Cart,
   ShoppingCartIconContainer,
   InputContainer,
-  MainContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginClose,
-  handleLoginSignupToggle,
   handleReset,
   handleResetPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
@@ -25,6 +23,9 @@ import Footer from "./Footer";
 import { useQuery } from "../Hooks/useQuery";
 import { useEffect } from "react";
 import Loader from "./Loader";
+
+import Chevron from "./Chevron";
+import { Logout, ProfileContainer, UserProfile } from "../Styles/Profile";
 
 const Navbar = () => {
   const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
@@ -40,14 +41,14 @@ const Navbar = () => {
 
   useEffect(() => {
     if (errorStatusCode && errorStatusCode !== 400) {
-      dispatch(handleReset());
+      // dispatch(handleReset());
       navigate("/");
     }
   }, [errorStatusCode]);
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>
-      {!isLoading && loginModalOpen && <Login />}
+      {!user.name && !isLoading && loginModalOpen && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>
@@ -74,7 +75,13 @@ const Navbar = () => {
           <NavbarMenu>
             <div>
               {user?.name ? (
-                <div>{user?.name}</div>
+                <ProfileContainer>
+                  {user?.name}
+                  <Chevron />
+                  <UserProfile>
+                    <Logout>Logout</Logout>
+                  </UserProfile>
+                </ProfileContainer>
               ) : (
                 <Button
                   variant="outlined"
