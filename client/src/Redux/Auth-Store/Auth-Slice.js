@@ -3,12 +3,13 @@ import {
   loginUserThunk,
   registerUserThunk,
   ResetPasswordThunk,
+  verifyEmailThunk,
   verifyForgotPasswordThunk,
 } from "./Auth-Thunk";
 
 const initialState = {
   isLoading: false,
-  close: true,
+  loginModalOpen: true,
   priceRange: [0, 100],
   isPriceChanged: false,
   isLoginPage: true,
@@ -17,6 +18,8 @@ const initialState = {
   email: "",
   password: "",
   errorStatusCode: 0,
+  emailVerified: false,
+  user: {},
 };
 
 export const loginUser = createAsyncThunk(
@@ -47,13 +50,20 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
+export const verifyEmail = createAsyncThunk(
+  "auth/verifyEmail",
+  (formInput, thunkAPI) => {
+    return verifyEmailThunk("/verify-email", formInput, thunkAPI);
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
 
   reducers: {
     handleLoginClose: (state) => {
-      state.close = !state.close;
+      state.loginModalOpen = !state.loginModalOpen;
     },
     handleLoginSignupToggle: (state) => {
       state.isLoginPage = !state.isLoginPage;
@@ -76,12 +86,16 @@ const authSlice = createSlice({
       state.isResetPassword = true;
       state.isLoginPage = false;
     },
+    handleName: (state, { payload }) => {
+      state.name = payload;
+    },
     handleEmail: (state, { payload }) => {
       state.email = payload;
     },
     handlePassword: (state, { payload }) => {
       state.password = payload;
     },
+
     handleReset: (state) => {
       state.isForgotPassword = false;
       state.isResetPassword = false;
@@ -89,9 +103,36 @@ const authSlice = createSlice({
       state.password = "";
       state.isLoading = false;
       state.errorStatusCode = 0;
+      state.emailVerified = false;
+      state.user = {};
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(loginUser.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(loginUser.fulfilled, (state, { payload }) => {
+      // state.errorMessage = "";
+      // state.errorStatusCode = 0;
+      state.isLoading = false;
+      state.user = payload;
+
+      // state.tokenLog = payload;
+      // addTokenToLocalStorage(state.tokenLog);
+    });
+
+    builder.addCase(
+      loginUser.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        // state.isLoginPage = !state.isLoginPage;
+        // removeTokenFromLocalStorage();
+        state.isLoading = false;
+        // state.tokenLog = "";
+        // state.errorMessage = message;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
     builder.addCase(verifyForgotPassword.pending, (state) => {
       state.isLoading = true;
     });
@@ -115,6 +156,7 @@ const authSlice = createSlice({
         state.errorStatusCode = errorStatusCode;
       }
     );
+
     builder.addCase(resetPassword.pending, (state) => {
       state.isLoading = true;
     });
@@ -144,6 +186,39 @@ const authSlice = createSlice({
         // state.errorMessage = message;
       }
     );
+
+    builder.addCase(verifyEmail.pending, (state) => {
+      state.isLoading = true;
+      state.loginModalOpen = false;
+    });
+
+    builder.addCase(verifyEmail.fulfilled, (state, { payload }) => {
+      // state.isResetPassword = false;
+      state.emailVerified = true;
+      // state.password = "";
+      // state.errorMessage = "";
+      state.errorStatusCode = 0;
+      state.isLoading = false;
+      state.loginModalOpen = true;
+
+      // state.tokenLog = payload;
+      // addTokenToLocalStorage(state.tokenLog);
+    });
+
+    builder.addCase(
+      verifyEmail.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        // state.isResetPassword = errorStatusCode !== 400 || false;
+        // state.email = "";
+        // state.password = "";
+        state.errorStatusCode = errorStatusCode;
+
+        // removeTokenFromLocalStorage();
+        state.isLoading = false;
+        // state.tokenLog = "";
+        // state.errorMessage = message;
+      }
+    );
   },
 });
 
@@ -155,8 +230,9 @@ export const {
   handleForgotPassword,
   handleVerifyForgotPassword,
   handleResetPassword,
+  handleName,
   handleEmail,
-  handleReset,
   handlePassword,
+  handleReset,
 } = authSlice.actions;
 export default authSlice.reducer;

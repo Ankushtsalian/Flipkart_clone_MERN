@@ -10,13 +10,11 @@ import {
   Cart,
   ShoppingCartIconContainer,
   InputContainer,
-  MainContainer,
 } from "../Styles/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginClose,
-  handleLoginSignupToggle,
   handleReset,
   handleResetPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
@@ -26,8 +24,11 @@ import { useQuery } from "../Hooks/useQuery";
 import { useEffect } from "react";
 import Loader from "./Loader";
 
+import Chevron from "./Chevron";
+import { Logout, ProfileContainer, UserProfile } from "../Styles/Profile";
+
 const Navbar = () => {
-  const { close, isResetPassword, isLoading, errorStatusCode } = useSelector(
+  const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
@@ -39,16 +40,15 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    console.log({ errorStatusCode });
     if (errorStatusCode && errorStatusCode !== 400) {
-      dispatch(handleReset());
+      // dispatch(handleReset());
       navigate("/");
     }
   }, [errorStatusCode]);
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>
-      {!isLoading && close && <Login />}
+      {!user.name && !isLoading && loginModalOpen && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>
@@ -74,12 +74,22 @@ const Navbar = () => {
           </NavbarInputMenu>
           <NavbarMenu>
             <div>
-              <Button
-                variant="outlined"
-                onClick={() => dispatch(handleLoginClose())}
-              >
-                Login
-              </Button>
+              {user?.name ? (
+                <ProfileContainer>
+                  {user?.name}
+                  <Chevron />
+                  <UserProfile>
+                    <Logout>Logout</Logout>
+                  </UserProfile>
+                </ProfileContainer>
+              ) : (
+                <Button
+                  variant="outlined"
+                  onClick={() => dispatch(handleLoginClose())}
+                >
+                  Login
+                </Button>
+              )}
             </div>
             <div>
               <span>Become a Seller</span>

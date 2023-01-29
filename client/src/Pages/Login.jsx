@@ -18,6 +18,7 @@ import {
   handleForgotPassword,
   handleLoginClose,
   handleLoginSignupToggle,
+  handleName,
   handlePassword,
   loginUser,
   registerUser,
@@ -25,14 +26,27 @@ import {
   verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import { useQuery } from "../Hooks/useQuery";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { isLoginPage, isForgotPassword, email, isResetPassword, password } =
-    useSelector((state) => state.user);
+  const {
+    isLoginPage,
+    isForgotPassword,
+    email,
+    isResetPassword,
+    password,
+    name,
+  } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const query = useQuery();
+
+  const handleLogin = () => {
+    dispatch(loginUser({ email, password }));
+    navigate("/");
+  };
 
   return (
     <StyledLoginContainerWrapper>
@@ -62,6 +76,7 @@ const Login = () => {
                   label="Name"
                   variant="standard"
                   required
+                  onChange={(event) => dispatch(handleName(event.target.value))}
                 />
               )}
               {!isResetPassword && (
@@ -96,15 +111,13 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               {!isForgotPassword && !isResetPassword && isLoginPage && (
-                <button
-                  onClick={() => dispatch(loginUser({ email, password }))}
-                >
-                  Login
-                </button>
+                <button onClick={handleLogin}>Login</button>
               )}
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
                 <button
-                  onClick={() => dispatch(registerUser({ email, password }))}
+                  onClick={() =>
+                    dispatch(registerUser({ name, email, password }))
+                  }
                 >
                   Create an account
                 </button>

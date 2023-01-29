@@ -7,9 +7,9 @@ export const loginUserThunk = async (url, formInput, thunkAPI) => {
       withCredentials: true,
     });
 
-    console.log(response.data);
+    console.log(response.data.user);
 
-    return response.data.msg;
+    return response.data.user;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
 
@@ -54,6 +54,18 @@ export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
 
     console.log(response.data);
     return response.data;
+  } catch (error) {
+    const { errorStatusCode, message } = errorMessage(error);
+
+    return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};
+
+export const verifyEmailThunk = async (url, formInput, thunkAPI) => {
+  try {
+    const response = await customFetch.post(url, formInput);
+
+    return response.data.msg;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
 
