@@ -9,19 +9,15 @@ const ProfileContainer = styled.div`
   cursor: pointer;
   position: relative;
 
-  & svg {
+  & > svg {
     height: 18px;
     font-weight: bold;
   }
-  & svg:hover {
+  & > svg:hover {
     transform: rotate(180deg);
   }
 
   :hover {
-    & svg {
-      transform: rotate(180deg);
-      height: 15px;
-    }
     & div {
       opacity: 1;
       visibility: visible;
@@ -32,8 +28,6 @@ const ProfileContainer = styled.div`
 
 const UserProfile = styled.div`
   min-width: 260px;
-  display: flex;
-  justify-content: space-between;
   position: absolute;
   top: 36px;
   background-color: var(--color-white-bg);
@@ -44,11 +38,10 @@ const UserProfile = styled.div`
   transition: 0.3s;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  padding: 20px;
   color: black;
   z-index: 999;
-`;
-const Logout = styled.button`
+  font-weight: bold;
+  font-size: 16px;
   &::before {
     content: "";
     position: absolute;
@@ -62,4 +55,28 @@ const Logout = styled.button`
     transform: translate(-50%, calc(-100% - 5px));
   }
 `;
-export { ProfileContainer, UserProfile, Logout };
+const LogoutWrapper = styled.div`
+  padding: 10px;
+  border-bottom: 2px solid var(--color-white);
+  & div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    & > svg {
+      height: 14px;
+      font-weight: bolder;
+      margin-right: 5px;
+      margin-top: 2px;
+    }
+    & > button {
+      cursor: pointer;
+      padding: 0;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
+      font-weight: normal;
+      margin-bottom: 0 !important;
+    }
+  }
+`;
+export { ProfileContainer, UserProfile, LogoutWrapper };

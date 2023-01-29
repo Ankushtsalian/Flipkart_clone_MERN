@@ -25,7 +25,12 @@ import { useEffect } from "react";
 import Loader from "./Loader";
 
 import Chevron from "./Chevron";
-import { Logout, ProfileContainer, UserProfile } from "../Styles/Profile";
+import {
+  LogoutWrapper,
+  ProfileContainer,
+  UserProfile,
+} from "../Styles/Profile";
+import Logout from "./Logout";
 
 const Navbar = () => {
   const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
@@ -79,7 +84,9 @@ const Navbar = () => {
                   {user?.name}
                   <Chevron />
                   <UserProfile>
-                    <Logout>Logout</Logout>
+                    <LogoutWrapper>
+                      <Logout />
+                    </LogoutWrapper>
                   </UserProfile>
                 </ProfileContainer>
               ) : (
@@ -91,6 +98,7 @@ const Navbar = () => {
                 </Button>
               )}
             </div>
+
             <div>
               <span>Become a Seller</span>
             </div>

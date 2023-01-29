@@ -25,10 +25,11 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const HeaderValue = styled.a`
+const HeaderValue = styled.div`
   cursor: pointer;
   font-size: 14px;
   color: var(--color-black);
+  font-weight: bold;
 
   :hover {
     color: var(--color-dark-blue1);
