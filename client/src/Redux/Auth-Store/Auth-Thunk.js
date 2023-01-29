@@ -60,3 +60,15 @@ export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
+
+export const verifyEmailThunk = async (url, formInput, thunkAPI) => {
+  try {
+    const response = await customFetch.post(url, formInput);
+
+    return response.data.msg;
+  } catch (error) {
+    const { errorStatusCode, message } = errorMessage(error);
+
+    return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};

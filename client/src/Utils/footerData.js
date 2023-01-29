@@ -1,18 +1,18 @@
 export const footerData = [
   {
-    svg: "images/Footer1.svg",
+    // svg: "images/Footer1.svg",
     value: "Become a Seller",
   },
   {
-    svg: "images/Footer2.svg",
+    // svg: "images/Footer2.svg",
     value: "Advertise",
   },
   {
-    svg: "images/Footer3.svg",
+    // svg: "images/Footer3.svg",
     value: "Gift Cards",
   },
   {
-    svg: "images/Footer4.svg",
+    // svg: "images/Footer4.svg",
     value: "Help Center",
   },
   {
@@ -20,7 +20,7 @@ export const footerData = [
     value: "© 2007-2023 Flipkart.com",
   },
   {
-    svg: "images/Footer5.svg",
+    // svg: "images/Footer5.svg",
     value: "",
   },
 ];

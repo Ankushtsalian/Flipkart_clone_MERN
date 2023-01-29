@@ -1,54 +1,53 @@
-import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "../Hooks/useQuery";
+import { handleReset, verifyEmail } from "../Redux/Auth-Store/Auth-Slice";
 import { MainContainer } from "../Styles/Navbar";
+import Loader from "./Loader";
 
 const VerifyEmail = () => {
-  const [error, setError] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const query = useQuery();
+  const { isLoading, errorStatusCode, emailVerified } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const verifyToken = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.post("http://localhost:5000/verify-email", {
-        verificationToken: query.get("token"),
-        email: query.get("email"),
-      });
-      setLoading(false);
-    } catch (error) {
-      console.log(error.message);
+  const query = useQuery();
 
-      setError(error.response.status);
-    }
-  };
-  console.log(error);
   useEffect(() => {
-    if (!error) verifyToken();
+    console.log("whY");
+    if (
+      !errorStatusCode &&
+      !emailVerified &&
+      query.get("token") &&
+      query.get("email")
+    ) {
+      dispatch(
+        verifyEmail({
+          verificationToken: query.get("token"),
+          email: query.get("email"),
+        })
+      );
+    }
+    if (errorStatusCode || !query.get("token") || !query.get("email")) {
+      dispatch(handleReset());
+      navigate("/LOGIN");
+    }
   }, []);
 
-  useEffect(() => {
-    if (error || error !== 400) {
-      alert(error.response.data.msg || error.message);
-      navigate("/");
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (errorStatusCode) {
+  //     console.log({ errorStatusCode });
+  //     dispatch(handleReset());
+  //     navigate("/");
+  //   }
+  // }, [errorStatusCode]);
 
-  if (loading)
-    return <MainContainer className="page">LOADING... </MainContainer>;
+  if (isLoading) return <Loader />;
 
-  if (error || error !== 400) {
-    return (
-      <MainContainer className="page">
-        {/* <h4>There was an error, please double check your Reset link </h4> */}
-        <Navigate to="/" />
-      </MainContainer>
-    );
-  }
   return (
     <MainContainer>
       <h2>Account Confirmed</h2>

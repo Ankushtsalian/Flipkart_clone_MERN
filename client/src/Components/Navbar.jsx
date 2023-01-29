@@ -27,7 +27,7 @@ import { useEffect } from "react";
 import Loader from "./Loader";
 
 const Navbar = () => {
-  const { close, isResetPassword, isLoading, errorStatusCode } = useSelector(
+  const { loginModalOpen, isLoading, errorStatusCode } = useSelector(
     (state) => state.user
   );
   const dispatch = useDispatch();
@@ -39,7 +39,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    console.log({ errorStatusCode });
     if (errorStatusCode && errorStatusCode !== 400) {
       dispatch(handleReset());
       navigate("/");
@@ -48,7 +47,7 @@ const Navbar = () => {
 
   return (
     <div style={{ minWidth: "var(--width-min)" }}>
-      {!isLoading && close && <Login />}
+      {!isLoading && loginModalOpen && <Login />}
 
       <StyledNavbarWrapper>
         <NavbarContainer>

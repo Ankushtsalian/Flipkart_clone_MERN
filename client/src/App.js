@@ -14,8 +14,8 @@ function App() {
           <Route path="/" element={<Navbar />}>
             <Route index element={<Home />} />
             <Route path="Product" element={<Product />} />
-            <Route path="/user/verify-email" element={<VerifyEmail />} />
             <Route path="/user/reset-password" element={<ResetPassword />} />
+            <Route path="/user/verify-email" element={<VerifyEmail />} />
           </Route>
 
           <Route path="*" element={<h1>Not found</h1>} />

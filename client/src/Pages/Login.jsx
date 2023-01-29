@@ -18,6 +18,7 @@ import {
   handleForgotPassword,
   handleLoginClose,
   handleLoginSignupToggle,
+  handleName,
   handlePassword,
   loginUser,
   registerUser,
@@ -27,8 +28,14 @@ import {
 import { useQuery } from "../Hooks/useQuery";
 
 const Login = () => {
-  const { isLoginPage, isForgotPassword, email, isResetPassword, password } =
-    useSelector((state) => state.user);
+  const {
+    isLoginPage,
+    isForgotPassword,
+    email,
+    isResetPassword,
+    password,
+    name,
+  } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -62,6 +69,7 @@ const Login = () => {
                   label="Name"
                   variant="standard"
                   required
+                  onChange={(event) => dispatch(handleName(event.target.value))}
                 />
               )}
               {!isResetPassword && (
@@ -104,7 +112,9 @@ const Login = () => {
               )}
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
                 <button
-                  onClick={() => dispatch(registerUser({ email, password }))}
+                  onClick={() =>
+                    dispatch(registerUser({ name, email, password }))
+                  }
                 >
                   Create an account
                 </button>
