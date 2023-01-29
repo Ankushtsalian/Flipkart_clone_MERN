@@ -28,8 +28,6 @@ const ProfileContainer = styled.div`
 
 const UserProfile = styled.div`
   min-width: 260px;
-  /* display: flex;
-  justify-content: space-between; */
   position: absolute;
   top: 36px;
   background-color: var(--color-white-bg);
@@ -56,13 +54,6 @@ const UserProfile = styled.div`
     border-bottom: 10px solid #fff;
     transform: translate(-50%, calc(-100% - 5px));
   }
-  /* & > div {
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    text-align: center;
-  } */
 `;
 const LogoutWrapper = styled.div`
   padding: 10px;
@@ -71,12 +62,17 @@ const LogoutWrapper = styled.div`
     display: flex;
     flex-direction: row;
     & > svg {
-      margin-top: 3px;
-      height: 16px;
+      height: 14px;
       font-weight: bolder;
       margin-right: 10px;
+      margin-top: 1px;
     }
-    & > p {
+    & > button {
+      cursor: pointer;
+      padding: 0;
+      font-size: 16px;
+      background-color: transparent;
+      border: none;
       font-weight: normal;
       margin-bottom: 0 !important;
     }

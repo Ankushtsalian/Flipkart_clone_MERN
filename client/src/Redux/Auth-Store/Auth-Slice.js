@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   loginUserThunk,
+  logoutUserThunk,
   registerUserThunk,
   ResetPasswordThunk,
   verifyEmailThunk,
@@ -56,6 +57,10 @@ export const verifyEmail = createAsyncThunk(
     return verifyEmailThunk("/verify-email", formInput, thunkAPI);
   }
 );
+
+export const logoutUser = createAsyncThunk("user/logoutUser", (_, thunkAPI) => {
+  return logoutUserThunk("/logout", thunkAPI);
+});
 
 const authSlice = createSlice({
   name: "auth",
@@ -219,6 +224,10 @@ const authSlice = createSlice({
         // state.errorMessage = message;
       }
     );
+
+    builder.addCase(logoutUser.fulfilled, (state) => {
+      alert("Logging Out.......");
+    });
   },
 });
 

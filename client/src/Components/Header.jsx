@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   HeaderWrapper,
   HeaderNav,
@@ -26,7 +27,9 @@ const Header = () => {
                     />
                   )}
                   {data.value && (
-                    <HeaderValue href="/product">{data.value}</HeaderValue>
+                    <HeaderValue>
+                      <Link to="/product">{data.value}</Link>
+                    </HeaderValue>
                   )}
                 </HeaderNav>
               </div>

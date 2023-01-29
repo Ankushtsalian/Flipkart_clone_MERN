@@ -1,5 +1,6 @@
 import customFetch from "../../Utils/customFetch";
 import errorMessage from "../../Utils/Erroe-Message";
+import { handleReset } from "./Auth-Slice";
 
 export const loginUserThunk = async (url, formInput, thunkAPI) => {
   try {
@@ -70,5 +71,18 @@ export const verifyEmailThunk = async (url, formInput, thunkAPI) => {
     const { errorStatusCode, message } = errorMessage(error);
 
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};
+
+export const logoutUserThunk = async (url, thunkAPI) => {
+  try {
+    const response = await customFetch.get(url, {
+      withCredentials: true,
+    });
+    thunkAPI.dispatch(handleReset());
+
+    return Promise.resolve();
+  } catch (error) {
+    return Promise.reject();
   }
 };
