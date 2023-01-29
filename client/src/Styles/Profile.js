@@ -61,11 +61,12 @@ const LogoutWrapper = styled.div`
   & div {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     & > svg {
       height: 14px;
       font-weight: bolder;
-      margin-right: 10px;
-      margin-top: 1px;
+      margin-right: 5px;
+      margin-top: 2px;
     }
     & > button {
       cursor: pointer;

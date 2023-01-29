@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../Redux/Auth-Store/Auth-Slice";
 
 const Logout = () => {
-  // const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
-  //   (state) => state.user
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,7 +23,7 @@ const Logout = () => {
         stroke="var(--color-brand-blue)"
         fontWeight="bolder"
         fill="var(--color-brand-blue)"
-        width="100.055px"
+        width="30.055px"
         height="10.88px"
         viewBox="0 0 113.055 122.88"
         enableBackground="new 0 0 113.055 122.88"
