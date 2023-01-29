@@ -70,15 +70,16 @@ const LogoutWrapper = styled.div`
   & div {
     display: flex;
     flex-direction: row;
-  }
-  & svg {
-    margin-top: 3px;
-    height: 16px;
-    font-weight: bolder;
-    margin-right: 10px;
-  }
-  & p {
-    margin-bottom: 0 !important;
+    & > svg {
+      margin-top: 3px;
+      height: 16px;
+      font-weight: bolder;
+      margin-right: 10px;
+    }
+    & > p {
+      font-weight: normal;
+      margin-bottom: 0 !important;
+    }
   }
 `;
 export { ProfileContainer, UserProfile, LogoutWrapper };

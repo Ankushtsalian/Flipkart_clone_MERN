@@ -8,6 +8,8 @@ const Logout = () => {
         id="Layer_1"
         x="0px"
         y="0px"
+        stroke-width="6"
+        stroke="var(--color-brand-blue)"
         font-weight="bolder"
         fill="var(--color-brand-blue)"
         min-width="113.055px"
