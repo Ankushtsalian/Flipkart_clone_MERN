@@ -29,9 +29,7 @@ const ResetPassword = () => {
     }
   };
 
-  // useEffect(() => {
   if (error && error !== 400) return navigate("/");
-  // }, [error]);
 
   return (
     <MainContainer>
