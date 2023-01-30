@@ -1,7 +1,4 @@
 import styled from "styled-components";
-// loading LoaderWrapper
-// loader-id LoaderContainer
-// loader Loading
 
 const LoaderWrapper = styled.div`
   position: fixed;
@@ -33,8 +30,6 @@ const LoaderWrapper = styled.div`
     }
   }
 `;
-
-const LoaderContainer = styled.div``;
 
 const Loading = styled.span`
   width: 48px;
@@ -73,22 +68,6 @@ const Loading = styled.span`
     border-color: #f9f9f9 #f9f9f9 transparent transparent;
     animation: rotation 1.5s linear infinite;
   }
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes rotationBack {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(-360deg);
-    }
-  }
 `;
 
-export { LoaderWrapper, LoaderContainer, Loading };
+export { LoaderWrapper, Loading };
