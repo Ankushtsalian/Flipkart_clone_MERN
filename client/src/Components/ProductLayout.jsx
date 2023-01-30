@@ -2,10 +2,8 @@ import React from "react";
 import {
   AsideProductContainer,
   AsideProductWrapper,
-  AsideWrapper,
   SectionProductContainer,
   SectionProductWrapper,
-  SectionWrapper,
   StyledProductMainWrapper,
 } from "../Styles/Product";
 import FilterDropdown from "./FilterDropdown";
