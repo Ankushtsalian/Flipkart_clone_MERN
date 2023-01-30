@@ -11,6 +11,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { Checkbox } from "@mui/material";
+
 const FilterDropdown = ({ filter }) => {
   const [open, setOpen] = useState(false);
   const handleChange = () => setOpen(!open);
@@ -26,30 +27,15 @@ const FilterDropdown = ({ filter }) => {
         </AccordionSummary>
         <AccordionDetails>
           <FilterInput>
-            <Checkbox
-              // value="checkedB"
-              // color="primary"
-              // onClick={e => handleClickCheckbox(e)}
-              size="small"
-            />
+            <Checkbox size="small" />
             <FilterInputValue>realme</FilterInputValue>
           </FilterInput>
           <FilterInput>
-            <Checkbox
-              // value="checkedB"
-              // color="primary"
-              // onClick={e => handleClickCheckbox(e)}
-              size="small"
-            />
+            <Checkbox size="small" />
             <FilterInputValue>realme</FilterInputValue>
           </FilterInput>
           <FilterInput>
-            <Checkbox
-              // value="checkedB"
-              // color="primary"
-              // onClick={e => handleClickCheckbox(e)}
-              size="small"
-            />
+            <Checkbox size="small" />
             <FilterInputValue>realme</FilterInputValue>
           </FilterInput>
         </AccordionDetails>
