@@ -1,10 +1,7 @@
-import { Hidden } from "@mui/material";
-import { color } from "@mui/system";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { MainContainer } from "../Styles/Navbar";
 import {
-  ProductMenu,
   ProductMenuContainer,
   ProductMenuWrapper,
   StyledProductHeaderWrapper,
@@ -12,6 +9,7 @@ import {
 import Chevron from "./Chevron";
 import ProductLayout from "./ProductLayout";
 import ProductList from "./ProductList";
+
 const Product = () => {
   const productMenu = [
     "Electronics",
