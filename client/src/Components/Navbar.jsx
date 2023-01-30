@@ -1,5 +1,5 @@
-import { Button, Input } from "@mui/material";
 import React from "react";
+import { Button, Input } from "@mui/material";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import {
   LogoContainer,
@@ -15,7 +15,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handleLoginClose,
-  handleReset,
   handleResetPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import Login from "../Pages/Login";

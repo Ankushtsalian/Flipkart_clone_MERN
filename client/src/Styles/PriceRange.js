@@ -50,6 +50,9 @@ const PriceClearContainer = styled.div`
   color: blue;
   cursor: pointer;
 `;
+const SliderContainer = styled.div`
+  padding: 10px;
+`;
 
 export {
   StyledPriceRangeWrapper,
@@ -61,4 +64,5 @@ export {
   PriceRangeDropdown,
   PriceRangeSeperator,
   PriceClearContainer,
+  SliderContainer,
 };

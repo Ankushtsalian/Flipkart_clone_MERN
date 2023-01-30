@@ -13,6 +13,7 @@ import {
   PriceRangeDropdownWrapper,
   PriceRangeHeader,
   PriceRangeSeperator,
+  SliderContainer,
   StyledPriceRangeContainer,
   StyledPriceRangeWrapper,
 } from "../Styles/PriceRange";
@@ -59,16 +60,14 @@ const PriceRange = () => {
           )}
         </PriceRangeHeader>
 
-        <div style={{ padding: "10px" }}>
-          <div>
-            <Slider
-              value={priceRange}
-              onChange={handleChange}
-              valueLabelDisplay="auto"
-              disableSwap
-            />
-          </div>
-        </div>
+        <SliderContainer>
+          <Slider
+            value={priceRange}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            disableSwap
+          />
+        </SliderContainer>
         <PriceRangeDropdownWrapper>
           <PriceRangeDropdownContainer>
             <PriceRangeDropdown
