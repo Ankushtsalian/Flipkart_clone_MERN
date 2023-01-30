@@ -50,78 +50,78 @@ const Navbar = () => {
       navigate("/");
     }
   }, [errorStatusCode]);
+  if (true) return <Loader />;
+  // return (
+  //   <div style={{ minWidth: "var(--width-min)" }}>
+  //     {!user.name && !isLoading && loginModalOpen && <Login />}
 
-  return (
-    <div style={{ minWidth: "var(--width-min)" }}>
-      {!user.name && !isLoading && loginModalOpen && <Login />}
+  //     <StyledNavbarWrapper>
+  //       <NavbarContainer>
+  //         <NavbarInputMenu>
+  //           <Link to="/">
+  //             <LogoContainer src="/images/flipkart-plus.png" />
+  //           </Link>
+  //           <InputContainer>
+  //             <form>
+  //               <div>
+  //                 <div>
+  //                   <Input
+  //                     // disableUnderline={true}
+  //                     placeholder="Search for products, brands and more"
+  //                   />
+  //                 </div>
+  //                 <Button variant="outlined">
+  //                   <SearchIcon />
+  //                 </Button>
+  //               </div>
+  //             </form>
+  //           </InputContainer>
+  //         </NavbarInputMenu>
+  //         <NavbarMenu>
+  //           <div>
+  //             {user?.name ? (
+  //               <ProfileContainer>
+  //                 {user?.name}
+  //                 <Chevron />
+  //                 <UserProfile>
+  //                   <LogoutWrapper>
+  //                     <Logout />
+  //                   </LogoutWrapper>
+  //                 </UserProfile>
+  //               </ProfileContainer>
+  //             ) : (
+  //               <Button
+  //                 variant="outlined"
+  //                 onClick={() => dispatch(handleLoginClose())}
+  //               >
+  //                 Login
+  //               </Button>
+  //             )}
+  //           </div>
 
-      <StyledNavbarWrapper>
-        <NavbarContainer>
-          <NavbarInputMenu>
-            <Link to="/">
-              <LogoContainer src="/images/flipkart-plus.png" />
-            </Link>
-            <InputContainer>
-              <form>
-                <div>
-                  <div>
-                    <Input
-                      // disableUnderline={true}
-                      placeholder="Search for products, brands and more"
-                    />
-                  </div>
-                  <Button variant="outlined">
-                    <SearchIcon />
-                  </Button>
-                </div>
-              </form>
-            </InputContainer>
-          </NavbarInputMenu>
-          <NavbarMenu>
-            <div>
-              {user?.name ? (
-                <ProfileContainer>
-                  {user?.name}
-                  <Chevron />
-                  <UserProfile>
-                    <LogoutWrapper>
-                      <Logout />
-                    </LogoutWrapper>
-                  </UserProfile>
-                </ProfileContainer>
-              ) : (
-                <Button
-                  variant="outlined"
-                  onClick={() => dispatch(handleLoginClose())}
-                >
-                  Login
-                </Button>
-              )}
-            </div>
+  //           <div>
+  //             <span>Become a Seller</span>
+  //           </div>
+  //           <div>
+  //             <span>More</span>
+  //           </div>
+  //           <ShoppingCartIconContainer>
+  //             <Cart />
+  //             <span>Cart</span>
+  //           </ShoppingCartIconContainer>
+  //         </NavbarMenu>
+  //       </NavbarContainer>
+  //     </StyledNavbarWrapper>
 
-            <div>
-              <span>Become a Seller</span>
-            </div>
-            <div>
-              <span>More</span>
-            </div>
-            <ShoppingCartIconContainer>
-              <Cart />
-              <span>Cart</span>
-            </ShoppingCartIconContainer>
-          </NavbarMenu>
-        </NavbarContainer>
-      </StyledNavbarWrapper>
-
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <Outlet /> <Footer />
-        </>
-      )}
-    </div>
-  );
+  //     {isLoading ? (
+  //       <Loader />
+  //     ) : (
+  //       <>
+  //         <Outlet /> <Footer />
+  //       </>
+  //     )}
+  //   </div>
+  // );
 };
 
 export default Navbar;

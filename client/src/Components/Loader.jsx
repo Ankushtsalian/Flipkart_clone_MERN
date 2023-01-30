@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
-import "../Styles/StyledLoader.js";
+import "../Styles/Loader.css";
+import { LoaderWrapper, Loading } from "../Styles/StyledLoader.js";
 const Loader = () => {
   // useLayoutEffect(() => {
   //   const loader = document.getElementById("loader");
@@ -13,10 +14,15 @@ const Loader = () => {
 
   return (
     <>
-      <div id="loader" className="loading">
-        <span className="loader"></span>
-      </div>
+      <LoaderWrapper>
+        <Loading></Loading>
+      </LoaderWrapper>
     </>
+    // <>
+    //   <div id="loader" className="loading">
+    //     <span className="loader"></span>
+    //   </div>
+    // </>
   );
 };
 
