@@ -9,8 +9,8 @@ import {
   HeaderCarouselContainer,
 } from "../Styles/Header";
 import { MainContainer } from "../Styles/Navbar";
-
 import { headerData } from "../Utils/headerData";
+
 const Header = () => {
   return (
     <MainContainer>
@@ -37,7 +37,6 @@ const Header = () => {
           })}
         </HeaderContainer>
       </HeaderWrapper>
-
       <HeaderCarouselContainer />
     </MainContainer>
   );
