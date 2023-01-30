@@ -7,8 +7,8 @@ import {
   FooterNav,
 } from "../Styles/Footer";
 import { MainContainer } from "../Styles/Navbar";
-
 import { footerData } from "../Utils/footerData";
+
 const Footer = () => {
   return (
     <MainContainer>
