@@ -66,20 +66,27 @@ const Loading = styled.span`
     box-sizing: border-box;
     animation: rotationBack 0.5s linear infinite;
     transform-origin: center center;
-
-    & ::before {
-      width: 32px;
-      height: 32px;
-      border-color: #f9f9f9 #f9f9f9 transparent transparent;
-      animation: rotation 1.5s linear infinite;
+  }
+  & ::before {
+    width: 32px;
+    height: 32px;
+    border-color: #f9f9f9 #f9f9f9 transparent transparent;
+    animation: rotation 1.5s linear infinite;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
     }
-    @keyframes appear {
-      0% {
-      }
-      100% {
-        opacity: 1;
-        translate: 0 0;
-      }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotationBack {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
     }
   }
 `;
