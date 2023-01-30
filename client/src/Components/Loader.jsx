@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import "../Styles/Loader.css";
+import "../Styles/StyledLoader.js";
 const Loader = () => {
   // useLayoutEffect(() => {
   //   const loader = document.getElementById("loader");
