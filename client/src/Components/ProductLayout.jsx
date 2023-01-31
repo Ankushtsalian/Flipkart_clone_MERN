@@ -33,7 +33,6 @@ const ProductLayout = () => {
         </AsideProductWrapper>
         <SectionProductWrapper>
           <SectionProductContainer>
-            ---------------Section Product--------------
             <ProductInfo />
           </SectionProductContainer>
         </SectionProductWrapper>
