@@ -46,7 +46,7 @@ const SectionProductContainer = styled.section`
   background-color: #fff;
   /* margin: 0 auto; */
   /* min-height: 100%; */
-  padding: 20px;
+  padding: 10px 20px 20px 0;
   /* border: 2px solid red; */
 `;
 

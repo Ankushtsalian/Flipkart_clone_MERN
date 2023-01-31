@@ -6,9 +6,9 @@ import {
   ProductMenuWrapper,
   StyledProductHeaderWrapper,
 } from "../Styles/ProductHeader";
-import Chevron from "./Chevron";
-import ProductLayout from "./ProductLayout";
-import ProductList from "./ProductList";
+import Chevron from "../Components/Chevron";
+import ProductLayout from "../Components/ProductLayout";
+import ProductList from "../Components/ProductList";
 
 const Product = () => {
   const productMenu = [
