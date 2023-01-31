@@ -8,6 +8,7 @@ import {
 } from "../Styles/Product";
 import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
+import ProductDetail from "./ProductDetail";
 
 const ProductLayout = () => {
   const filterValue = [
@@ -33,6 +34,7 @@ const ProductLayout = () => {
         <SectionProductWrapper>
           <SectionProductContainer>
             ---------------Section Product--------------
+            <ProductDetail />
           </SectionProductContainer>
         </SectionProductWrapper>
       </StyledProductMainWrapper>
