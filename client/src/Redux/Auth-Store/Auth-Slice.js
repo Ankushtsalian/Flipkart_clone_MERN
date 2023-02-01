@@ -119,26 +119,18 @@ const authSlice = createSlice({
     });
 
     builder.addCase(loginUser.fulfilled, (state, { payload }) => {
-      // state.errorMessage = "";
-      // state.errorStatusCode = 0;
       state.isLoading = false;
       state.user = payload;
-
-      // state.tokenLog = payload;
-      // addTokenToLocalStorage(state.tokenLog);
     });
 
     builder.addCase(
       loginUser.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
-        // state.isLoginPage = !state.isLoginPage;
-        // removeTokenFromLocalStorage();
         state.isLoading = false;
-        // state.tokenLog = "";
-        // state.errorMessage = message;
         state.errorStatusCode = errorStatusCode;
       }
     );
+
     builder.addCase(verifyForgotPassword.pending, (state) => {
       state.isLoading = true;
     });

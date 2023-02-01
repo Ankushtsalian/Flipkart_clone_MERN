@@ -54,7 +54,6 @@ export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
   try {
     const response = await customFetch.post(url, formInput);
 
-    alert(response.data);
     toastSuccess(response.data);
     console.log(response.data);
     return response.data;
