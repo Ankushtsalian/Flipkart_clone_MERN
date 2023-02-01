@@ -9,6 +9,7 @@ export const loginUserThunk = async (url, formInput, thunkAPI) => {
     });
 
     console.log(response.data.user);
+    alert(response.data.msg);
 
     return response.data.user;
   } catch (error) {

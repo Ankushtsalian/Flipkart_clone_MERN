@@ -36,5 +36,5 @@ module.exports = createRefreshToken = async (req, res, tokenPayload, user) => {
   await Token.create(userToken);
 
   attachCookiesToResponse({ res, tokenPayload, refreshToken });
-  res.status(StatusCodes.OK).json({ user: tokenPayload });
+  res.status(StatusCodes.OK).json({ user: tokenPayload, msg: "Logged in...." });
 };
