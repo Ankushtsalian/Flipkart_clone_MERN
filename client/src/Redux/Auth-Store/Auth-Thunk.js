@@ -27,7 +27,7 @@ export const registerUserThunk = async (url, formInput, thunkAPI) => {
 
     toastSuccess(response.data.msg);
 
-    return response.data.msg.token;
+    return response.data.msg;
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
 

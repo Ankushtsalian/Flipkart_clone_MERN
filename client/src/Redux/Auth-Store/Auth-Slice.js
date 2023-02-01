@@ -113,7 +113,23 @@ const authSlice = createSlice({
       state.user = {};
     },
   },
+
   extraReducers: (builder) => {
+    builder.addCase(registerUser.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(
+      registerUser.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
     builder.addCase(loginUser.pending, (state) => {
       state.isLoading = true;
     });
