@@ -12,18 +12,29 @@ const ProductCard = () => {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
-            image="https://rukminim1.flixcart.com/image/312/312/xif0q/mobile/9/f/p/-original-imaghxenhnpyhn5u.jpeg?q=70"
+            image="https://rukminim1.flixcart.com/image/612/612/kbv4fww0/cases-covers/back-cover/k/g/d/fashionury-fs-sam-a9-20-tra-original-imaft4ypkbpgzg2r.jpeg?q=70"
             alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            {/* <Typography gutterBottom variant="h5" component="div">
               Lizard
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Lizards are a widespread group of squamate reptiles, with over
               6,000 species, ranging across all continents except Antarctica
-            </Typography>
+            </Typography> */}
+
+            <div>
+              <p>Fashionury Back Cover for Oppo A5 2020, Oppo</p>
+              <p>ASSURED</p>
+              <div>
+                <span>₹149</span>
+                <span>₹449</span>
+                <span>70% off</span>
+              </div>
+              <p>Free delivery</p>
+              <p>Bank Offer</p>
+            </div>
           </CardContent>
         </CardActionArea>
       </Card>
