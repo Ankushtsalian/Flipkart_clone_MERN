@@ -1,18 +1,14 @@
 import React from "react";
+import { productData } from "../Utils/productData";
 import ProductCard from "./ProductCard";
 
 const ProductDetail = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {productData.map((product, index) => (
+          <ProductCard product={product} key={index} />
+        ))}
       </div>
     </div>
   );

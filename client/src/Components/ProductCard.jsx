@@ -5,16 +5,32 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
+  const {
+    productImage,
+    productDescription,
+    productAbsolutePrice,
+    productMaxPrice,
+    productDiscount,
+    isFlipkartAssuredProduct,
+    isFreeDeliveryEligible,
+    isBankOfferEligible,
+  } = product;
+  console.log(
+    productImage,
+    productDescription,
+    productAbsolutePrice,
+    productMaxPrice,
+    productDiscount,
+    isFlipkartAssuredProduct,
+    isFreeDeliveryEligible,
+    isBankOfferEligible
+  );
   return (
-    <div style={{ width: "25%", minHeight: "500px", padding: "10px 5px" }}>
+    <div style={{ width: "25%", Height: "500px", padding: "10px 5px 0" }}>
       <Card sx={{ width: "100%", height: "100%" }}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            image="https://rukminim1.flixcart.com/image/612/612/kbv4fww0/cases-covers/back-cover/k/g/d/fashionury-fs-sam-a9-20-tra-original-imaft4ypkbpgzg2r.jpeg?q=70"
-            alt="green iguana"
-          />
+          <CardMedia component="img" image={productImage} alt="green iguana" />
           <CardContent>
             {/* <Typography gutterBottom variant="h5" component="div">
               Lizard
@@ -25,15 +41,15 @@ const ProductCard = () => {
             </Typography> */}
 
             <div>
-              <p>Fashionury Back Cover for Oppo A5 2020, Oppo</p>
-              <p>ASSURED</p>
+              <div>{productDescription}</div>
+              <p>{productAbsolutePrice}</p>
               <div>
-                <span>₹149</span>
-                <span>₹449</span>
-                <span>70% off</span>
+                <span>{productMaxPrice}</span>
+                <span>{productDiscount}</span>
+                <span>{isFlipkartAssuredProduct}</span>
               </div>
-              <p>Free delivery</p>
-              <p>Bank Offer</p>
+              <p>{isFreeDeliveryEligible}</p>
+              <p>{isBankOfferEligible}</p>
             </div>
           </CardContent>
         </CardActionArea>
