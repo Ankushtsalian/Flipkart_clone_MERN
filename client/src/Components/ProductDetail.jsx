@@ -6,9 +6,11 @@ const ProductDetail = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {productData.map((product, index) => (
-          <ProductCard product={product} key={index} />
-        ))}
+        {[...productData, ...productData, ...productData].map(
+          (product, index) => (
+            <ProductCard product={product} key={index} />
+          )
+        )}
       </div>
     </div>
   );

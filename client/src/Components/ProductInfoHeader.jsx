@@ -16,20 +16,84 @@ const ProductInfoHeader = () => {
           width: "40%",
         }}
       >
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Sort By
+        <div
+          style={{
+            minWidth: "100px",
+            padding: "10px 20px 0 0",
+            cursor: "pointer",
+          }}
+        >
+          <div
+            style={{
+              padding: "10px 10px 0 10px",
+            }}
+          >
+            Sort By
+          </div>
         </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Popularity
+        <div
+          style={{
+            minWidth: "100px",
+            padding: "10px 20px 0 0",
+            cursor: "pointer",
+          }}
+        >
+          <div
+            style={{
+              padding: "10px 10px 0 0",
+            }}
+          >
+            {" "}
+            Popularity
+          </div>
         </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Price -- Low to High
+        <div
+          style={{
+            minWidth: "100px",
+            padding: "10px 20px 0 0",
+            cursor: "pointer",
+          }}
+        >
+          <div
+            style={{
+              padding: "10px 10px 0 0",
+            }}
+          >
+            {" "}
+            Price -- Low to High
+          </div>
         </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Price -- High to Low
+        <div
+          style={{
+            minWidth: "100px",
+            padding: "10px 20px 0 0",
+            cursor: "pointer",
+          }}
+        >
+          <div
+            style={{
+              padding: "10px 10px 0 0",
+            }}
+          >
+            {" "}
+            Price -- High to Low
+          </div>
         </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Newest First
+        <div
+          style={{
+            minWidth: "100px",
+            padding: "10px 20px 0 0",
+            cursor: "pointer",
+          }}
+        >
+          <div
+            style={{
+              padding: "10px 10px 0 0",
+            }}
+          >
+            {" "}
+            Newest First
+          </div>
         </div>
       </div>
     </div>

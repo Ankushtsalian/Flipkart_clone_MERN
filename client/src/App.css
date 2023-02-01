@@ -338,4 +338,5 @@ p {
   max-width: 250px !important;
   height: 350px !important;
   object-fit: fill !important;
+  padding: 20px !important;
 }
