@@ -2,6 +2,7 @@ import React from "react";
 import {
   AsideProductContainer,
   AsideProductWrapper,
+  ProductMainContainer,
   SectionProductContainer,
   SectionProductWrapper,
   StyledProductMainWrapper,
@@ -21,7 +22,7 @@ const ProductLayout = () => {
     "GST INVOICE AVAILABLE",
   ];
   return (
-    <>
+    <ProductMainContainer>
       <StyledProductMainWrapper>
         <AsideProductWrapper>
           <AsideProductContainer>
@@ -37,7 +38,7 @@ const ProductLayout = () => {
           </SectionProductContainer>
         </SectionProductWrapper>
       </StyledProductMainWrapper>
-    </>
+    </ProductMainContainer>
   );
 };
 

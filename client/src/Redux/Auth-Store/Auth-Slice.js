@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toastSuccess } from "../../Utils/toastMessage";
 import {
   loginUserThunk,
   logoutUserThunk,
@@ -112,32 +113,40 @@ const authSlice = createSlice({
       state.user = {};
     },
   },
+
   extraReducers: (builder) => {
+    builder.addCase(registerUser.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(
+      registerUser.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
     builder.addCase(loginUser.pending, (state) => {
       state.isLoading = true;
     });
 
     builder.addCase(loginUser.fulfilled, (state, { payload }) => {
-      // state.errorMessage = "";
-      // state.errorStatusCode = 0;
       state.isLoading = false;
       state.user = payload;
-
-      // state.tokenLog = payload;
-      // addTokenToLocalStorage(state.tokenLog);
     });
 
     builder.addCase(
       loginUser.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
-        // state.isLoginPage = !state.isLoginPage;
-        // removeTokenFromLocalStorage();
         state.isLoading = false;
-        // state.tokenLog = "";
-        // state.errorMessage = message;
         state.errorStatusCode = errorStatusCode;
       }
     );
+
     builder.addCase(verifyForgotPassword.pending, (state) => {
       state.isLoading = true;
     });
@@ -226,7 +235,7 @@ const authSlice = createSlice({
     );
 
     builder.addCase(logoutUser.fulfilled, (state) => {
-      alert("Logging Out.......");
+      toastSuccess("Logging Out.......");
     });
   },
 });

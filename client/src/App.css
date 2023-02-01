@@ -332,3 +332,10 @@ p {
   color: #fff !important;
   height: 12px !important;
 }
+/* CARD */
+.css-o69gx8-MuiCardMedia-root {
+ margin: 0 auto !important;
+  max-width: 250px !important;
+  height: 350px !important;
+  object-fit: fill !important;
+}
