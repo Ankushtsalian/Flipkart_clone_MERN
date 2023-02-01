@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+const ProductMainContainer = styled.div`
+  max-width: var(--width-max);
+  margin: 0 auto;
+`;
+
 const StyledProductMainWrapper = styled.nav`
   min-width: 978px;
   /* max-width: 1500px; */
@@ -37,11 +42,11 @@ const AsideProductContainer = styled.aside`
   /* border: 2px solid red; */
 `;
 
-const SectionProductWrapper = styled.aside`
+const SectionProductWrapper = styled.section`
   min-width: 80%;
 `;
 
-const SectionProductContainer = styled.section`
+const SectionProductContainer = styled.div`
   /* max-width: 100%; */
   background-color: #fff;
   /* margin: 0 auto; */
@@ -55,5 +60,6 @@ export {
   AsideProductContainer,
   AsideProductWrapper,
   SectionProductWrapper,
+  ProductMainContainer,
   SectionProductContainer,
 };
