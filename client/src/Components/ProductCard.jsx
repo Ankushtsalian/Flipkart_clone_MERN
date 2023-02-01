@@ -7,7 +7,7 @@ import { CardActionArea } from "@mui/material";
 
 const ProductCard = () => {
   return (
-    <div style={{ width: "25%", minHeight: "500px", padding: "20px" }}>
+    <div style={{ width: "25%", minHeight: "500px", padding: "10px 5px" }}>
       <Card sx={{ width: "100%", height: "100%" }}>
         <CardActionArea>
           <CardMedia
