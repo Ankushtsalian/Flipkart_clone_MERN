@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toastSuccess } from "../../Utils/toastMessage";
 import {
   loginUserThunk,
   logoutUserThunk,
@@ -226,7 +227,7 @@ const authSlice = createSlice({
     );
 
     builder.addCase(logoutUser.fulfilled, (state) => {
-      alert("Logging Out.......");
+      toastSuccess("Logging Out.......");
     });
   },
 });

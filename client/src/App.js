@@ -1,11 +1,11 @@
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Product from "./Pages/Product";
 import Home from "./Pages/Home";
 import VerifyEmail from "./Components/VerifyEmail";
 import ResetPassword from "./Components/ResetPassword";
-
 function App() {
   return (
     <>
