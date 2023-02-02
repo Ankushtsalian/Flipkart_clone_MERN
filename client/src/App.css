@@ -359,39 +359,3 @@ p {
   object-fit: fill !important;
   padding: 20px !important;
 }
-
-.product-info-header-filter-wrapper {
-padding: 0 15px ;
- cursor: pointer;
-}
-
-
-.product-info-header-filter-container { 
- cursor: pointer;
-
-background-color: transparent;
-border: none;
-padding: 10px 2px;
-  
-  text-align: center;
-}
-.active {
-  font-weight: bold;
-  color: var(--color-brand-blue);
-  border-bottom: 2px solid  var(--color-brand-blue);
- }
-
-
- .product-info-header-filter-title-container { 
-  cursor: pointer;
-  padding: 2px 0 ;
-  cursor: pointer;
- }
-.product-info-header-filter-title { 
- cursor: pointer;
-font-weight: bold;
-
-padding: 5px 0 0;
-  
-  text-align: center;
-}
