@@ -5,7 +5,6 @@ import { MainContainer } from "../Styles/Navbar";
 const AdminProtected = () => {
   return (
     <MainContainer>
-      Protected
       <Outlet />
     </MainContainer>
   );
