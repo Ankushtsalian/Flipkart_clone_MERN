@@ -4,6 +4,7 @@ import {
   ProductHeaderFilterContainer,
   ProductHeaderFilterTitle,
   ProductHeaderFilterTitleContainer,
+  ProductHeaderFilterValue,
   ProductHeaderFilterValueContainer,
   ProductMenuHeader,
   ProductPath,
@@ -34,14 +35,21 @@ const ProductInfoHeader = () => {
         {productInfoHeaderFilterData.map((filterData, index) => {
           return (
             <ProductHeaderFilterValueContainer key={index}>
-              <button
+              <ProductHeaderFilterValue
+                activeFilter={activeFilter}
+                filterData={filterData}
+                onClick={() => handleProductInfoHeaderFilter(filterData)}
+              >
+                {filterData}
+              </ProductHeaderFilterValue>
+              {/* <button
                 className={`product-info-header-filter-container ${
                   activeFilter === filterData && "active"
                 }`}
                 onClick={() => handleProductInfoHeaderFilter(filterData)}
               >
                 {filterData}
-              </button>
+              </button> */}
             </ProductHeaderFilterValueContainer>
           );
         })}

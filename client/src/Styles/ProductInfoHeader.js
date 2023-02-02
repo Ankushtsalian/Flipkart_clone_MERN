@@ -31,12 +31,19 @@ const ProductHeaderFilterValueContainer = styled.div`
   padding: 0 15px;
   cursor: pointer;
 `;
-const ProductHeaderFilterValue = styled.div`
+const ProductHeaderFilterValue = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
   padding: 10px 2px;
   text-align: center;
+
+  ${({ activeFilter, filterData }) =>
+    activeFilter === filterData &&
+    `font-weight: bold;
+    color: var(--color-brand-blue);
+    border-bottom: 2px solid  var(--color-brand-blue);;
+  `}
 `;
 
 export {
