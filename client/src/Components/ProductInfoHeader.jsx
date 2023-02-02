@@ -42,14 +42,6 @@ const ProductInfoHeader = () => {
               >
                 {filterData}
               </ProductHeaderFilterValue>
-              {/* <button
-                className={`product-info-header-filter-container ${
-                  activeFilter === filterData && "active"
-                }`}
-                onClick={() => handleProductInfoHeaderFilter(filterData)}
-              >
-                {filterData}
-              </button> */}
             </ProductHeaderFilterValueContainer>
           );
         })}
