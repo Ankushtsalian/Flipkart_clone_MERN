@@ -8,6 +8,7 @@ import VerifyEmail from "./Components/VerifyEmail";
 import ResetPassword from "./Components/ResetPassword";
 
 import AdminProtected from "./Pages/AdminProtected";
+import AdminProduct from "./Pages/AdminProduct";
 function App() {
   return (
     <>
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route path="Admin" element={<AdminProtected />}>
-              <Route path="Product" element={<AdminProtected />} />
+              <Route path="Product" element={<AdminProduct />} />
             </Route>
             <Route index element={<Home />} />
             <Route path="Product" element={<Product />} />
