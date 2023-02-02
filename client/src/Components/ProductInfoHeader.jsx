@@ -13,6 +13,7 @@ const ProductInfoHeader = () => {
       style={{
         // borderBottom: "1px solid black",
         padding: "10px 20px 0 10px",
+        fontSize: "14px",
       }}
     >
       <div style={{ padding: "0 10px 0 0" }}>

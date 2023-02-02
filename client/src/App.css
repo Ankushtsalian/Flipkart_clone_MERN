@@ -384,14 +384,14 @@ padding: 10px 2px;
 
  .product-info-header-filter-title-container { 
   cursor: pointer;
-  padding: 0 0 ;
+  padding: 2px 0 ;
   cursor: pointer;
  }
 .product-info-header-filter-title { 
  cursor: pointer;
 font-weight: bold;
 
-padding: 10px 0;
+padding: 5px 0 0;
   
   text-align: center;
 }
