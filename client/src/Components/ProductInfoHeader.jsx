@@ -3,7 +3,7 @@ import { useState } from "react";
 import { productInfoHeaderFilterData } from "../Utils/productInfoHeaderFilterData";
 
 const ProductInfoHeader = () => {
-  const [activeFilter, setActiveFilter] = useState("");
+  const [activeFilter, setActiveFilter] = useState("Popularity");
 
   const handleProductInfoHeaderFilter = (activeFilterId) =>
     setActiveFilter(activeFilterId);
@@ -11,7 +11,7 @@ const ProductInfoHeader = () => {
   return (
     <div
       style={{
-        borderBottom: "1px solid black",
+        // borderBottom: "1px solid black",
         padding: "10px 20px 0 10px",
       }}
     >
@@ -35,6 +35,10 @@ const ProductInfoHeader = () => {
           // width: "1000px",
         }}
       >
+        <div className="product-info-header-filter-title-container">
+          <div className="product-info-header-filter-title">Sort By</div>
+        </div>
+
         {productInfoHeaderFilterData.map((filterData, index) => {
           return (
             <div className="product-info-header-filter-wrapper" key={index}>

@@ -378,5 +378,20 @@ padding: 10px 2px;
 .active {
   font-weight: bold;
   color: var(--color-brand-blue);
-  border-bottom: 1.5px solid  var(--color-brand-blue);
+  border-bottom: 2px solid  var(--color-brand-blue);
  }
+
+
+ .product-info-header-filter-title-container { 
+  cursor: pointer;
+  padding: 0 0 ;
+  cursor: pointer;
+ }
+.product-info-header-filter-title { 
+ cursor: pointer;
+font-weight: bold;
+
+padding: 10px 0;
+  
+  text-align: center;
+}
