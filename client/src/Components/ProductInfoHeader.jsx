@@ -1,5 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import {
+  ProductHeaderFilterContainer,
+  ProductHeaderFilterTitle,
+  ProductHeaderFilterTitleContainer,
+  ProductHeaderFilterValueContainer,
+  ProductMenuHeader,
+  ProductPath,
+  StyledProductInfoHeaderWrapper,
+} from "../Styles/ProductInfoHeader";
 import { productInfoHeaderFilterData } from "../Utils/productInfoHeaderFilterData";
 
 const ProductInfoHeader = () => {
@@ -9,40 +18,22 @@ const ProductInfoHeader = () => {
     setActiveFilter(activeFilterId);
 
   return (
-    <div
-      style={{
-        // borderBottom: "1px solid black",
-        padding: "10px 20px 0 10px",
-        fontSize: "14px",
-      }}
-    >
-      <div style={{ padding: "0 10px 0 0" }}>
+    <StyledProductInfoHeaderWrapper>
+      <ProductPath>
         <div>PATH of product menu</div>
-      </div>
-      <div
-        style={{
-          padding: "10px 10px 0 0",
-        }}
-      >
+      </ProductPath>
+      <ProductMenuHeader>
         <div>Menu Header</div>
-      </div>
+      </ProductMenuHeader>
 
-      {/* ------------------------- */}
-
-      <div
-        style={{
-          display: "flex",
-          // justifyContent: "space-between",
-          // width: "1000px",
-        }}
-      >
-        <div className="product-info-header-filter-title-container">
-          <div className="product-info-header-filter-title">Sort By</div>
-        </div>
+      <ProductHeaderFilterContainer>
+        <ProductHeaderFilterTitleContainer>
+          <ProductHeaderFilterTitle>Sort By</ProductHeaderFilterTitle>
+        </ProductHeaderFilterTitleContainer>
 
         {productInfoHeaderFilterData.map((filterData, index) => {
           return (
-            <div className="product-info-header-filter-wrapper" key={index}>
+            <ProductHeaderFilterValueContainer key={index}>
               <button
                 className={`product-info-header-filter-container ${
                   activeFilter === filterData && "active"
@@ -51,13 +42,11 @@ const ProductInfoHeader = () => {
               >
                 {filterData}
               </button>
-            </div>
+            </ProductHeaderFilterValueContainer>
           );
         })}
-      </div>
-
-      {/* ------------------------- */}
-    </div>
+      </ProductHeaderFilterContainer>
+    </StyledProductInfoHeaderWrapper>
   );
 };
 
