@@ -5,19 +5,20 @@ const AdminProduct = () => {
     <div
       style={{
         minHeight: "80vh",
-        minWidth: "var(--width-min)",
+        maxWidth: "var(--width-max)",
+        margin: "0 auto",
+        paddingTop: "5px",
       }}
     >
       <div
         style={{
           minHeight: "80vh",
-          width: "var(--width-min)",
+          Width: "100%",
           margin: "0 auto",
           backgroundColor: "var(--color-border-grey)",
+          wordWrap: "break-word",
         }}
-      >
-        AdminProduct
-      </div>
+      ></div>
     </div>
   );
 };
