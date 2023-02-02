@@ -1,8 +1,8 @@
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -169,15 +169,16 @@ Variables
   --z-index-mulitwidgeLoader: 3;
   --user-confirmation-popup-max-width: 406px;
   --max-width: 100%;
-  --nav-height:3.5rem;
-  --nav-width:78rem;
-  --nav-logo-min-width:6.5rem;
-  --nav-btn-min-width:7rem;
-  --nav-max-height:3.5rem;
-  --nav-profile-max-width:9.375rem;
-  --nav-input-max-width:35.25rem;
+  --nav-height: 3.5rem;
+  --nav-width: 78rem;
+  --nav-logo-min-width: 6.5rem;
+  --nav-btn-min-width: 7rem;
+  --nav-max-height: 3.5rem;
+  --nav-profile-max-width: 9.375rem;
+  --nav-input-max-width: 35.25rem;
 
 }
+
 /*
 =============== 
 Global Styles
@@ -191,6 +192,7 @@ Global Styles
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -199,31 +201,37 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  font-family: Roboto,Arial,sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   letter-spacing: 0;
 }
+
 html,
 body,
-.wrapper,#root {
+.wrapper,
+#root {
   height: 100%;
- 
 
- 
+
+
 }
+
 body::-webkit-scrollbar {
   width: 0.2em;
   background-color: #F5F5F5;
 }
 
 body::-webkit-scrollbar-thumb {
-background-color: #000000;
+  background-color: #000000;
 }
+
 ul {
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
+
 h1,
 h2,
 h3,
@@ -233,38 +241,49 @@ h4 {
   line-height: 1.25;
   margin-bottom: 0.75rem;
 }
+
 h1 {
   font-size: 3rem;
 }
+
 h2 {
   font-size: 2rem;
 }
+
 h3 {
   font-size: 1.25rem;
 }
+
 h4 {
   font-size: 0.875rem;
 }
+
 p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
   }
+
   h2 {
     font-size: 2.5rem;
   }
+
   h3 {
     font-size: 1.75rem;
   }
+
   h4 {
     font-size: 1rem;
   }
+
   body {
     font-size: 1rem;
   }
+
   h1,
   h2,
   h3,
@@ -272,14 +291,6 @@ p {
     line-height: 1;
   }
 }
-/*  global classes */
-
-/* section */
-/* .section {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-} */
 
 @media screen and (min-width: 992px) {
   .section {
@@ -287,26 +298,28 @@ p {
   }
 }
 
-.carousel .thumbs ,.carousel .carousel-status {
+.carousel .thumbs,
+.carousel .carousel-status {
   display: none;
 }
 
 .carousel .control-prev.control-arrow {
   z-index: 100;
   background-color: var(--color-white-bg) !important;
- color: red !important;
+  color: red !important;
   height: 100px !important;
   opacity: 1;
   position: absolute;
   /* top: 40% !important; */
   top: calc(50% - 52px) !important;
-    width: 47px !important;
-    height: 104px !important;
+  width: 47px !important;
+  height: 104px !important;
 }
+
 .carousel .control-next.control-arrow {
   z-index: 100;
-  background-color: var(--color-white-bg)!important;
- color: var(--color-black) !important;
+  background-color: var(--color-white-bg) !important;
+  color: var(--color-black) !important;
   height: 100px !important;
   opacity: 1;
   position: absolute;
@@ -314,29 +327,56 @@ p {
   width: 47px !important;
   height: 104px !important;
 }
-.carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {
+
+.carousel .control-arrow:before,
+.carousel.carousel-slider .control-arrow:before {
   margin: 0 5px;
   display: inline-block;
   border-top: 8px solid red;
   border-bottom: 8px solid red;
   content: '';
 }
-.carousel .control-prev.control-arrow:before{
-  border-right: 8px solid var(--color-black)!important;
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid var(--color-black) !important;
 }
-.carousel .control-next.control-arrow:before{
-  border-left: 8px solid var(--color-black)!important;
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid var(--color-black) !important;
 }
-.css-eg0mwd-MuiSlider-thumb{
+
+.css-eg0mwd-MuiSlider-thumb {
   width: 12px !important;
   color: #fff !important;
   height: 12px !important;
 }
+
 /* CARD */
 .css-o69gx8-MuiCardMedia-root {
- margin: 0 auto !important;
+  margin: 0 auto !important;
   max-width: 250px !important;
   height: 350px !important;
   object-fit: fill !important;
   padding: 20px !important;
 }
+
+.product-info-header-filter-wrapper {
+padding: 0 15px ;
+ cursor: pointer;
+}
+
+
+.product-info-header-filter-container { 
+ cursor: pointer;
+
+background-color: transparent;
+border: none;
+padding: 10px 2px;
+  
+  text-align: center;
+}
+.active {
+  font-weight: bold;
+  color: var(--color-brand-blue);
+  border-bottom: 1.5px solid  var(--color-brand-blue);
+ }

@@ -13,7 +13,7 @@
 export const productData = [
   {
     productImage:
-      "https://rukminim1.flixcart.com/image/612/612/kbv4fww0/cases-covers/back-cover/k/g/d/fashionury-fs-sam-a9-20-tra-original-imaft4ypkbpgzg2r.jpeg?q=70",
+      "https://rukminim1.flixcart.com/image/612/612/kjd6nww0-0/remote-control-toy/5/e/m/infrared-induction-helicopter-hand-sensor-aircraft-usb-charger-2-original-imafyy67ygjwjwtp.jpeg?q=70",
     productDescription: "Fashionury Back Cover for Oppo A5 2020, Oppo",
     productAbsolutePrice: "₹149",
     productMaxPrice: "₹449",
