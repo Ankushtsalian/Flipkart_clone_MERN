@@ -1,38 +1,52 @@
 import React from "react";
+import { useState } from "react";
+import {
+  ProductHeaderFilterContainer,
+  ProductHeaderFilterTitle,
+  ProductHeaderFilterTitleContainer,
+  ProductHeaderFilterValue,
+  ProductHeaderFilterValueContainer,
+  ProductMenuHeader,
+  ProductPath,
+  StyledProductInfoHeaderWrapper,
+} from "../Styles/ProductInfoHeader";
+import { productInfoHeaderFilterData } from "../Utils/productInfoHeaderFilterData";
 
 const ProductInfoHeader = () => {
+  const [activeFilter, setActiveFilter] = useState("Popularity");
+
+  const handleProductInfoHeaderFilter = (activeFilterId) =>
+    setActiveFilter(activeFilterId);
+
   return (
-    <div style={{ borderBottom: "1px solid black", padding: "10px" }}>
-      <div style={{ padding: "0 10px 0 0" }}>
+    <StyledProductInfoHeaderWrapper>
+      <ProductPath>
         <div>PATH of product menu</div>
-      </div>
-      <div style={{ padding: "10px 10px 0 0" }}>
+      </ProductPath>
+      <ProductMenuHeader>
         <div>Menu Header</div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "40%",
-        }}
-      >
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Sort By
-        </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Popularity
-        </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Price -- Low to High
-        </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Price -- High to Low
-        </div>
-        <div style={{ padding: "10px 10px 5px 0", cursor: "pointer" }}>
-          Newest First
-        </div>
-      </div>
-    </div>
+      </ProductMenuHeader>
+
+      <ProductHeaderFilterContainer>
+        <ProductHeaderFilterTitleContainer>
+          <ProductHeaderFilterTitle>Sort By</ProductHeaderFilterTitle>
+        </ProductHeaderFilterTitleContainer>
+
+        {productInfoHeaderFilterData.map((filterData, index) => {
+          return (
+            <ProductHeaderFilterValueContainer key={index}>
+              <ProductHeaderFilterValue
+                activeFilter={activeFilter}
+                filterData={filterData}
+                onClick={() => handleProductInfoHeaderFilter(filterData)}
+              >
+                {filterData}
+              </ProductHeaderFilterValue>
+            </ProductHeaderFilterValueContainer>
+          );
+        })}
+      </ProductHeaderFilterContainer>
+    </StyledProductInfoHeaderWrapper>
   );
 };
 

@@ -16,19 +16,21 @@ const ProductCard = ({ product }) => {
     isFreeDeliveryEligible,
     isBankOfferEligible,
   } = product;
-  console.log(
-    productImage,
-    productDescription,
-    productAbsolutePrice,
-    productMaxPrice,
-    productDiscount,
-    isFlipkartAssuredProduct,
-    isFreeDeliveryEligible,
-    isBankOfferEligible
-  );
+
   return (
-    <div style={{ width: "25%", Height: "500px", padding: "10px 5px 0" }}>
-      <Card sx={{ width: "100%", height: "100%" }}>
+    <div
+      style={{
+        width: "25%",
+        Height: "500px",
+        padding: "10px 5px 0",
+      }}
+    >
+      <Card
+        sx={{
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <CardActionArea>
           <CardMedia component="img" image={productImage} alt="green iguana" />
           <CardContent>

@@ -6,6 +6,8 @@ const errorMessage = (error, thunkAPI) => {
     error.message ||
     error.toString();
   toastError(message);
+  if (message === "Network Error") return { errorStatusCode: 404, message };
+
   if (error.response.status !== 400)
     return { errorStatusCode: error.response.status, message };
   if (error.response.status === 400) return { errorStatusCode: 0, message };
