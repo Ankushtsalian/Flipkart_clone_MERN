@@ -1,4 +1,7 @@
+import { Checkbox } from "@mui/material";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAdminMobileProductInput } from "../Redux/Product-Store/Product-Slice";
 import {
   AdminProductFormInput,
   AdminProductFormInputContainer,
@@ -16,6 +19,10 @@ const AdminProductCardDetail = () => {
     "isFreeDeliveryEligible",
     "isBankOfferEligible",
   ];
+
+  const { mobile } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   return (
     <>
       {productCardDetail.map((value, index) => {
@@ -23,10 +30,17 @@ const AdminProductCardDetail = () => {
           <AdminProductFormRowContainer key={index}>
             <AdminProductFormValue>{value} : </AdminProductFormValue>
             <AdminProductFormInputContainer>
-              <AdminProductFormInput
-                placeholder={value}
-                style={{ width: "100%" }}
-              />
+              {value.startsWith("is") ? (
+                <Checkbox />
+              ) : (
+                <AdminProductFormInput
+                  placeholder={value}
+                  name={value}
+                  onChange={(event) =>
+                    dispatch(handleAdminMobileProductInput(event.target))
+                  }
+                />
+              )}
             </AdminProductFormInputContainer>
           </AdminProductFormRowContainer>
         );

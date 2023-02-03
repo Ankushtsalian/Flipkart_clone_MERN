@@ -61,13 +61,19 @@ const productMobileSchema = new mongoose.Schema({
     type: String,
   },
   isFlipkartAssuredProduct: {
-    type: String,
+    type: Boolean,
+    required: [true, "Please Provide password"],
+    default: false,
   },
   isFreeDeliveryEligible: {
-    type: String,
+    type: Boolean,
+    required: [true, "Please Provide password"],
+    default: false,
   },
   isBankOfferEligible: {
-    type: String,
+    type: Boolean,
+    required: [true, "Please Provide password"],
+    default: false,
   },
 });
 
