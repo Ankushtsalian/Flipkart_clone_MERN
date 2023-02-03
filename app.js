@@ -21,6 +21,7 @@ const cookieParser = require("cookie-parser");
 
 const connectDB = require("./db/connect");
 const user = require("./Routers/User");
+const Product = require("./Routers/Product");
 
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
@@ -36,6 +37,7 @@ if (process.env.NODE_ENV !== "production") {
 
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use("/", user);
+app.use("/product", Product);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

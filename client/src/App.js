@@ -6,12 +6,24 @@ import Product from "./Pages/Product";
 import Home from "./Pages/Home";
 import VerifyEmail from "./Components/VerifyEmail";
 import ResetPassword from "./Components/ResetPassword";
+
+import AdminProtected from "./Pages/AdminProtected";
+import AdminProduct from "./Pages/AdminProduct";
 function App() {
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<Navbar />}>
+            <Route
+              path="Admin"
+              element={
+                <AdminProtected>
+                  <AdminProduct />
+                </AdminProtected>
+              }
+            />
+
             <Route index element={<Home />} />
             <Route path="Product" element={<Product />} />
             <Route path="/user/reset-password" element={<ResetPassword />} />

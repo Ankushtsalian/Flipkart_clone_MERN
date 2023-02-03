@@ -7,20 +7,12 @@ import {
   SectionProductWrapper,
   StyledProductMainWrapper,
 } from "../Styles/Product";
+import { filterValue } from "../Utils/productData";
 import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
 import ProductInfo from "./ProductInfo";
 
 const ProductLayout = () => {
-  const filterValue = [
-    "BRAND",
-    "COLOR",
-    "MATERIAL",
-    "AVAILABILITY",
-    "THEME",
-    "POPULAR COLLECTIONS",
-    "GST INVOICE AVAILABLE",
-  ];
   return (
     <ProductMainContainer>
       <StyledProductMainWrapper>

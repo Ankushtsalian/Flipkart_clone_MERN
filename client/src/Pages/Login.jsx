@@ -27,6 +27,8 @@ import {
 } from "../Redux/Auth-Store/Auth-Slice";
 import { useQuery } from "../Hooks/useQuery";
 import { Navigate, useNavigate } from "react-router-dom";
+import Button from "../Components/Button";
+import { StyledButton } from "../Styles/Button";
 
 const Login = () => {
   const {
@@ -109,19 +111,19 @@ const Login = () => {
                 <a href="#">Privacy Policy.</a>
               </p>
               {!isForgotPassword && !isResetPassword && isLoginPage && (
-                <button onClick={handleLogin}>Login</button>
+                <StyledButton onClick={handleLogin}>Login</StyledButton>
               )}
               {!isForgotPassword && !isResetPassword && !isLoginPage && (
-                <button
+                <StyledButton
                   onClick={() =>
                     dispatch(registerUser({ name, email, password }))
                   }
                 >
                   Create an account
-                </button>
+                </StyledButton>
               )}
               {isResetPassword && (
-                <button
+                <StyledButton
                   onClick={() =>
                     dispatch(
                       resetPassword({
@@ -133,15 +135,15 @@ const Login = () => {
                   }
                 >
                   Reset Password
-                </button>
+                </StyledButton>
               )}
 
               {isForgotPassword && (
-                <button
+                <StyledButton
                   onClick={() => dispatch(verifyForgotPassword({ email }))}
                 >
                   Continue
-                </button>
+                </StyledButton>
               )}
 
               {!isForgotPassword && (

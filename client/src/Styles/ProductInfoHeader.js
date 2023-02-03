@@ -17,7 +17,7 @@ const ProductHeaderFilterContainer = styled.div`
 
 const ProductHeaderFilterTitleContainer = styled.div`
   cursor: pointer;
-  padding: 2px 0;
+  padding: 2px 5px 2px 0;
   cursor: pointer;
 `;
 const ProductHeaderFilterTitle = styled.div`
