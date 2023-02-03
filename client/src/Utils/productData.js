@@ -67,3 +67,18 @@ export const productData = [
     isBankOfferEligible: "Bank Offer",
   },
 ];
+
+export const filterValue = [
+  "PRICE",
+  "BRAND",
+  "COLOR",
+  "RAM",
+  "INTERNAL STORAGE",
+  "THEME",
+  "POPULAR COLLECTIONS",
+  "GST INVOICE AVAILABLE",
+  "BATTERY CAPACITY",
+  " SCREEN SIZE",
+  "PRIMARY CAMERA",
+  "SECONDARY CAMERA",
+];

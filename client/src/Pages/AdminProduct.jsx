@@ -1,4 +1,11 @@
 import React from "react";
+import AdminProductCreation from "../Components/AdminProductCreation";
+import AdminSidebar from "../Components/AdminSidebar";
+import {
+  AdminProductListContainer,
+  AdminProductListSection,
+  AdminProductMain,
+} from "../Styles/AdminProduct";
 import {
   AsideProductContainer,
   AsideProductWrapper,
@@ -10,32 +17,21 @@ import {
 const AdminProduct = () => {
   return (
     <ProductMainContainer>
-      <div
-        style={{
-          minWidth: "978px",
-          /* max-width: 1500px, */
-          width: "100%",
-          padding: " 0 10px 10px",
-          /* max-width: 1680px, */
-          fontsize: "13px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "flex-start",
-
-          margin: "0 auto",
-          gap: "10px",
-          minHeight: "100%",
-          marginBottom: "30px",
-          flex: "0 0 auto",
-        }}
-      >
+      <AdminProductMain>
         <AsideProductWrapper>
-          <AsideProductContainer></AsideProductContainer>
+          <AsideProductContainer>
+            <AdminProductListContainer>
+              <AdminProductListSection>Products</AdminProductListSection>
+              <AdminSidebar />
+            </AdminProductListContainer>
+          </AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>
-          <SectionProductContainer></SectionProductContainer>
+          <SectionProductContainer>
+            <AdminProductCreation />
+          </SectionProductContainer>
         </SectionProductWrapper>
-      </div>
+      </AdminProductMain>
     </ProductMainContainer>
   );
 };
