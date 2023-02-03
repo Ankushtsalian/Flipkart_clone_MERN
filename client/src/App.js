@@ -15,9 +15,15 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Navbar />}>
-            <Route path="Admin" element={<AdminProtected />}>
-              <Route path="Product" element={<AdminProduct />} />
-            </Route>
+            <Route
+              path="Admin"
+              element={
+                <AdminProtected>
+                  <AdminProduct />
+                </AdminProtected>
+              }
+            />
+
             <Route index element={<Home />} />
             <Route path="Product" element={<Product />} />
             <Route path="/user/reset-password" element={<ResetPassword />} />

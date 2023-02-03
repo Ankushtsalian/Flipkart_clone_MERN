@@ -5,27 +5,9 @@ import {
   ProductMainContainer,
   SectionProductContainer,
   SectionProductWrapper,
-  StyledProductMainWrapper,
 } from "../Styles/Product";
-import FilterDropdown from "../Components/FilterDropdown";
-import PriceRange from "../Components/PriceRange";
-import ProductInfo from "../Components/ProductInfo";
-import ProductInfoHeader from "../Components/ProductInfoHeader";
-import {
-  ProductMenuHeader,
-  ProductPath,
-  StyledProductInfoHeaderWrapper,
-} from "../Styles/ProductInfoHeader";
+
 const AdminProduct = () => {
-  const filterValue = [
-    "BRAND",
-    "COLOR",
-    "MATERIAL",
-    "AVAILABILITY",
-    "THEME",
-    "POPULAR COLLECTIONS",
-    "GST INVOICE AVAILABLE",
-  ];
   return (
     <ProductMainContainer>
       <div
@@ -51,16 +33,7 @@ const AdminProduct = () => {
           <AsideProductContainer></AsideProductContainer>
         </AsideProductWrapper>
         <SectionProductWrapper>
-          <SectionProductContainer>
-            {/* <StyledProductInfoHeaderWrapper> */}
-            {/* <ProductPath>
-                <div>PATH of product menu</div>
-              </ProductPath> */}
-            {/* <ProductMenuHeader>
-                <div>Menu Header</div>
-              </ProductMenuHeader> */}
-            {/* </StyledProductInfoHeaderWrapper> */}
-          </SectionProductContainer>
+          <SectionProductContainer></SectionProductContainer>
         </SectionProductWrapper>
       </div>
     </ProductMainContainer>

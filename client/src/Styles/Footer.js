@@ -25,6 +25,9 @@ const FooterContainer = styled.div`
 
 const FooterValue = styled.div`
   margin-left: 5px;
+  & a {
+    color: #fff;
+  }
 `;
 const FooterNav = styled.div`
   display: flex;
