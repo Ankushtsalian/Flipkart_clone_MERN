@@ -1,7 +1,7 @@
 import customFetch from "../../Utils/customFetch";
 import errorMessage from "../../Utils/Error-Message";
 import { toastSuccess } from "../../Utils/toastMessage";
-import { handleReset } from "./Auth-Slice";
+import { handleReset } from "./Product-Slice";
 
 export const loginUserThunk = async (url, formInput, thunkAPI) => {
   try {

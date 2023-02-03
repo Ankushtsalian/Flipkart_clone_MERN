@@ -20,9 +20,10 @@ const AdminProductCardDetail = () => {
     "isBankOfferEligible",
   ];
 
-  const { mobile } = useSelector((state) => state.user);
+  const { mobile } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
+  console.log(mobile);
   return (
     <>
       {productCardDetail.map((value, index) => {
@@ -31,7 +32,12 @@ const AdminProductCardDetail = () => {
             <AdminProductFormValue>{value} : </AdminProductFormValue>
             <AdminProductFormInputContainer>
               {value.startsWith("is") ? (
-                <Checkbox />
+                <Checkbox
+                  name={value}
+                  onChange={(event) =>
+                    dispatch(handleAdminMobileProductInput(event.target))
+                  }
+                />
               ) : (
                 <AdminProductFormInput
                   placeholder={value}

@@ -28,8 +28,9 @@ const productSlice = createSlice({
 
   reducers: {
     handleAdminMobileProductInput: (state, { payload }) => {
-      console.log(payload);
-      // state.mobile = payload;
+      // console.log(state.mobile);
+      // state.mobile = payload.value;
+      state.mobile = { ...state.mobile, [payload.name]: payload.value };
     },
   },
 });

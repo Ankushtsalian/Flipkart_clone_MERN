@@ -6,8 +6,13 @@ import {
   AdminProductFormRowContainer,
   AdminProductFormValue,
 } from "../Styles/AdminProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { handleAdminMobileProductInput } from "../Redux/Product-Store/Product-Slice";
 
 const AdminForm = () => {
+  const { mobile } = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+
   return (
     <>
       {filterValue.map((product, index) => (
@@ -16,7 +21,13 @@ const AdminForm = () => {
             <span>{product} : </span>
           </AdminProductFormValue>
           <AdminProductFormInputContainer>
-            <AdminProductFormInput placeholder={product} />
+            <AdminProductFormInput
+              placeholder={product}
+              name={product}
+              onChange={(event) =>
+                dispatch(handleAdminMobileProductInput(event.target))
+              }
+            />
           </AdminProductFormInputContainer>
         </AdminProductFormRowContainer>
       ))}
