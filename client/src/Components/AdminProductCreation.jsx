@@ -1,6 +1,7 @@
 import { Input } from "@mui/material";
 import React from "react";
 import { filterValue } from "../Utils/productData";
+import Button from "./Button";
 
 const AdminProductCreation = () => {
   return (
@@ -16,26 +17,29 @@ const AdminProductCreation = () => {
               border: "1px solid black",
             }}
           >
-            {filterValue.map((product, index) => (
-              <div
-                style={{
-                  display: "flex",
-                  width: "700px",
-                  //   border: "1px solid black",
-                  justifyContent: "space-between",
-                }}
-                key={product}
-              >
+            <>
+              {filterValue.map((product, index) => (
                 <div
-                  style={{ margin: "10px", width: "30%", fontWeight: "bold" }}
+                  style={{
+                    display: "flex",
+                    width: "700px",
+                    //   border: "1px solid black",
+                    justifyContent: "space-between",
+                  }}
+                  key={product}
                 >
-                  <span>{product} : </span>
+                  <div
+                    style={{ margin: "10px", width: "30%", fontWeight: "bold" }}
+                  >
+                    <span>{product} : </span>
+                  </div>
+                  <div style={{ margin: "10px", width: "70%" }}>
+                    <Input placeholder={product} style={{ width: "100%" }} />
+                  </div>
                 </div>
-                <div style={{ margin: "10px", width: "70%" }}>
-                  <Input placeholder={product} style={{ width: "100%" }} />
-                </div>
-              </div>
-            ))}
+              ))}
+              <Button>Submit</Button>
+            </>
           </form>
         </div>
       </div>
