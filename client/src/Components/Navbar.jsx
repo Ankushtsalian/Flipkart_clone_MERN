@@ -86,6 +86,11 @@ const Navbar = () => {
                     <LogoutWrapper>
                       <Logout />
                     </LogoutWrapper>
+                    {user?.role === "Admin" && (
+                      <div style={{ padding: "10px" }}>
+                        <Link to="/admin">{user?.role}</Link>
+                      </div>
+                    )}
                   </UserProfile>
                 </ProfileContainer>
               ) : (

@@ -21,11 +21,7 @@ const Footer = () => {
                 {data?.svg && (
                   <FooterValueSvg src={data?.svg} alt="./Assets/Footer1.svg" />
                 )}
-                {data.value && (
-                  <FooterValue>
-                    <Link to="/admin">{data.value}</Link>
-                  </FooterValue>
-                )}
+                {data.value && <FooterValue>{data.value}</FooterValue>}
               </FooterNav>
             );
           })}
