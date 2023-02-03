@@ -30,7 +30,12 @@ const productSlice = createSlice({
     handleAdminMobileProductInput: (state, { payload }) => {
       // console.log(state.mobile);
       // state.mobile = payload.value;
-      state.mobile = { ...state.mobile, [payload.name]: payload.value };
+      state.mobile = {
+        ...state.mobile,
+        [payload.name]: payload.name.startsWith("is")
+          ? !!payload.value
+          : payload.value,
+      };
     },
   },
 });

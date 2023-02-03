@@ -9,14 +9,23 @@ import {
 import AdminProductCardDetail from "./AdminProductCardDetail";
 import AdminProductFile from "./AdminProductFile";
 import AdminForm from "./AdminForm";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminProductCreation = () => {
+  const { mobile } = useSelector((state) => state.product);
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(mobile);
+  };
+
   return (
     <AdminProductFormWrapper>
       <div>
         <AdminProductFormHeader>Admin header</AdminProductFormHeader>
         <AdminProductFormContainer>
-          <AdminProductForm>
+          <AdminProductForm onSubmit={handleSubmit}>
             <AdminForm />
             <AdminProductFile />
 
