@@ -10,14 +10,15 @@ import AdminProductCardDetail from "./AdminProductCardDetail";
 import AdminProductFile from "./AdminProductFile";
 import AdminForm from "./AdminForm";
 import { useDispatch, useSelector } from "react-redux";
+import { createProduct } from "../Redux/Product-Store/Product-Slice";
 
 const AdminProductCreation = () => {
-  const { mobile } = useSelector((state) => state.product);
+  const { mobile, productType } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(mobile);
+    dispatch(createProduct({ mobile, productType }));
   };
 
   return (

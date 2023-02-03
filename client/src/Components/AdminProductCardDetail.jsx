@@ -23,7 +23,6 @@ const AdminProductCardDetail = () => {
   const { mobile } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  console.log(mobile);
   return (
     <>
       {productCardDetail.map((value, index) => {

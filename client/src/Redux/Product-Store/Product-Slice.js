@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toastSuccess } from "../../Utils/toastMessage";
+import { createProductThunk } from "./Product-Thunk";
 // import {
 //   loginUserThunk,
 //   logoutUserThunk,
@@ -11,25 +12,26 @@ import { toastSuccess } from "../../Utils/toastMessage";
 
 const initialState = {
   isLoading: false,
-
+  productType: "Mobile",
   mobile: {},
 };
 
-// export const loginUser = createAsyncThunk(
-//   "user/loginUser",
-//   (formInput, thunkAPI) => {
-//     return loginUserThunk("/login", formInput, thunkAPI);
-//   }
-// );
+export const createProduct = createAsyncThunk(
+  "product/createProduct",
+  ({ mobile, productType }, thunkAPI) => {
+    return createProductThunk(`/product/${productType}`, mobile, thunkAPI);
+  }
+);
 
 const productSlice = createSlice({
   name: "product",
   initialState,
 
   reducers: {
+    ProductType: (state, { payload }) => {
+      state.productType = payload;
+    },
     handleAdminMobileProductInput: (state, { payload }) => {
-      // console.log(state.mobile);
-      // state.mobile = payload.value;
       state.mobile = {
         ...state.mobile,
         [payload.name]: payload.name.startsWith("is")
@@ -40,5 +42,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { handleAdminMobileProductInput } = productSlice.actions;
+export const { handleAdminMobileProductInput, ProductType } =
+  productSlice.actions;
 export default productSlice.reducer;

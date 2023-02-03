@@ -3,12 +3,11 @@ import errorMessage from "../../Utils/Error-Message";
 import { toastSuccess } from "../../Utils/toastMessage";
 import { handleReset } from "./Product-Slice";
 
-export const loginUserThunk = async (url, formInput, thunkAPI) => {
+export const createProductThunk = async (url, product, thunkAPI) => {
   try {
-    const response = await customFetch.post(url, formInput, {
+    const response = await customFetch.post(url, product, {
       withCredentials: true,
     });
-
     toastSuccess(response.data.msg);
 
     return response.data.user;
@@ -19,72 +18,72 @@ export const loginUserThunk = async (url, formInput, thunkAPI) => {
   }
 };
 
-export const registerUserThunk = async (url, formInput, thunkAPI) => {
-  try {
-    const response = await customFetch.post(url, formInput);
+// export const registerUserThunk = async (url, formInput, thunkAPI) => {
+//   try {
+//     const response = await customFetch.post(url, formInput);
 
-    toastSuccess(response.data.msg);
+//     toastSuccess(response.data.msg);
 
-    return response.data.msg;
-  } catch (error) {
-    const { errorStatusCode, message } = errorMessage(error);
+//     return response.data.msg;
+//   } catch (error) {
+//     const { errorStatusCode, message } = errorMessage(error);
 
-    return thunkAPI.rejectWithValue({ errorStatusCode, message });
-  }
-};
+//     return thunkAPI.rejectWithValue({ errorStatusCode, message });
+//   }
+// };
 
-export const verifyForgotPasswordThunk = async (url, formInput, thunkAPI) => {
-  try {
-    const response = await customFetch.post(url, formInput);
+// export const verifyForgotPasswordThunk = async (url, formInput, thunkAPI) => {
+//   try {
+//     const response = await customFetch.post(url, formInput);
 
-    toastSuccess(response.data.msg);
+//     toastSuccess(response.data.msg);
 
-    return response.data.msg.token;
-  } catch (error) {
-    const { errorStatusCode, message } = errorMessage(error);
+//     return response.data.msg.token;
+//   } catch (error) {
+//     const { errorStatusCode, message } = errorMessage(error);
 
-    return thunkAPI.rejectWithValue({ errorStatusCode, message });
-  }
-};
+//     return thunkAPI.rejectWithValue({ errorStatusCode, message });
+//   }
+// };
 
-export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
-  try {
-    const response = await customFetch.post(url, formInput);
+// export const ResetPasswordThunk = async (url, formInput, thunkAPI) => {
+//   try {
+//     const response = await customFetch.post(url, formInput);
 
-    toastSuccess(response.data);
+//     toastSuccess(response.data);
 
-    return response.data;
-  } catch (error) {
-    const { errorStatusCode, message } = errorMessage(error);
+//     return response.data;
+//   } catch (error) {
+//     const { errorStatusCode, message } = errorMessage(error);
 
-    return thunkAPI.rejectWithValue({ errorStatusCode, message });
-  }
-};
+//     return thunkAPI.rejectWithValue({ errorStatusCode, message });
+//   }
+// };
 
-export const verifyEmailThunk = async (url, formInput, thunkAPI) => {
-  try {
-    const response = await customFetch.post(url, formInput);
+// export const verifyEmailThunk = async (url, formInput, thunkAPI) => {
+//   try {
+//     const response = await customFetch.post(url, formInput);
 
-    toastSuccess(response.data.msg);
+//     toastSuccess(response.data.msg);
 
-    return response.data.msg;
-  } catch (error) {
-    const { errorStatusCode, message } = errorMessage(error);
+//     return response.data.msg;
+//   } catch (error) {
+//     const { errorStatusCode, message } = errorMessage(error);
 
-    return thunkAPI.rejectWithValue({ errorStatusCode, message });
-  }
-};
+//     return thunkAPI.rejectWithValue({ errorStatusCode, message });
+//   }
+// };
 
-export const logoutUserThunk = async (url, thunkAPI) => {
-  try {
-    const response = await customFetch.get(url, {
-      withCredentials: true,
-    });
+// export const logoutUserThunk = async (url, thunkAPI) => {
+//   try {
+//     const response = await customFetch.get(url, {
+//       withCredentials: true,
+//     });
 
-    thunkAPI.dispatch(handleReset());
+//     thunkAPI.dispatch(handleReset());
 
-    return Promise.resolve();
-  } catch (error) {
-    return Promise.reject();
-  }
-};
+//     return Promise.resolve();
+//   } catch (error) {
+//     return Promise.reject();
+//   }
+// };

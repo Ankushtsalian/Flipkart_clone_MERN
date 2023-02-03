@@ -5,12 +5,9 @@ const { StatusCodes } = require("http-status-codes");
 const createProduct = async (req, res) => {
   const { productType } = req.params;
 
-  const product = await Product.create(req.body);
+  const product = await Product.create(req.body.product);
 
-  res.status(StatusCodes.CREATED).json({
-    product,
-    productType,
-  });
+  res.status(StatusCodes.CREATED).json({ msg: "product created" });
 };
 
 module.exports = { createProduct };
