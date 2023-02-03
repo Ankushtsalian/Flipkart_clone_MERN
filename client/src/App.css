@@ -174,10 +174,10 @@ Variables
   --nav-logo-min-width: 6.5rem;
   --nav-btn-min-width: 7rem;
   --nav-max-height: 3.5rem;
-  --nav-profile-max-width: 9.375rem;
-  --nav-input-max-width: 35.25rem;
-
-}
+    --nav-profile-max-width: 9.375rem;
+    --nav-input-max-width: 35.25rem;
+    --box-shadow-dark: 0 2px 5px 0 rgb(0 0 0 / 16%);
+  }
 
 /*
 =============== 
@@ -296,6 +296,10 @@ p {
   .section {
     width: 95vw;
   }
+}
+
+.css-q0jhri-MuiInputBase-root-MuiInput-root::before,.css-q0jhri-MuiInputBase-root-MuiInput-root:after,.css-q0jhri-MuiInputBase-root-MuiInput-root:hover {
+  border-bottom: 0 !important;
 }
 
 .carousel .thumbs,
