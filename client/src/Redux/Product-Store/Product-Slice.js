@@ -1,14 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toastSuccess } from "../../Utils/toastMessage";
-import { createProductThunk } from "./Product-Thunk";
-// import {
-//   loginUserThunk,
-//   logoutUserThunk,
-//   registerUserThunk,
-//   ResetPasswordThunk,
-//   verifyEmailThunk,
-//   verifyForgotPasswordThunk,
-// } from "./Auth-Thunk";
+import { createProductThunk, productFileThunk } from "./Product-Thunk";
 
 const initialState = {
   isLoading: false,
@@ -20,6 +12,13 @@ export const createProduct = createAsyncThunk(
   "product/createProduct",
   ({ mobile, productType }, thunkAPI) => {
     return createProductThunk(`/product/${productType}`, mobile, thunkAPI);
+  }
+);
+
+export const productFile = createAsyncThunk(
+  "product/productFile",
+  (formData, thunkAPI) => {
+    return productFileThunk("/product/upload", formData, thunkAPI);
   }
 );
 

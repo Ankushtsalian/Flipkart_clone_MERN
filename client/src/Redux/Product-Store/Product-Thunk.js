@@ -1,3 +1,4 @@
+import { Header } from "../../Utils/axiosHeader";
 import customFetch from "../../Utils/customFetch";
 import errorMessage from "../../Utils/Error-Message";
 import { toastSuccess } from "../../Utils/toastMessage";
@@ -18,6 +19,34 @@ export const createProductThunk = async (url, product, thunkAPI) => {
   }
 };
 
+export const productFileThunk = async (url, formData, thunkAPI) => {
+  console.log(formData);
+  try {
+    const {
+      data: {
+        image: { src },
+        public_id,
+      },
+    } = await customFetch.post(
+      url,
+      formData,
+      Header(true)
+      // {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // }
+      // authHeader(token, true)
+    );
+
+    console.log({ src, public_id });
+
+    return { src, public_id };
+  } catch (error) {
+    const { errorStatusCode, message } = errorMessage(error, thunkAPI);
+    return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};
 // export const registerUserThunk = async (url, formInput, thunkAPI) => {
 //   try {
 //     const response = await customFetch.post(url, formInput);
