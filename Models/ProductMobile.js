@@ -9,7 +9,7 @@ const {
 
 const productMobileSchema = new mongoose.Schema({
   PRICE: {
-    type: String,
+    type: Number,
   },
   BRAND: {
     type: String,

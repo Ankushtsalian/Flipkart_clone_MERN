@@ -39,6 +39,7 @@ const productSlice = createSlice({
       };
     },
   },
+
   extraReducers: (builder) => {
     builder.addCase(productFile.pending, (state) => {
       state.isLoading = true;
