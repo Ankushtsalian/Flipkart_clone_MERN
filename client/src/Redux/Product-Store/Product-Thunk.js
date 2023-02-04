@@ -20,7 +20,6 @@ export const createProductThunk = async (url, product, thunkAPI) => {
 };
 
 export const productFileThunk = async (url, formData, thunkAPI) => {
-  console.log(formData);
   try {
     const {
       data: {
@@ -38,8 +37,6 @@ export const productFileThunk = async (url, formData, thunkAPI) => {
       // }
       // authHeader(token, true)
     );
-
-    console.log({ src, public_id });
 
     return { src, public_id };
   } catch (error) {

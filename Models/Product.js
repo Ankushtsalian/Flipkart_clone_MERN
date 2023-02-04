@@ -75,6 +75,9 @@ const productMobileSchema = new mongoose.Schema({
     required: [true, "Please Provide password"],
     default: false,
   },
+  public_id: {
+    type: String,
+  },
 });
 
 // userSchema.pre("save", async function () {

@@ -7,8 +7,8 @@ const { StatusCodes } = require("http-status-codes");
 
 const createProduct = async (req, res) => {
   const { productType } = req.params;
-
-  const product = await Product.create(req.body.product);
+  console.log(req.body);
+  const product = await Product.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ msg: "product created" });
 };

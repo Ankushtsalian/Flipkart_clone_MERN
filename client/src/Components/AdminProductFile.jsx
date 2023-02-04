@@ -12,11 +12,10 @@ const AdminProductFile = () => {
   const {} = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const handleFileInput = (event) => {
+  const handleFileInput = async (event) => {
     const imageFile = event.target.files[0];
     let formData = new FormData();
     formData = { ...formData, ["image"]: imageFile };
-    // console.log(formData);
     dispatch(productFile(formData));
   };
   return (

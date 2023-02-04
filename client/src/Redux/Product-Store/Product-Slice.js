@@ -39,6 +39,31 @@ const productSlice = createSlice({
       };
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(productFile.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(productFile.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.mobile = {
+        ...state.mobile,
+        ["productImage"]: payload.src,
+        ["public_id"]: payload.public_id,
+      };
+    });
+
+    builder.addCase(
+      productFile.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        // state.productList = [];
+
+        state.errorMessage = message;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
+  },
 });
 
 export const { handleAdminMobileProductInput, ProductType } =
