@@ -11,7 +11,11 @@ const initialState = {
 export const createProduct = createAsyncThunk(
   "product/createProduct",
   ({ mobile, productType }, thunkAPI) => {
-    return createProductThunk(`/product/${productType}`, mobile, thunkAPI);
+    return createProductThunk(
+      `/product/${productType}`,
+      { ...mobile, productType },
+      thunkAPI
+    );
   }
 );
 
@@ -39,7 +43,25 @@ const productSlice = createSlice({
       };
     },
   },
+
   extraReducers: (builder) => {
+    builder.addCase(createProduct.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(createProduct.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+    });
+
+    builder.addCase(
+      createProduct.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        state.errorMessage = message;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
+
     builder.addCase(productFile.pending, (state) => {
       state.isLoading = true;
     });

@@ -1,4 +1,4 @@
-const Product = require("../Models/Product");
+const ProductMobile = require("../Models/ProductMobile");
 const path = require("path");
 const CustomAPIError = require("../errors/custom-api");
 const cloudinary = require("cloudinary").v2;
@@ -7,8 +7,7 @@ const { StatusCodes } = require("http-status-codes");
 
 const createProduct = async (req, res) => {
   const { productType } = req.params;
-  console.log(req.body);
-  const product = await Product.create(req.body);
+  if (productType === "Mobile") await ProductMobile.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ msg: "product created" });
 };
