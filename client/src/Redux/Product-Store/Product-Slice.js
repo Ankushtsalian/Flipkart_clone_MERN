@@ -1,14 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toastSuccess } from "../../Utils/toastMessage";
-import { createProductThunk } from "./Product-Thunk";
-// import {
-//   loginUserThunk,
-//   logoutUserThunk,
-//   registerUserThunk,
-//   ResetPasswordThunk,
-//   verifyEmailThunk,
-//   verifyForgotPasswordThunk,
-// } from "./Auth-Thunk";
+import { createProductThunk, productFileThunk } from "./Product-Thunk";
 
 const initialState = {
   isLoading: false,
@@ -20,6 +12,13 @@ export const createProduct = createAsyncThunk(
   "product/createProduct",
   ({ mobile, productType }, thunkAPI) => {
     return createProductThunk(`/product/${productType}`, mobile, thunkAPI);
+  }
+);
+
+export const productFile = createAsyncThunk(
+  "product/productFile",
+  (formData, thunkAPI) => {
+    return productFileThunk("/product/upload", formData, thunkAPI);
   }
 );
 
@@ -39,6 +38,31 @@ const productSlice = createSlice({
           : payload.value,
       };
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(productFile.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(productFile.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.mobile = {
+        ...state.mobile,
+        ["productImage"]: payload.src,
+        ["public_id"]: payload.public_id,
+      };
+    });
+
+    builder.addCase(
+      productFile.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        // state.productList = [];
+
+        state.errorMessage = message;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
   },
 });
 
