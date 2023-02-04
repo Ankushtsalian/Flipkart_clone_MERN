@@ -8,6 +8,9 @@ const {
 } = require("../utils/index");
 
 const productMobileSchema = new mongoose.Schema({
+  productType: {
+    type: String,
+  },
   PRICE: {
     type: Number,
   },
