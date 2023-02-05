@@ -11,6 +11,9 @@ const productMobileSchema = new mongoose.Schema({
   productType: {
     type: String,
   },
+  productSubType: {
+    type: String,
+  },
   PRICE: {
     type: Number,
   },
