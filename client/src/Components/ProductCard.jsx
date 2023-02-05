@@ -8,6 +8,7 @@ import { CardActionArea } from "@mui/material";
 const ProductCard = ({ product }) => {
   const {
     productImage,
+    BRAND,
     productDescription,
     productAbsolutePrice,
     productMaxPrice,
@@ -22,7 +23,7 @@ const ProductCard = ({ product }) => {
       style={{
         width: "25%",
         Height: "500px",
-        padding: "10px 5px 0",
+        padding: "1px",
       }}
     >
       <Card
@@ -42,16 +43,91 @@ const ProductCard = ({ product }) => {
               6,000 species, ranging across all continents except Antarctica
             </Typography> */}
 
-            <div>
-              <div>{productDescription}</div>
-              <p>{productAbsolutePrice}</p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: "column",
+                fontSize: "14px",
+                // height: "150px",
+              }}
+            >
               <div>
-                <span>{productMaxPrice}</span>
-                <span>{productDiscount}</span>
-                <span>{isFlipkartAssuredProduct}</span>
+                <p
+                  style={{
+                    margin: "0",
+                  }}
+                >
+                  {BRAND}
+                </p>
               </div>
-              <p>{isFreeDeliveryEligible}</p>
-              <p>{isBankOfferEligible}</p>
+
+              {isFlipkartAssuredProduct && (
+                <img
+                  style={{
+                    width: "100px",
+                    height: "50px",
+                  }}
+                  src="images/Flipkart_assured.svg"
+                />
+              )}
+              <div
+                style={
+                  {
+                    // maxWidth: "120px",
+                    // border: "1px solid black",
+                  }
+                }
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    flexDirection: "row",
+                    // border: "1px solid red",
+                    maxWidth: "90%",
+                    flexWrap: "wrap",
+                    fontSize: "16px",
+                  }}
+                >
+                  <p
+                    style={{
+                      marginRight: "5px",
+
+                      fontWeight: "bold",
+                    }}
+                  >
+                    ₹{productAbsolutePrice}
+                  </p>
+                  <p
+                    style={{
+                      margin: "0 5px",
+                      textDecorationLine: "line-through",
+                    }}
+                  >
+                    ₹{productMaxPrice}
+                  </p>
+                  <p
+                    style={{
+                      marginLeft: "5px",
+                      color: "var( --color-offer-green)",
+                    }}
+                  >
+                    {productDiscount}
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p>{isFreeDeliveryEligible && "Free delivery"}</p>
+              </div>
+              <div
+                style={{
+                  fontWeight: "bold",
+                  color: "var( --color-offer-green)",
+                }}
+              >
+                <p>{isBankOfferEligible && "Bank Offer"}</p>
+              </div>
             </div>
           </CardContent>
         </CardActionArea>

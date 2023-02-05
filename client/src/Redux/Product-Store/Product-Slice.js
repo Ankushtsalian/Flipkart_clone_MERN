@@ -1,11 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toastSuccess } from "../../Utils/toastMessage";
-import { createProductThunk, productFileThunk } from "./Product-Thunk";
+import {
+  createProductThunk,
+  getProductThunk,
+  productFileThunk,
+} from "./Product-Thunk";
 
 const initialState = {
   isLoading: false,
   productType: "Mobile",
   mobile: {},
+  product: [],
 };
 
 export const createProduct = createAsyncThunk(
@@ -23,6 +28,13 @@ export const productFile = createAsyncThunk(
   "product/productFile",
   (formData, thunkAPI) => {
     return productFileThunk("/product/upload", formData, thunkAPI);
+  }
+);
+
+export const getProduct = createAsyncThunk(
+  "product/getProduct",
+  (productType, thunkAPI) => {
+    return getProductThunk(`/product/${productType}`, productType, thunkAPI);
   }
 );
 
@@ -77,6 +89,26 @@ const productSlice = createSlice({
 
     builder.addCase(
       productFile.rejected,
+      (state, { payload: { errorStatusCode, message } }) => {
+        state.isLoading = false;
+        // state.productList = [];
+
+        state.errorMessage = message;
+        state.errorStatusCode = errorStatusCode;
+      }
+    );
+
+    builder.addCase(getProduct.pending, (state) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(getProduct.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.product = payload;
+    });
+
+    builder.addCase(
+      getProduct.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
         state.isLoading = false;
         // state.productList = [];
