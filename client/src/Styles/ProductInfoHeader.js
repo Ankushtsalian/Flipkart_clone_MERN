@@ -10,6 +10,8 @@ const ProductPath = styled.div`
 `;
 const ProductMenuHeader = styled.div`
   padding: 10px 10px 0 0;
+  font-weight: bold;
+  font-size: 16px;
 `;
 const ProductHeaderFilterContainer = styled.div`
   display: flex;
