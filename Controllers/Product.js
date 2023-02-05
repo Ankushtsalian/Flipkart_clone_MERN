@@ -7,9 +7,20 @@ const { StatusCodes } = require("http-status-codes");
 
 const createProduct = async (req, res) => {
   const { productType } = req.params;
-  if (productType === "Mobile") await ProductMobile.create(req.body);
+  if (productType === "mobile" || productType === "Mobile")
+    await ProductMobile.create(req.body);
 
   res.status(StatusCodes.CREATED).json({ msg: "product created" });
+};
+
+const getProduct = async (req, res) => {
+  const { productType } = req.params;
+  console.log(productType);
+  let product;
+  if (productType === "mobile" || productType === "Mobile")
+    product = await ProductMobile.find();
+
+  res.status(StatusCodes.OK).json({ product, productType });
 };
 
 const uploadProductImageToCloud = async (req, res) => {
@@ -34,4 +45,4 @@ const uploadProductImageToCloud = async (req, res) => {
   });
 };
 
-module.exports = { createProduct, uploadProductImageToCloud };
+module.exports = { createProduct, getProduct, uploadProductImageToCloud };

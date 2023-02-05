@@ -26,21 +26,23 @@ export const productFileThunk = async (url, formData, thunkAPI) => {
         image: { src },
         public_id,
       },
-    } = await customFetch.post(
-      url,
-      formData,
-      Header(true)
-      // {
-      //   headers: {
-      //     "Content-Type": "multipart/form-data",
-      //   },
-      // }
-      // authHeader(token, true)
-    );
+    } = await customFetch.post(url, formData, Header(true));
 
     return { src, public_id };
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error, thunkAPI);
+    return thunkAPI.rejectWithValue({ errorStatusCode, message });
+  }
+};
+export const getProductThunk = async (url, productType, thunkAPI) => {
+  try {
+    const response = await customFetch.get(url, productType, {
+      withCredentials: true,
+    });
+    return response.data.product;
+  } catch (error) {
+    const { errorStatusCode, message } = errorMessage(error);
+
     return thunkAPI.rejectWithValue({ errorStatusCode, message });
   }
 };
