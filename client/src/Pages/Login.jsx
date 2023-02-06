@@ -26,8 +26,7 @@ import {
   verifyForgotPassword,
 } from "../Redux/Auth-Store/Auth-Slice";
 import { useQuery } from "../Hooks/useQuery";
-import { Navigate, useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
+import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../Styles/Button";
 
 const Login = () => {

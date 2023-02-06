@@ -11,6 +11,9 @@ const productMobileSchema = new mongoose.Schema({
   productType: {
     type: String,
   },
+  productSubType: {
+    type: String,
+  },
   PRICE: {
     type: Number,
   },
@@ -83,21 +86,27 @@ const productMobileSchema = new mongoose.Schema({
   },
 });
 
-// userSchema.pre("save", async function () {
-//   //this.isModified Shows field  that are modified through user.save()
-//   if (!this.isModified("password")) return;
-//   const salt = await bcrypt.genSalt(10);
-//   this.password = await bcrypt.hash(this.password, salt);
-// });
+// productMobileSchema.statics.selectDistinctDataInSchema = async function (
+//   schemaValue
+// ) {
 
-// userSchema.methods.comparePassword = async function (candidatePassword) {
-//   const isMatch = await bcrypt.compare(candidatePassword, this.password);
-//   return isMatch;
-// };
+//   const result = await this.aggregate([
+//     {
+//       $group: {
+//         _id: schemaValue,
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: null,
+//         uniqueFields: { $push: "$_id" },
+//         count: { $sum: 1 },
+//       },
+//     },
+//     { $project: { _id: 0, uniqueFields: 1, count: 1 } },
+//   ]);
 
-// userSchema.methods.verifyJWT = async function (tokenPayload) {
-//   const token = isTokenValid({ tokenPayload });
-//   return token;
+//   return result;
 // };
 
 module.exports = mongoose.model("productMobile", productMobileSchema);

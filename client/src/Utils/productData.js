@@ -69,6 +69,7 @@ export const productData = [
 ];
 
 export const filterValue = [
+  "productSubType",
   "PRICE",
   "BRAND",
   "COLOR",

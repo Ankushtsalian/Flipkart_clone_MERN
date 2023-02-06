@@ -66,9 +66,10 @@ const ProductCard = ({ product }) => {
                 <img
                   style={{
                     width: "100px",
-                    height: "50px",
+                    margin: "10px 0",
+                    height: "30px",
                   }}
-                  src="images/Flipkart_assured.svg"
+                  src="images/Flipkart_assured.png"
                 />
               )}
               <div
@@ -113,7 +114,7 @@ const ProductCard = ({ product }) => {
                       color: "var( --color-offer-green)",
                     }}
                   >
-                    {productDiscount}
+                    {productDiscount}%
                   </p>
                 </div>
               </div>

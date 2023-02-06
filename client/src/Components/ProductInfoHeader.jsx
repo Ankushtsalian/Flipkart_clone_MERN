@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import {
   ProductHeaderFilterContainer,
   ProductHeaderFilterTitle,
@@ -15,6 +16,10 @@ import { productInfoHeaderFilterData } from "../Utils/productInfoHeaderFilterDat
 const ProductInfoHeader = () => {
   const [activeFilter, setActiveFilter] = useState("Popularity");
 
+  const { productType } = useSelector((state) => state.product);
+
+  // const dispatch = useDispatch();
+
   const handleProductInfoHeaderFilter = (activeFilterId) =>
     setActiveFilter(activeFilterId);
 
@@ -24,7 +29,7 @@ const ProductInfoHeader = () => {
         <div>PATH of product menu</div>
       </ProductPath>
       <ProductMenuHeader>
-        <div>Menu Header</div>
+        <div>{productType}</div>
       </ProductMenuHeader>
 
       <ProductHeaderFilterContainer>
