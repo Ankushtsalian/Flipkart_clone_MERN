@@ -11,8 +11,6 @@ const ProductDetail = () => {
     dispatch(getProduct(productType));
   }, []);
 
-  console.log(product);
-
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
