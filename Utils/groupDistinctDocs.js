@@ -4,7 +4,7 @@ let distinctSchemaObjects = [];
 
 const distinctProducts = async function (schemaObjectArray, index) {
   if (index === schemaObjectArray.length) {
-    return "distinctSchemaObjects";
+    return distinctSchemaObjects;
   }
   const distinctProcuctResult = await ProductMobile.find().distinct(
     schemaObjectArray[index]
@@ -13,7 +13,7 @@ const distinctProducts = async function (schemaObjectArray, index) {
     [schemaObjectArray[index]]: distinctProcuctResult,
   });
 
-  await distinctProducts(schemaObjectArray, index + 1);
+  return await distinctProducts(schemaObjectArray, index + 1);
 };
 
 module.exports = distinctProducts;

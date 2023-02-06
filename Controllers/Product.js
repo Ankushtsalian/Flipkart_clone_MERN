@@ -4,22 +4,8 @@ const CustomAPIError = require("../errors/custom-api");
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const { StatusCodes } = require("http-status-codes");
+const distinctProducts = require("../Utils/groupDistinctDocs");
 const productMobileInstance = new ProductMobile();
-let distinctSchemaObjects = [];
-
-const distinctProducts = async (schemaObjectArray, index) => {
-  if (index === schemaObjectArray.length) {
-    return distinctSchemaObjects;
-  }
-  const distinctProcuctResult = await ProductMobile.find().distinct(
-    schemaObjectArray[index]
-  );
-  distinctSchemaObjects.push({
-    [schemaObjectArray[index]]: distinctProcuctResult,
-  });
-
-  await distinctProducts(schemaObjectArray, index + 1);
-};
 
 const createProduct = async (req, res) => {
   const { productType } = req.params;
@@ -57,11 +43,11 @@ const getProduct = async (req, res) => {
 
     /**--------------------USING DISTINCT ARRAY METHOD NEEDS REFRACTOR------- */
 
-    await distinctProducts(schema, 0);
+    const distinctSchemaObjects = await distinctProducts(schema, 0);
 
     product = await ProductMobile.find();
+    res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
   }
-  res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
 };
 
 const uploadProductImageToCloud = async (req, res) => {
