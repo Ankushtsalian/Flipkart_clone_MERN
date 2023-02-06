@@ -85,76 +85,28 @@ const productMobileSchema = new mongoose.Schema({
     type: String,
   },
 });
-// productMobileSchema.statics.selectDistinctDataInSchema = async function () {
-//obtained from mongodB Atlas
-//find match with current product
-//group by specific rating and get average rating of that prod
-//find count or number of reviews of that prod
-//   const data = { a: "$productSubType", b: "$PRICE" };
+
+// productMobileSchema.statics.selectDistinctDataInSchema = async function (
+//   schemaValue
+// ) {
+
 //   const result = await this.aggregate([
 //     {
 //       $group: {
-//         _id: data,
-//         // count: { $sum: 1 },
+//         _id: schemaValue,
 //       },
 //     },
-//     { $group: { _id: 0, uniqueFields: { $push: "$_id" } } },
-//     // { $project: { _id: 0, uniqueFields: 1 } },
+//     {
+//       $group: {
+//         _id: null,
+//         uniqueFields: { $push: "$_id" },
+//         count: { $sum: 1 },
+//       },
+//     },
+//     { $project: { _id: 0, uniqueFields: 1, count: 1 } },
 //   ]);
-//   try {
-//     console.log(result);
-//   } catch (error) {
-//     console.log(error);
-//   }
+
+//   return result;
 // };
-
-// productMobileSchema.pre("save", async function () {
-//   await this.constructor.selectDistinctDataInSchema();
-// });
-// userSchema.pre("save", async function () {
-//   //this.isModified Shows field  that are modified through user.save()
-//   if (!this.isModified("password")) return;
-//   const salt = await bcrypt.genSalt(10);
-//   this.password = await bcrypt.hash(this.password, salt);
-// });
-
-// userSchema.methods.comparePassword = async function (candidatePassword) {
-//   const isMatch = await bcrypt.compare(candidatePassword, this.password);
-//   return isMatch;
-// };
-
-// userSchema.methods.verifyJWT = async function (tokenPayload) {
-//   const token = isTokenValid({ tokenPayload });
-//   return token;
-// };
-
-productMobileSchema.statics.selectDistinctDataInSchema = async function (
-  schemaValue
-) {
-  // const data = {
-  //   // productSubType: "$productSubType",
-  //   schemaValue: `$${schemaValue}`,
-  //   // PRICE: "$PRICE",
-  // };
-  // let data = {};
-  // data[schemaValue] = `$${schemaValue}`;
-  const result = await this.aggregate([
-    {
-      $group: {
-        _id: schemaValue,
-      },
-    },
-    {
-      $group: {
-        _id: null,
-        uniqueFields: { $push: "$_id" },
-        count: { $sum: 1 },
-      },
-    },
-    { $project: { _id: 0, uniqueFields: 1, count: 1 } },
-  ]);
-
-  return result;
-};
 
 module.exports = mongoose.model("productMobile", productMobileSchema);
