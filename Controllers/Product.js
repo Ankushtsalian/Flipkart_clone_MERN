@@ -25,18 +25,36 @@ const getProduct = async (req, res) => {
   });
 
   let completedArray = [];
+  /**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */
+
+  // const mapArray = async (array, index) => {
+  //   if (index === array.length) return;
+  //   val = {
+  //     [array[index]]: `$${array[index]}`,
+  //   };
+  //   const result = await ProductMobile.selectDistinctDataInSchema(val);
+  //   completedArray.push(...result);
+
+  //   await mapArray(array, index + 1);
+  // };
+
+  /**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */
+
+  /**--------------------USING DISTINCT ARRAY METHOD NEEDS REFRACTOR------- */
+
   const mapArray = async (array, index) => {
     if (index === array.length) return;
-    val = {
-      [array[index]]: `$${array[index]}`,
-    };
-    const result = await ProductMobile.selectDistinctDataInSchema(val);
-    completedArray.push(...result);
+
+    const result = await ProductMobile.find().distinct(array[index]);
+    completedArray.push({ [array[index]]: result });
 
     await mapArray(array, index + 1);
   };
 
+  /**--------------------USING DISTINCT ARRAY METHOD NEEDS REFRACTOR------- */
+
   await mapArray(schema, 0);
+
   res.status(StatusCodes.OK).json(completedArray);
 };
 
