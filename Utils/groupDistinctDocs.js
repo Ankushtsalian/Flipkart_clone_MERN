@@ -17,3 +17,18 @@ const distinctProducts = async function (schemaObjectArray, index) {
 };
 
 module.exports = distinctProducts;
+
+// let completedArray = [];
+/**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */
+
+// const mapArray = async (array, index) => {
+//   if (index === array.length) return;
+//   val = {
+//     [array[index]]: `$${array[index]}`,
+//   };
+//   const result = await ProductMobile.selectDistinctDataInSchema(val);
+//   completedArray.push(...result);
+
+//   await mapArray(array, index + 1);
+// };
+/**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */

@@ -5,7 +5,7 @@ const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const { StatusCodes } = require("http-status-codes");
 const distinctProducts = require("../Utils/groupDistinctDocs");
-const productMobileInstance = new ProductMobile();
+// const productMobileInstance = new ProductMobile();
 
 const createProduct = async (req, res) => {
   const { productType } = req.params;
@@ -19,29 +19,11 @@ const getProduct = async (req, res) => {
   const { productType } = req.params;
   let product = [];
 
-  // let completedArray = [];
-  /**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */
-
-  // const mapArray = async (array, index) => {
-  //   if (index === array.length) return;
-  //   val = {
-  //     [array[index]]: `$${array[index]}`,
-  //   };
-  //   const result = await ProductMobile.selectDistinctDataInSchema(val);
-  //   completedArray.push(...result);
-
-  //   await mapArray(array, index + 1);
-  // };
-  /**--------------------USING STATICS INSTANCE NEEDS REFRACTOR------- */
-  // let distinctSchemaObjects = [];
   if (productType === "mobile" || productType === "Mobile") {
     let schema = [];
     ProductMobile.schema.eachPath(function (path) {
       schema.push(path);
     });
-    /**--------------------USING DISTINCT ARRAY METHOD NEEDS REFRACTOR------- */
-
-    /**--------------------USING DISTINCT ARRAY METHOD NEEDS REFRACTOR------- */
 
     const distinctSchemaObjects = await distinctProducts(schema, 0);
 
