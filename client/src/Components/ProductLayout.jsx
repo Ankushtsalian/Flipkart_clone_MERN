@@ -8,7 +8,6 @@ import {
   SectionProductWrapper,
   StyledProductMainWrapper,
 } from "../Styles/Product";
-import { filterValue } from "../Utils/productData";
 import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
 import ProductInfo from "./ProductInfo";
