@@ -5,7 +5,9 @@ import { productData } from "../Utils/productData";
 import ProductCard from "./ProductCard";
 
 const ProductDetail = () => {
-  const { productType, product } = useSelector((state) => state.product);
+  const { productType, product: products } = useSelector(
+    (state) => state.product
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct(productType));
@@ -14,7 +16,7 @@ const ProductDetail = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {product.map((product, index) => (
+        {products.map((product, index) => (
           <ProductCard product={product} key={index} />
         ))}
       </div>
