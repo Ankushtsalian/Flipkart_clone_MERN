@@ -19,37 +19,54 @@ const ProductLayout = memo(() => {
   filterMenuValue.forEach(
     (obj) => (result[Object.keys(obj)] = Object.values(obj))
   );
-  const {
-    productSubType,
-    PRICE,
-    BRAND,
-    COLOR,
-    RAM,
-    INTERNAL_STORAGE,
-    THEME,
-    POPULAR_COLLECTIONS,
-    GST_INVOICE_AVAILABLE,
-    BATTERY_CAPACITY,
-    SCREEN_SIZE,
-    PRIMARY_CAMERA,
-    SECONDARY_CAMERA,
-  } = result;
-  const filters = {
-    productSubType,
-    PRICE,
-    BRAND,
-    COLOR,
-    RAM,
-    INTERNAL_STORAGE,
-    THEME,
-    POPULAR_COLLECTIONS,
-    GST_INVOICE_AVAILABLE,
-    BATTERY_CAPACITY,
-    SCREEN_SIZE,
-    PRIMARY_CAMERA,
-    SECONDARY_CAMERA,
-  };
+  // const {
+  //   productSubType,
+  //   PRICE,
+  //   BRAND,
+  //   COLOR,
+  //   RAM,
+  //   INTERNAL_STORAGE,
+  //   THEME,
+  //   POPULAR_COLLECTIONS,
+  //   GST_INVOICE_AVAILABLE,
+  //   BATTERY_CAPACITY,
+  //   SCREEN_SIZE,
+  //   PRIMARY_CAMERA,
+  //   SECONDARY_CAMERA,
+  // } = result;
+  // const filters = {
+  //   productSubType,
+  //   PRICE,
+  //   BRAND,
+  //   COLOR,
+  //   RAM,
+  //   INTERNAL_STORAGE,
+  //   THEME,
+  //   POPULAR_COLLECTIONS,
+  //   GST_INVOICE_AVAILABLE,
+  //   BATTERY_CAPACITY,
+  //   SCREEN_SIZE,
+  //   PRIMARY_CAMERA,
+  //   SECONDARY_CAMERA,
+  // };
   // console.log(filters);
+  const filters = useMemo(() => {
+    return {
+      productSubType: result.productSubType,
+      PRICE: result.PRICE,
+      BRAND: result.BRAND,
+      COLOR: result.COLOR,
+      RAM: result.RAM,
+      INTERNAL_STORAGE: result.INTERNAL_STORAGE,
+      THEME: result.THEME,
+      POPULAR_COLLECTIONS: result.POPULAR_COLLECTIONS,
+      GST_INVOICE_AVAILABLE: result.GST_INVOICE_AVAILABLE,
+      BATTERY_CAPACITY: result.BATTERY_CAPACITY,
+      SCREEN_SIZE: result.SCREEN_SIZE,
+      PRIMARY_CAMERA: result.PRIMARY_CAMERA,
+      SECONDARY_CAMERA: result.SECONDARY_CAMERA,
+    };
+  }, [filterMenuValue]);
   return (
     <ProductMainContainer>
       <StyledProductMainWrapper>
