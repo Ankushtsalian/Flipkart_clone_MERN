@@ -15,7 +15,8 @@ import { Checkbox } from "@mui/material";
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
   const handleChange = () => setOpen(!open);
-  console.log(filter);
+  console.log(filter[1]?.flat());
+  if (filter[1]?.flat().length === 1) return;
   return (
     <StyledFilterDropdownWrapper>
       <Accordion expanded={open} onChange={handleChange}>
@@ -25,7 +26,8 @@ const FilterDropdown = memo(({ filter }) => {
           id="panel1bh-header"
         >
           <AccordionSummaryHeader>
-            {filter[1][0]?.length !== 0 && filter[0]}
+            {filter[0]}
+            {/* {filter[1][0]?.length !== 0 && filter[0]} */}
           </AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
