@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import {
   AsideProductContainer,
@@ -16,10 +16,9 @@ const ProductLayout = memo(() => {
   const { filterMenuValue } = useSelector((state) => state.product);
 
   const result = {};
-  filterMenuValue.forEach((obj) => {
-    result[Object.keys(obj)] = Object.values(obj);
-  });
-
+  filterMenuValue.forEach(
+    (obj) => (result[Object.keys(obj)] = Object.values(obj))
+  );
   const {
     productSubType,
     PRICE,
