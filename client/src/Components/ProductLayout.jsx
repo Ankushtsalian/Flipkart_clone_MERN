@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import {
   AsideProductContainer,
@@ -12,7 +12,7 @@ import FilterDropdown from "./FilterDropdown";
 import PriceRange from "./PriceRange";
 import ProductInfo from "./ProductInfo";
 
-const ProductLayout = () => {
+const ProductLayout = memo(() => {
   const { filterMenuValue } = useSelector((state) => state.product);
 
   const result = {};
@@ -76,6 +76,6 @@ const ProductLayout = () => {
       </StyledProductMainWrapper>
     </ProductMainContainer>
   );
-};
+});
 
 export default ProductLayout;
