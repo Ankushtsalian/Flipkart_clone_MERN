@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback, useMemo } from "react";
 import {
   AccordionSummaryHeader,
   FilterInput,
@@ -14,7 +14,11 @@ import { Checkbox } from "@mui/material";
 
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
-  const handleChange = () => setOpen(!open);
+
+  const handleChange = useCallback(() => setOpen(!open), [open]);
+
+  const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
+
   console.log(filter[1]?.flat());
   if (filter[1]?.flat().length === 1) return;
   return (
@@ -31,7 +35,7 @@ const FilterDropdown = memo(({ filter }) => {
           </AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          {filter[1]?.flat()?.map((subFilter, i) => (
+          {subFilters?.map((subFilter, i) => (
             <FilterInput key={i}>
               <Checkbox size="small" />
               <FilterInputValue>{subFilter}</FilterInputValue>
