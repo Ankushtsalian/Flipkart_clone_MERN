@@ -11,6 +11,7 @@ const initialState = {
   productType: "Mobile",
   mobile: {},
   product: [],
+  filterMenuValue: [],
 };
 
 export const createProduct = createAsyncThunk(
@@ -102,10 +103,14 @@ const productSlice = createSlice({
       state.isLoading = true;
     });
 
-    builder.addCase(getProduct.fulfilled, (state, { payload }) => {
-      state.isLoading = false;
-      state.product = payload;
-    });
+    builder.addCase(
+      getProduct.fulfilled,
+      (state, { payload: { product, distinctSchemaObjects } }) => {
+        state.isLoading = false;
+        state.product = product;
+        state.filterMenuValue = distinctSchemaObjects;
+      }
+    );
 
     builder.addCase(
       getProduct.rejected,

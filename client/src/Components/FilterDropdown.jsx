@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   AccordionSummaryHeader,
   FilterInput,
@@ -12,9 +12,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { Checkbox } from "@mui/material";
 
-const FilterDropdown = ({ filter }) => {
+const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
   const handleChange = () => setOpen(!open);
+  console.log(filter[1]?.flat());
+  if (filter[1]?.flat().length === 1) return;
   return (
     <StyledFilterDropdownWrapper>
       <Accordion expanded={open} onChange={handleChange}>
@@ -23,25 +25,22 @@ const FilterDropdown = ({ filter }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <AccordionSummaryHeader>{filter}</AccordionSummaryHeader>
+          <AccordionSummaryHeader>
+            {filter[0]}
+            {/* {filter[1][0]?.length !== 0 && filter[0]} */}
+          </AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          <FilterInput>
-            <Checkbox size="small" />
-            <FilterInputValue>realme</FilterInputValue>
-          </FilterInput>
-          <FilterInput>
-            <Checkbox size="small" />
-            <FilterInputValue>realme</FilterInputValue>
-          </FilterInput>
-          <FilterInput>
-            <Checkbox size="small" />
-            <FilterInputValue>realme</FilterInputValue>
-          </FilterInput>
+          {filter[1]?.flat()?.map((subFilter, i) => (
+            <FilterInput key={i}>
+              <Checkbox size="small" />
+              <FilterInputValue>{subFilter}</FilterInputValue>
+            </FilterInput>
+          ))}
         </AccordionDetails>
       </Accordion>
     </StyledFilterDropdownWrapper>
   );
-};
+});
 
 export default FilterDropdown;
