@@ -12,7 +12,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { Checkbox } from "@mui/material";
 
-const FilterDropdown = ({ filter }) => {
+const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
   const handleChange = () => setOpen(!open);
   console.log(filter);
@@ -39,6 +39,6 @@ const FilterDropdown = ({ filter }) => {
       </Accordion>
     </StyledFilterDropdownWrapper>
   );
-};
+});
 
-export default memo(FilterDropdown);
+export default FilterDropdown;
