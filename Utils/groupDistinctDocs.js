@@ -1,6 +1,6 @@
 const ProductMobile = require("../Models/ProductMobile");
 
-const distinctProducts = async function (schemaObjectArray, index) {
+const distinctProducts = async function (schemaObjectArray) {
   const promises = schemaObjectArray.map(async (arr) => {
     const distinctProcuctResult = await ProductMobile.find().distinct(arr);
     return {
