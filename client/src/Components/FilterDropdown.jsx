@@ -36,6 +36,7 @@ const FilterDropdown = memo(({ filter }) => {
         </AccordionSummary>
         <AccordionDetails>
           {Object.values(filter)[0]?.map((subFilter, i) => {
+            if (subFilter.length === 0) return;
             return (
               <FilterInput key={i}>
                 <Checkbox size="small" />
