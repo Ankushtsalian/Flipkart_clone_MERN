@@ -14,42 +14,18 @@ import ProductInfo from "./ProductInfo";
 
 const ProductLayout = memo(() => {
   const { filterMenuValue } = useSelector((state) => state.product);
-
   const result = {};
   filterMenuValue.forEach(
     (obj) => (result[Object.keys(obj)] = Object.values(obj))
   );
 
-  const filters = useMemo(() => {
-    return {
-      productSubType: result.productSubType,
-      PRICE: result.PRICE,
-      BRAND: result.BRAND,
-      COLOR: result.COLOR,
-      RAM: result.RAM,
-      INTERNAL_STORAGE: result.INTERNAL_STORAGE,
-      THEME: result.THEME,
-      POPULAR_COLLECTIONS: result.POPULAR_COLLECTIONS,
-      GST_INVOICE_AVAILABLE: result.GST_INVOICE_AVAILABLE,
-      BATTERY_CAPACITY: result.BATTERY_CAPACITY,
-      SCREEN_SIZE: result.SCREEN_SIZE,
-      PRIMARY_CAMERA: result.PRIMARY_CAMERA,
-      SECONDARY_CAMERA: result.SECONDARY_CAMERA,
-    };
-  }, [filterMenuValue]);
   return (
     <ProductMainContainer>
       <StyledProductMainWrapper>
         <AsideProductWrapper>
           <AsideProductContainer>
             <PriceRange />
-            {/* {filters.map(
-              (filter, i) => {
-                // console.log(filter);
-              }
-              // <FilterDropdown filter={filter} key={i} />
-            )} */}
-            {Object.entries(filters)?.map((filter, i) => (
+            {filterMenuValue?.map((filter, i) => (
               <FilterDropdown filter={filter} key={i} />
             ))}
           </AsideProductContainer>
