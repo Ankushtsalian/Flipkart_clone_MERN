@@ -49,7 +49,6 @@ const ProductLayout = memo(() => {
   //   PRIMARY_CAMERA,
   //   SECONDARY_CAMERA,
   // };
-  // console.log(filters);
   const filters = useMemo(() => {
     return {
       productSubType: result.productSubType,

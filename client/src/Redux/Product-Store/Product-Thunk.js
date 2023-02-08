@@ -2,7 +2,6 @@ import { Header } from "../../Utils/axiosHeader";
 import customFetch from "../../Utils/customFetch";
 import errorMessage from "../../Utils/Error-Message";
 import { toastSuccess } from "../../Utils/toastMessage";
-import { handleReset } from "./Product-Slice";
 
 export const createProductThunk = async (url, product, thunkAPI) => {
   try {
