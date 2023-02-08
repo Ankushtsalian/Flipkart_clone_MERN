@@ -115,7 +115,6 @@ const productSlice = createSlice({
       getProduct.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
         state.isLoading = false;
-        // state.productList = [];
 
         state.errorMessage = message;
         state.errorStatusCode = errorStatusCode;
