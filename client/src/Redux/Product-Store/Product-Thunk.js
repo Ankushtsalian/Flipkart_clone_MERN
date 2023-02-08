@@ -40,7 +40,9 @@ export const getProductThunk = async (url, productType, thunkAPI) => {
     } = await customFetch.get(url, productType, {
       withCredentials: true,
     });
+
     // console.log(distinctSchemaObjects);
+
     return { product, distinctSchemaObjects };
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);

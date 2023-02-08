@@ -19,8 +19,8 @@ const FilterDropdown = memo(({ filter }) => {
 
   const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
-  console.log(filter[1]?.flat());
-  if (filter[1]?.flat().length === 1) return;
+  // console.log(filter[1]?.flat());
+  if (Object.values(filter)[0].length === 1) return;
   return (
     <StyledFilterDropdownWrapper>
       <Accordion expanded={open} onChange={handleChange}>
@@ -30,17 +30,19 @@ const FilterDropdown = memo(({ filter }) => {
           id="panel1bh-header"
         >
           <AccordionSummaryHeader>
-            {filter[0]}
+            {Object.keys(filter)}
             {/* {filter[1][0]?.length !== 0 && filter[0]} */}
           </AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          {subFilters?.map((subFilter, i) => (
-            <FilterInput key={i}>
-              <Checkbox size="small" />
-              <FilterInputValue>{subFilter}</FilterInputValue>
-            </FilterInput>
-          ))}
+          {Object.values(filter)[0]?.map((subFilter, i) => {
+            return (
+              <FilterInput key={i}>
+                <Checkbox size="small" />
+                <FilterInputValue>{subFilter}</FilterInputValue>
+              </FilterInput>
+            );
+          })}
         </AccordionDetails>
       </Accordion>
     </StyledFilterDropdownWrapper>
