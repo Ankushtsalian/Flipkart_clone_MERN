@@ -19,21 +19,21 @@ const ProductLayout = memo(() => {
   filterMenuValue.forEach(
     (obj) => (result[Object.keys(obj)] = Object.values(obj))
   );
-  // const {
-  //   productSubType,
-  //   PRICE,
-  //   BRAND,
-  //   COLOR,
-  //   RAM,
-  //   INTERNAL_STORAGE,
-  //   THEME,
-  //   POPULAR_COLLECTIONS,
-  //   GST_INVOICE_AVAILABLE,
-  //   BATTERY_CAPACITY,
-  //   SCREEN_SIZE,
-  //   PRIMARY_CAMERA,
-  //   SECONDARY_CAMERA,
-  // } = result;
+  const {
+    productSubType,
+    PRICE,
+    BRAND,
+    COLOR,
+    RAM,
+    INTERNAL_STORAGE,
+    THEME,
+    POPULAR_COLLECTIONS,
+    GST_INVOICE_AVAILABLE,
+    BATTERY_CAPACITY,
+    SCREEN_SIZE,
+    PRIMARY_CAMERA,
+    SECONDARY_CAMERA,
+  } = result;
   // const filters = {
   //   productSubType,
   //   PRICE,
