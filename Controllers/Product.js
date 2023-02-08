@@ -24,8 +24,11 @@ const getProduct = async (req, res) => {
     ProductMobile.schema.eachPath(function (path) {
       schema.push(path);
     });
+    console.log({ schema: schema.length });
 
     const distinctSchemaObjects = await distinctProducts(schema, 0);
+
+    console.log({ distinctSchemaObjects: distinctSchemaObjects.length });
 
     product = await ProductMobile.find();
     res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
