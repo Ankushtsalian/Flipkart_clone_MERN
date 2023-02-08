@@ -92,7 +92,6 @@ const productSlice = createSlice({
       productFile.rejected,
       (state, { payload: { errorStatusCode, message } }) => {
         state.isLoading = false;
-        // state.productList = [];
 
         state.errorMessage = message;
         state.errorStatusCode = errorStatusCode;
