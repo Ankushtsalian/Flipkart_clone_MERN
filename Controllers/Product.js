@@ -5,6 +5,7 @@ const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const { StatusCodes } = require("http-status-codes");
 const distinctProducts = require("../Utils/groupDistinctDocs");
+const { schemaLayout } = require("../Utils/schemaLayouts");
 // const productMobileInstance = new ProductMobile();
 
 const createProduct = async (req, res) => {
@@ -21,8 +22,9 @@ const getProduct = async (req, res) => {
 
   if (productType === "mobile" || productType === "Mobile") {
     let schema = [];
+
     ProductMobile.schema.eachPath(function (path) {
-      schema.push(path);
+      if (schemaLayout.includes(path)) schema.push(path);
     });
 
     const distinctSchemaObjects = await distinctProducts(schema);
