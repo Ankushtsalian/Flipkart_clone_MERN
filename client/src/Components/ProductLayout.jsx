@@ -34,21 +34,21 @@ const ProductLayout = memo(() => {
   //   PRIMARY_CAMERA,
   //   SECONDARY_CAMERA,
   // } = result;
-  const filters = {
-    productSubType,
-    PRICE,
-    BRAND,
-    COLOR,
-    RAM,
-    INTERNAL_STORAGE,
-    THEME,
-    POPULAR_COLLECTIONS,
-    GST_INVOICE_AVAILABLE,
-    BATTERY_CAPACITY,
-    SCREEN_SIZE,
-    PRIMARY_CAMERA,
-    SECONDARY_CAMERA,
-  };
+  // const filters = {
+  //   productSubType,
+  //   PRICE,
+  //   BRAND,
+  //   COLOR,
+  //   RAM,
+  //   INTERNAL_STORAGE,
+  //   THEME,
+  //   POPULAR_COLLECTIONS,
+  //   GST_INVOICE_AVAILABLE,
+  //   BATTERY_CAPACITY,
+  //   SCREEN_SIZE,
+  //   PRIMARY_CAMERA,
+  //   SECONDARY_CAMERA,
+  // };
   // console.log(filters);
   const filters = useMemo(() => {
     return {
