@@ -19,7 +19,6 @@ const FilterDropdown = memo(({ filter }) => {
 
   const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
-  // console.log(filter[1]?.flat());
   if (Object.values(filter)[0].length === 1) return;
   return (
     <StyledFilterDropdownWrapper>
