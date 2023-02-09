@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../Redux/Product-Store/Product-Slice";
-import { productData } from "../Utils/productData";
 import ProductCard from "./ProductCard";
 
 const ProductDetail = () => {

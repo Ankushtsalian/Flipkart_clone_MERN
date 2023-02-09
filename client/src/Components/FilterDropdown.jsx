@@ -19,7 +19,6 @@ const FilterDropdown = memo(({ filter }) => {
 
   const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
-  // console.log(filter[1]?.flat());
   if (Object.values(filter)[0].length === 1) return;
   return (
     <StyledFilterDropdownWrapper>
@@ -29,13 +28,11 @@ const FilterDropdown = memo(({ filter }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <AccordionSummaryHeader>
-            {Object.keys(filter)}
-            {/* {filter[1][0]?.length !== 0 && filter[0]} */}
-          </AccordionSummaryHeader>
+          <AccordionSummaryHeader>{Object.keys(filter)}</AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
           {Object.values(filter)[0]?.map((subFilter, i) => {
+            if (subFilter.length === 0) return;
             return (
               <FilterInput key={i}>
                 <Checkbox size="small" />

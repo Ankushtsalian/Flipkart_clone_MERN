@@ -41,8 +41,6 @@ export const getProductThunk = async (url, productType, thunkAPI) => {
       withCredentials: true,
     });
 
-    // console.log(distinctSchemaObjects);
-
     return { product, distinctSchemaObjects };
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
