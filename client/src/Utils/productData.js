@@ -71,3 +71,15 @@ export const filterValue = [
   "PRIMARY_CAMERA",
   "SECONDARY_CAMERA",
 ];
+
+export const productMenu = [
+  "Electronics",
+  "TVs & Appliances",
+  "Men",
+  "Women",
+  "Baby & Kids",
+  "Home & Furniture",
+  "Sports, Books & More",
+  "Flights",
+  "Offer zone",
+];
