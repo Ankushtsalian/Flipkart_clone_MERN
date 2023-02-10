@@ -22,7 +22,6 @@ import Footer from "./Footer";
 import { useQuery } from "../Hooks/useQuery";
 import { useEffect } from "react";
 import Loader from "./Loader";
-
 import Chevron from "./Chevron";
 import {
   LogoutWrapper,
@@ -35,6 +34,7 @@ const Navbar = () => {
   const { loginModalOpen, isLoading, errorStatusCode, user } = useSelector(
     (state) => state.user
   );
+
   const dispatch = useDispatch();
   const query = useQuery();
   const navigate = useNavigate();
@@ -45,7 +45,6 @@ const Navbar = () => {
 
   useEffect(() => {
     if (errorStatusCode && errorStatusCode !== 400) {
-      // dispatch(handleReset());
       navigate("/");
     }
   }, [errorStatusCode]);
