@@ -18,8 +18,6 @@ const ProductInfoHeader = () => {
 
   const { productType } = useSelector((state) => state.product);
 
-  // const dispatch = useDispatch();
-
   const handleProductInfoHeaderFilter = (activeFilterId) =>
     setActiveFilter(activeFilterId);
 
