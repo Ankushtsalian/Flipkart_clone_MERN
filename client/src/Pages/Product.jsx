@@ -9,19 +9,9 @@ import {
 import Chevron from "../Components/Chevron";
 import ProductLayout from "../Components/ProductLayout";
 import ProductList from "../Components/ProductList";
+import { productMenu } from "../Utils/productData";
 
 const Product = () => {
-  const productMenu = [
-    "Electronics",
-    "TVs & Appliances",
-    "Men",
-    "Women",
-    "Baby & Kids",
-    "Home & Furniture",
-    "Sports, Books & More",
-    "Flights",
-    "Offer zone",
-  ];
   return (
     <>
       <MainContainer>
