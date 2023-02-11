@@ -40,7 +40,8 @@
   ----------------------------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------------------------
   ----------------------------------------------------------------------------------------------------
-
+   In this example, $facet operator allows you to define multiple stages that will be executed concurrently, each producing a result set
+      The price_filter array filters the documents based on the price condition, and the color_filter array filters the documents based on the color condition
   ([
     {
       $facet: {
@@ -59,7 +60,8 @@
         ]
       }
     },
-    {
+           The $project operator calculates the set intersection of the results from the two arrays,
+            {
       $project: {
         filtered_products: {
           $setIntersection: [
@@ -69,10 +71,11 @@
         }
       }
     },
+   and the $unwind operator unwinds the resulting array into separate documents, and finally, $replaceRoot operator replaces the root document with the filtered product document 
     {
       $unwind: "$filtered_products"
     },
-    {
+       {
       $replaceRoot: {
         newRoot: "$filtered_products"
       }
