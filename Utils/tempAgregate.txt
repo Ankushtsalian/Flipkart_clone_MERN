@@ -36,3 +36,51 @@
       },
     ],
   }
+
+  ----------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------
+  ----------------------------------------------------------------------------------------------------
+
+  ([
+    {
+      $facet: {
+        "price_filter": [
+          { $match: { price: { $gt: 100 } } }
+        ],
+        "color_filter": [
+          {
+            $match: {
+              $or: [
+                { color: "red" },
+                { color: "green" }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      $project: {
+        filtered_products: {
+          $setIntersection: [
+            "$price_filter",
+            "$color_filter"
+          ]
+        }
+      }
+    },
+    {
+      $unwind: "$filtered_products"
+    },
+    {
+      $replaceRoot: {
+        newRoot: "$filtered_products"
+      }
+    }
+  ])
+
+   In this example, $facet operator allows you to define multiple stages that will be executed concurrently, each producing a result set
+   The price_filter array filters the documents based on the price condition, and the color_filter array filters the documents based on the color condition
+   The $project operator calculates the set intersection of the results from the two arrays, and the $unwind operator unwinds the resulting array into separate documents, and finally, $replaceRoot operator replaces the root document with the filtered product document
+   The final result will be an array of products that match the specified price and color conditions
+  
