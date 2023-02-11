@@ -1,7 +1,7 @@
 const schemaLayout = [
   "productSubType",
   "PRICE",
-  "BRAND",
+  // "BRAND",
   "COLOR",
   "RAM",
   "INTERNAL_STORAGE",
