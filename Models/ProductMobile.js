@@ -109,4 +109,22 @@ const productMobileSchema = new mongoose.Schema({
 //   return result;
 // };
 
+productMobileSchema.statics.selectDistinctDataInSchema = async function (
+  filterValue
+) {
+  const result = await this.aggregate([
+    {
+      $match: {
+        productSubType: {
+          $in: ["LG", "realme"],
+        },
+        PRICE: {
+          $in: [15999, 12999],
+        },
+      },
+    },
+  ]);
+  return result;
+};
+
 module.exports = mongoose.model("productMobile", productMobileSchema);

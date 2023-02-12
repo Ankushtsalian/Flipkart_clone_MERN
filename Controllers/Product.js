@@ -28,8 +28,10 @@ const getProduct = async (req, res) => {
     });
 
     const distinctSchemaObjects = await distinctProducts(schema);
-
+    const testFilter = await ProductMobile.selectDistinctDataInSchema();
     product = await ProductMobile.find();
+
+    console.log(testFilter);
     res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
   }
 };
