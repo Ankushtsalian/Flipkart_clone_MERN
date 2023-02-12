@@ -1,11 +1,11 @@
 const schemaLayout = [
   "productSubType",
-  "PRICE",
+  // "PRICE",
   // "BRAND",
   "COLOR",
   "RAM",
   "INTERNAL_STORAGE",
-  "THEME",
+  // "THEME",
   "POPULAR_COLLECTIONS",
   "GST_INVOICE_AVAILABLE",
   "BATTERY_CAPACITY",
