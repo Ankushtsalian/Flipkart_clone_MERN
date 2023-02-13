@@ -6,6 +6,7 @@ const {
   verifyJWToken,
   isTokenValid,
 } = require("../utils/index");
+const { schemaLayout } = require("../Utils/schemaLayouts");
 
 const productMobileSchema = new mongoose.Schema({
   productType: {
@@ -128,8 +129,6 @@ const createFilterQuery = (filterQueryValue) => {
     }
   });
 
-  console.log(FilterQuery);
-
   Object.entries(FilterQuery).forEach(([keys, values]) => {
     const inObject = {};
 
@@ -142,13 +141,20 @@ const createFilterQuery = (filterQueryValue) => {
 
     FilterQuery[keys] = inObject;
   });
-  console.log(FilterQuery);
 
   return FilterQuery;
 };
 
+const createDistinctQuery = () => {
+  // let distinctSchemaQuery = {};
+  // productMobileSchema.schema.eachPath(function (path) {
+  //   if (schemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
+  // });
+};
+
 productMobileSchema.statics.selectDistinctDataInSchema = async function (
-  filterQueryValue
+  filterQueryValue,
+  distinctSchemaQuery
 ) {
   const query = createFilterQuery(filterQueryValue);
   const result = await this.aggregate([
@@ -159,13 +165,7 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
       $group: {
         _id: null,
         products: {
-          $push: {
-            _id: "$_id",
-            productSubType: "$productSubType",
-            // PRICE: "$PRICE",
-            // BRAND: "$BRAND",
-            COLOR: "$COLOR",
-          },
+          $push: distinctSchemaQuery,
         },
         brands: {
           $addToSet: "$productSubType",
@@ -187,22 +187,5 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
 
   return result;
 };
-// productMobileSchema.statics.selectDistinctDataInSchema = async function (
-//   filterQueryValue
-// ) {
-//   const result = await this.aggregate([
-//     {
-//       $match: {
-//         productSubType: {
-//           $in: ["LG", "realme"],
-//         },
-//         PRICE: {
-//           $in: [15999, 12999],
-//         },
-//       },
-//     },
-//   ]);
-//   return result;
-// };
 
 module.exports = mongoose.model("productMobile", productMobileSchema);
