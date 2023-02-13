@@ -166,6 +166,9 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
         colors: {
           $addToSet: "$COLOR",
         },
+        count: {
+          $sum: 1,
+        },
       },
     },
     {

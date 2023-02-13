@@ -28,7 +28,9 @@ const getProduct = async (req, res) => {
       filterQueryValue,
       distinctSchemaQuery
     );
+
     // const distinctSchemaObjects = await distinctProducts(schema);
+
     product = await ProductMobile.find();
 
     res.status(StatusCodes.OK).json(testFilter);
