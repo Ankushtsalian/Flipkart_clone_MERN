@@ -18,6 +18,9 @@ const createProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
   const { productType } = req.params;
+  // const { filterQueryValue } = req.body;
+  let { filterQueryValue } = req.query;
+  console.log(filterQueryValue);
   let product = [];
 
   if (productType === "mobile" || productType === "Mobile") {
@@ -27,12 +30,21 @@ const getProduct = async (req, res) => {
       if (schemaLayout.includes(path)) schema.push(path);
     });
 
+    // const filterQueryValue = {
+    //   productSubType: ["LG", "realme"],
+    //   PRICE: [15999, 12999],
+    // };
+
     const distinctSchemaObjects = await distinctProducts(schema);
-    const testFilter = await ProductMobile.selectDistinctDataInSchema();
+    const testFilter = await ProductMobile.selectDistinctDataInSchema(
+      filterQueryValue
+    );
+    // console.log(req.query);
     product = await ProductMobile.find();
 
-    console.log(testFilter);
-    res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
+    // console.log(testFilter);
+    res.status(StatusCodes.OK).json(testFilter);
+    // res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
   }
 };
 

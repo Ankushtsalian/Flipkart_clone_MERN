@@ -109,22 +109,61 @@ const productMobileSchema = new mongoose.Schema({
 //   return result;
 // };
 
+const createFilterQuery = (filterQueryValue) => {
+  const FilterQuery = {};
+
+  filterQueryValue.forEach((arr, i) => {
+    const key = arr.split("=")[0];
+    const value = arr.split("=")[1];
+
+    console.log({ [key]: productMobileSchema.path(key).options.type });
+
+    if (!FilterQuery[key]) {
+      FilterQuery[key] = [];
+      FilterQuery[key].push(value);
+    } else {
+      FilterQuery[key].push(value);
+    }
+  });
+  console.log({ FilterQuery });
+  Object.entries(FilterQuery).forEach(([keys, values]) => {
+    const inObject = {};
+    inObject["$in"] = values;
+    FilterQuery[keys] = inObject;
+  });
+  console.log(FilterQuery);
+
+  return FilterQuery;
+};
+
 productMobileSchema.statics.selectDistinctDataInSchema = async function (
-  filterValue
+  filterQueryValue
 ) {
+  const query = createFilterQuery(filterQueryValue);
   const result = await this.aggregate([
     {
-      $match: {
-        productSubType: {
-          $in: ["LG", "realme"],
-        },
-        PRICE: {
-          $in: [15999, 12999],
-        },
-      },
+      $match: query,
     },
   ]);
+
   return result;
 };
+// productMobileSchema.statics.selectDistinctDataInSchema = async function (
+//   filterQueryValue
+// ) {
+//   const result = await this.aggregate([
+//     {
+//       $match: {
+//         productSubType: {
+//           $in: ["LG", "realme"],
+//         },
+//         PRICE: {
+//           $in: [15999, 12999],
+//         },
+//       },
+//     },
+//   ]);
+//   return result;
+// };
 
 module.exports = mongoose.model("productMobile", productMobileSchema);
