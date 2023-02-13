@@ -120,9 +120,6 @@ const createFilterQuery = (filterQueryValue) => {
     // console.log({ [key]: productMobileSchema.path(key).instance });
     // console.log({ [key]: productMobileSchema.path(key).options.type });
 
-    // if (productMobileSchema.path(key).instance === "Number")
-    // value = value.map((string) => Number(string));
-
     if (!FilterQuery[key]) {
       FilterQuery[key] = [];
       FilterQuery[key].push(value);
@@ -157,6 +154,34 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
   const result = await this.aggregate([
     {
       $match: query,
+    },
+    {
+      $group: {
+        _id: null,
+        products: {
+          $push: {
+            _id: "$_id",
+            productSubType: "$productSubType",
+            // PRICE: "$PRICE",
+            // BRAND: "$BRAND",
+            COLOR: "$COLOR",
+          },
+        },
+        brands: {
+          $addToSet: "$productSubType",
+        },
+        colors: {
+          $addToSet: "$COLOR",
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        products: 1,
+        brands: 1,
+        colors: 1,
+      },
     },
   ]);
 

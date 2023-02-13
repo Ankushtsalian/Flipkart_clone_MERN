@@ -35,10 +35,10 @@ const getProduct = async (req, res) => {
     //   PRICE: [15999, 12999],
     // };
 
-    const distinctSchemaObjects = await distinctProducts(schema);
     const testFilter = await ProductMobile.selectDistinctDataInSchema(
       filterQueryValue
     );
+    const distinctSchemaObjects = await distinctProducts(schema);
     // console.log(req.query);
     product = await ProductMobile.find();
 
