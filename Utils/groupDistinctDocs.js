@@ -15,11 +15,17 @@ const distinctProducts = async function (schemaObjectArray) {
 
 const createDistinctQuery = () => {
   let distinctSchemaQuery = {};
+  let addToSetQuery = {};
 
   ProductMobile.schema.eachPath(function (path) {
     if (schemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
   });
-  return distinctSchemaQuery;
+  ProductMobile.schema.eachPath(function (path) {
+    let pathres = {};
+    pathres["$addToSet"] = `$${path}`;
+    if (schemaLayout.includes(path)) addToSetQuery[path] = pathres;
+  });
+  return { distinctSchemaQuery, addToSetQuery };
 };
 module.exports = { distinctProducts, createDistinctQuery };
 

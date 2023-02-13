@@ -23,17 +23,21 @@ const getProduct = async (req, res) => {
   let product = [];
 
   if (productType === "mobile" || productType === "Mobile") {
-    const distinctSchemaQuery = createDistinctQuery();
+    const { distinctSchemaQuery, addToSetQuery } = createDistinctQuery();
+
     const testFilter = await ProductMobile.selectDistinctDataInSchema(
       filterQueryValue,
-      distinctSchemaQuery
+      distinctSchemaQuery,
+      addToSetQuery
     );
 
     // const distinctSchemaObjects = await distinctProducts(schema);
 
     product = await ProductMobile.find();
-
-    res.status(StatusCodes.OK).json(testFilter);
+    const { products, ...rest } = testFilter[0];
+    res
+      .status(StatusCodes.OK)
+      .json({ distinctSchemaObjects: rest, product: products });
     // res.status(StatusCodes.OK).json({ distinctSchemaObjects, product });
   }
 };

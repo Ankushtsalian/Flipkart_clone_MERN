@@ -113,7 +113,7 @@ const productMobileSchema = new mongoose.Schema({
 const createFilterQuery = (filterQueryValue) => {
   const FilterQuery = {};
 
-  filterQueryValue.forEach((arr, i) => {
+  filterQueryValue?.forEach((arr, i) => {
     const key = arr.split("=")[0];
     let value = arr.split("=")[1];
 
@@ -129,10 +129,12 @@ const createFilterQuery = (filterQueryValue) => {
     }
   });
 
-  Object.entries(FilterQuery).forEach(([keys, values]) => {
+  Object.entries(FilterQuery)?.forEach(([keys, values]) => {
     const inObject = {};
 
-    /**Type conversion from schema type as we send as string  */
+    /**
+     * Type conversion from schema type as we send as string
+     * */
 
     inObject["$in"] =
       productMobileSchema.path(keys).instance === "Number"
@@ -147,7 +149,8 @@ const createFilterQuery = (filterQueryValue) => {
 
 productMobileSchema.statics.selectDistinctDataInSchema = async function (
   filterQueryValue,
-  distinctSchemaQuery
+  distinctSchemaQuery,
+  addToSetQuery
 ) {
   const query = createFilterQuery(filterQueryValue);
   const result = await this.aggregate([
@@ -160,12 +163,13 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
         products: {
           $push: distinctSchemaQuery,
         },
-        brands: {
-          $addToSet: "$productSubType",
-        },
-        colors: {
-          $addToSet: "$COLOR",
-        },
+        ...addToSetQuery,
+        // brands: {
+        //   $addToSet: "$productSubType",
+        // },
+        // colors: {
+        //   $addToSet: "$COLOR",
+        // },
         count: {
           $sum: 1,
         },
@@ -174,10 +178,10 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
     {
       $project: {
         _id: 0,
-        products: 1,
-        brands: 1,
-        colors: 1,
-        count: 1,
+        // products: 1,
+        // brands: 1,
+        // colors: 1,
+        // count: 1,
       },
     },
   ]);
