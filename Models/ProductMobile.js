@@ -177,6 +177,7 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
         products: 1,
         brands: 1,
         colors: 1,
+        count: 1,
       },
     },
   ]);
