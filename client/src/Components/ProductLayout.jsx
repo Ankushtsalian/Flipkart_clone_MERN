@@ -14,6 +14,8 @@ import ProductInfo from "./ProductInfo";
 
 const ProductLayout = memo(() => {
   const { filterMenuValue } = useSelector((state) => state.product);
+
+  // console.log(filterMenuValue);
   // const result = {};
   // filterMenuValue.forEach(
   //   (obj) => (result[Object.keys(obj)] = Object.values(obj))
@@ -25,7 +27,7 @@ const ProductLayout = memo(() => {
         <AsideProductWrapper>
           <AsideProductContainer>
             <PriceRange />
-            {filterMenuValue?.map((filter, i) => (
+            {Object.entries(filterMenuValue)?.map((filter, i) => (
               <FilterDropdown filter={filter} key={i} />
             ))}
           </AsideProductContainer>

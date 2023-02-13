@@ -14,12 +14,13 @@ import { Checkbox } from "@mui/material";
 
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
-
+  // const [keys] = filter;
+  console.log(filter);
   const handleChange = useCallback(() => setOpen(!open), [open]);
 
-  const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
+  // const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
-  if (Object.values(filter)[0].length === 1) return;
+  if (filter[1].length === 1 || typeof filter[1] === "number") return;
   return (
     <StyledFilterDropdownWrapper>
       <Accordion expanded={open} onChange={handleChange}>
@@ -28,10 +29,10 @@ const FilterDropdown = memo(({ filter }) => {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <AccordionSummaryHeader>{Object.keys(filter)}</AccordionSummaryHeader>
+          <AccordionSummaryHeader>{filter[0]}</AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          {Object.values(filter)[0]?.map((subFilter, i) => {
+          {filter[1]?.map((subFilter, i) => {
             if (subFilter.length === 0) return;
             return (
               <FilterInput key={i}>
