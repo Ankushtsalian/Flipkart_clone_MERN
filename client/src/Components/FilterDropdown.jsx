@@ -20,7 +20,8 @@ const FilterDropdown = memo(({ filter }) => {
 
   // const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
-  if (filter[1].length === 1 || typeof filter[1] === "number") return;
+  if (filter[1].length === 0 || typeof filter[1] === "number") return;
+  // if (filter[1].length === 1 || typeof filter[1] === "number") return;
   return (
     <StyledFilterDropdownWrapper>
       <Accordion expanded={open} onChange={handleChange}>
