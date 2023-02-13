@@ -20,7 +20,7 @@ const getProduct = async (req, res) => {
   const { productType } = req.params;
   // const { filterQueryValue } = req.body;
   let { filterQueryValue } = req.query;
-  console.log(filterQueryValue);
+  // console.log(filterQueryValue);
   let product = [];
 
   if (productType === "mobile" || productType === "Mobile") {

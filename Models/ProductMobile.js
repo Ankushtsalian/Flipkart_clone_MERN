@@ -114,9 +114,14 @@ const createFilterQuery = (filterQueryValue) => {
 
   filterQueryValue.forEach((arr, i) => {
     const key = arr.split("=")[0];
-    const value = arr.split("=")[1];
+    let value = arr.split("=")[1];
 
-    console.log({ [key]: productMobileSchema.path(key).options.type });
+    /**Provides type value :string number.... */
+    // console.log({ [key]: productMobileSchema.path(key).instance });
+    // console.log({ [key]: productMobileSchema.path(key).options.type });
+
+    // if (productMobileSchema.path(key).instance === "Number")
+    // value = value.map((string) => Number(string));
 
     if (!FilterQuery[key]) {
       FilterQuery[key] = [];
@@ -125,10 +130,19 @@ const createFilterQuery = (filterQueryValue) => {
       FilterQuery[key].push(value);
     }
   });
-  console.log({ FilterQuery });
+
+  console.log(FilterQuery);
+
   Object.entries(FilterQuery).forEach(([keys, values]) => {
     const inObject = {};
-    inObject["$in"] = values;
+
+    /**Type conversion from schema type as we send as string  */
+
+    inObject["$in"] =
+      productMobileSchema.path(keys).instance === "Number"
+        ? (values = values.map((string) => Number(string)))
+        : values;
+
     FilterQuery[keys] = inObject;
   });
   console.log(FilterQuery);
