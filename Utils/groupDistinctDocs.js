@@ -1,5 +1,5 @@
 const ProductMobile = require("../Models/ProductMobile");
-const { schemaLayout } = require("./schemaLayouts");
+const { schemaLayout, CardSchemaLayout } = require("./schemaLayouts");
 
 const distinctProducts = async function (schemaObjectArray) {
   const promises = schemaObjectArray.map(async (arr) => {
@@ -18,7 +18,7 @@ const createDistinctQuery = () => {
   let addToSetQuery = {};
 
   ProductMobile.schema.eachPath(function (path) {
-    if (schemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
+    if (CardSchemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
   });
   ProductMobile.schema.eachPath(function (path) {
     let pathres = {};

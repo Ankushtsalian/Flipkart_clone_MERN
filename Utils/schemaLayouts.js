@@ -1,3 +1,18 @@
+const CardSchemaLayout = [
+  "productImage",
+  // "PRICE",
+  // "BRAND",
+  "BRAND",
+  "productDescription",
+  "productAbsolutePrice",
+  // "THEME",
+  "productMaxPrice",
+  "productDiscount",
+  "isFlipkartAssuredProduct",
+  "isFreeDeliveryEligible",
+  "isBankOfferEligible",
+  "SECONDARY_CAMERA",
+];
 const schemaLayout = [
   "productSubType",
   // "PRICE",
@@ -14,4 +29,4 @@ const schemaLayout = [
   "SECONDARY_CAMERA",
 ];
 
-module.exports = { schemaLayout };
+module.exports = { schemaLayout, CardSchemaLayout };
