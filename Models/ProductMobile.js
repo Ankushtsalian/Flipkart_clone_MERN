@@ -145,13 +145,6 @@ const createFilterQuery = (filterQueryValue) => {
   return FilterQuery;
 };
 
-const createDistinctQuery = () => {
-  // let distinctSchemaQuery = {};
-  // productMobileSchema.schema.eachPath(function (path) {
-  //   if (schemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
-  // });
-};
-
 productMobileSchema.statics.selectDistinctDataInSchema = async function (
   filterQueryValue,
   distinctSchemaQuery

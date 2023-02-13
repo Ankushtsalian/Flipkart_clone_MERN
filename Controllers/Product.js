@@ -4,7 +4,7 @@ const CustomAPIError = require("../errors/custom-api");
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const { StatusCodes } = require("http-status-codes");
-const distinctProducts = require("../Utils/groupDistinctDocs");
+const { createDistinctQuery } = require("../Utils/groupDistinctDocs");
 const { schemaLayout } = require("../Utils/schemaLayouts");
 // const productMobileInstance = new ProductMobile();
 
@@ -18,24 +18,17 @@ const createProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
   const { productType } = req.params;
-  // const { filterQueryValue } = req.body;
   let { filterQueryValue } = req.query;
-  // console.log(filterQueryValue);
+
   let product = [];
 
   if (productType === "mobile" || productType === "Mobile") {
-    // let distinctSchemaQuery = {};
-
-    // ProductMobile.schema.eachPath(function (path) {
-    //   if (schemaLayout.includes(path)) distinctSchemaQuery[path] = `$${path}`;
-    // });
-    const distinctSchemaQuery = distinctProducts.createDistinctQuery();
+    const distinctSchemaQuery = createDistinctQuery();
     const testFilter = await ProductMobile.selectDistinctDataInSchema(
       filterQueryValue,
       distinctSchemaQuery
     );
     // const distinctSchemaObjects = await distinctProducts(schema);
-    // console.log(req.query);
     product = await ProductMobile.find();
 
     res.status(StatusCodes.OK).json(testFilter);
