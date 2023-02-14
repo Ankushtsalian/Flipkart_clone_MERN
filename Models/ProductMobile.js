@@ -164,12 +164,7 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
           $push: distinctSchemaQuery,
         },
         ...addToSetQuery,
-        // brands: {
-        //   $addToSet: "$productSubType",
-        // },
-        // colors: {
-        //   $addToSet: "$COLOR",
-        // },
+
         count: {
           $sum: 1,
         },
@@ -178,10 +173,6 @@ productMobileSchema.statics.selectDistinctDataInSchema = async function (
     {
       $project: {
         _id: 0,
-        // products: 1,
-        // brands: 1,
-        // colors: 1,
-        // count: 1,
       },
     },
   ]);

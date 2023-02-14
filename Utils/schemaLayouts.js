@@ -1,4 +1,4 @@
-const CardSchemaLayout = [
+const MobileCardSchemaLayout = [
   "productImage",
   // "PRICE",
   // "BRAND",
@@ -13,7 +13,7 @@ const CardSchemaLayout = [
   "isBankOfferEligible",
   "SECONDARY_CAMERA",
 ];
-const schemaLayout = [
+const MobileSchemaLayout = [
   "productSubType",
   // "PRICE",
   // "BRAND",
@@ -29,4 +29,4 @@ const schemaLayout = [
   "SECONDARY_CAMERA",
 ];
 
-module.exports = { schemaLayout, CardSchemaLayout };
+module.exports = { MobileCardSchemaLayout, MobileSchemaLayout };
