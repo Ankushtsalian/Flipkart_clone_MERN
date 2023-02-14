@@ -12,6 +12,7 @@ const initialState = {
   mobile: {},
   product: [],
   filterMenuValue: [],
+  filterQueryValue: "",
 };
 
 export const createProduct = createAsyncThunk(
@@ -35,6 +36,8 @@ export const productFile = createAsyncThunk(
 export const getProduct = createAsyncThunk(
   "product/getProduct",
   (productType, thunkAPI) => {
+    console.log(productType);
+    // console.log(thunkAPI.getState().product.filterQueryValue);
     return getProductThunk(`/product/${productType}`, productType, thunkAPI);
   }
 );
@@ -46,6 +49,9 @@ const productSlice = createSlice({
   reducers: {
     ProductType: (state, { payload }) => {
       state.productType = payload;
+    },
+    setFilterQueryParam: (state, { payload }) => {
+      state.filterQueryValue = payload;
     },
     handleAdminMobileProductInput: (state, { payload }) => {
       state.mobile = {
@@ -123,6 +129,9 @@ const productSlice = createSlice({
   },
 });
 
-export const { handleAdminMobileProductInput, ProductType } =
-  productSlice.actions;
+export const {
+  handleAdminMobileProductInput,
+  ProductType,
+  setFilterQueryParam,
+} = productSlice.actions;
 export default productSlice.reducer;
