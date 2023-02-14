@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo } from "react";
+import React, { memo, useCallback, useEffect, useMemo } from "react";
 import {
   AccordionSummaryHeader,
   FilterInput,
@@ -11,14 +11,35 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { Checkbox } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getProduct,
+  setFilterQueryParam,
+} from "../Redux/Product-Store/Product-Slice";
 
 const FilterDropdown = memo(({ filter }) => {
+  let {
+    productType,
+
+    filterQueryValue,
+  } = useSelector((state) => state.product);
+
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
-  // const [keys] = filter;
-  console.log(filter);
+
   const handleChange = useCallback(() => setOpen(!open), [open]);
 
   // const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
+
+  const handleFilterValue = (event, filter, subFilter) => {
+    // const { name, value } = event.target;
+    const query = `filterQueryValue[]=${filter}=${subFilter}`;
+    filterQueryValue = filterQueryValue + "&" + query;
+
+    dispatch(setFilterQueryParam(filterQueryValue));
+    dispatch(getProduct(productType + "?" + filterQueryValue));
+  };
 
   if (filter[1].length === 0 || typeof filter[1] === "number") return;
   // if (filter[1].length === 1 || typeof filter[1] === "number") return;
@@ -33,11 +54,15 @@ const FilterDropdown = memo(({ filter }) => {
           <AccordionSummaryHeader>{filter[0]}</AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
+          <button>clear</button>
           {filter[1]?.map((subFilter, i) => {
             if (subFilter.length === 0) return;
             return (
               <FilterInput key={i}>
-                <Checkbox size="small" />
+                <Checkbox
+                  size="small"
+                  onChange={(e) => handleFilterValue(e, filter[0], subFilter)}
+                />
                 <FilterInputValue>{subFilter}</FilterInputValue>
               </FilterInput>
             );
