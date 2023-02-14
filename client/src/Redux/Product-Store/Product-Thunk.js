@@ -36,12 +36,12 @@ export const productFileThunk = async (url, formData, thunkAPI) => {
 export const getProductThunk = async (url, productType, thunkAPI) => {
   try {
     const {
-      data: { product, distinctSchemaObjects },
+      data: { products, distinctSchemaObjects },
     } = await customFetch.get(url, productType, {
       withCredentials: true,
     });
 
-    return { product, distinctSchemaObjects };
+    return { products, distinctSchemaObjects };
   } catch (error) {
     const { errorStatusCode, message } = errorMessage(error);
 

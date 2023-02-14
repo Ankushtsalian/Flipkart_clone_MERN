@@ -1,4 +1,8 @@
 const ProductMobile = require("../Models/ProductMobile");
+const {
+  MobileSchemaLayout,
+  MobileCardSchemaLayout,
+} = require("./schemaLayouts");
 
 const distinctProducts = async function (schemaObjectArray) {
   const promises = schemaObjectArray.map(async (arr) => {
@@ -12,7 +16,28 @@ const distinctProducts = async function (schemaObjectArray) {
   return distinctSchemaObjects;
 };
 
-module.exports = distinctProducts;
+const createDistinctQuery = () => {
+  let distinctSchemaQuery = {};
+  let addToSetQuery = {};
+
+  ProductMobile.schema.eachPath(function (path) {
+    if (MobileCardSchemaLayout.includes(path))
+      distinctSchemaQuery[path] = `$${path}`;
+  });
+  ProductMobile.schema.eachPath(function (path) {
+    /**
+     *  AIM :to acheive
+     *  // productType: {
+        //   $addToSet: "$productType",
+        // },
+     */
+    let pathres = {};
+    pathres["$addToSet"] = `$${path}`;
+    if (MobileSchemaLayout.includes(path)) addToSetQuery[path] = pathres;
+  });
+  return { distinctSchemaQuery, addToSetQuery };
+};
+module.exports = { distinctProducts, createDistinctQuery };
 
 // const distinctProducts = async function (schemaObjectArray, index) {
 //   if (index === schemaObjectArray.length) {

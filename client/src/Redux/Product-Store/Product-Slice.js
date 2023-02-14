@@ -104,9 +104,9 @@ const productSlice = createSlice({
 
     builder.addCase(
       getProduct.fulfilled,
-      (state, { payload: { product, distinctSchemaObjects } }) => {
+      (state, { payload: { products, distinctSchemaObjects } }) => {
         state.isLoading = false;
-        state.product = product;
+        state.product = products;
         state.filterMenuValue = distinctSchemaObjects;
       }
     );

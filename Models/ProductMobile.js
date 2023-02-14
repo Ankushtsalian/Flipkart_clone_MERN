@@ -6,6 +6,7 @@ const {
   verifyJWToken,
   isTokenValid,
 } = require("../utils/index");
+const { schemaLayout } = require("../Utils/schemaLayouts");
 
 const productMobileSchema = new mongoose.Schema({
   productType: {
@@ -108,5 +109,75 @@ const productMobileSchema = new mongoose.Schema({
 
 //   return result;
 // };
+
+const createFilterQuery = (filterQueryValue) => {
+  const FilterQuery = {};
+
+  filterQueryValue?.forEach((arr, i) => {
+    const key = arr.split("=")[0];
+    let value = arr.split("=")[1];
+
+    /**Provides type value :string number.... */
+    // console.log({ [key]: productMobileSchema.path(key).instance });
+    // console.log({ [key]: productMobileSchema.path(key).options.type });
+
+    if (!FilterQuery[key]) {
+      FilterQuery[key] = [];
+      FilterQuery[key].push(value);
+    } else {
+      FilterQuery[key].push(value);
+    }
+  });
+
+  Object.entries(FilterQuery)?.forEach(([keys, values]) => {
+    const inObject = {};
+
+    /**
+     * Type conversion from schema type as we send as string
+     * */
+
+    inObject["$in"] =
+      productMobileSchema.path(keys).instance === "Number"
+        ? (values = values.map((string) => Number(string)))
+        : values;
+
+    FilterQuery[keys] = inObject;
+  });
+
+  return FilterQuery;
+};
+
+productMobileSchema.statics.selectDistinctDataInSchema = async function (
+  filterQueryValue,
+  distinctSchemaQuery,
+  addToSetQuery
+) {
+  const query = createFilterQuery(filterQueryValue);
+  const result = await this.aggregate([
+    {
+      $match: query,
+    },
+    {
+      $group: {
+        _id: null,
+        products: {
+          $push: distinctSchemaQuery,
+        },
+        ...addToSetQuery,
+
+        count: {
+          $sum: 1,
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+      },
+    },
+  ]);
+
+  return result;
+};
 
 module.exports = mongoose.model("productMobile", productMobileSchema);
