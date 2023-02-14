@@ -15,12 +15,6 @@ import ProductInfo from "./ProductInfo";
 const ProductLayout = memo(() => {
   const { filterMenuValue } = useSelector((state) => state.product);
 
-  // console.log(filterMenuValue);
-  // const result = {};
-  // filterMenuValue.forEach(
-  //   (obj) => (result[Object.keys(obj)] = Object.values(obj))
-  // );
-
   return (
     <ProductMainContainer>
       <StyledProductMainWrapper>
