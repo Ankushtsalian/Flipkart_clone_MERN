@@ -307,6 +307,17 @@ p {
   display: none;
 }
 
+.carousel .control-prev.control-arrow {
+  z-index: 100;
+  background-color: var(--color-white-bg) !important;
+  color: red !important;
+  height: 100px !important;
+  opacity: 1;
+  position: absolute;
+  top: calc(50% - 52px) !important;
+  width: 47px !important;
+  height: 104px !important;
+}
 
 .carousel .control-next.control-arrow {
   z-index: 100;
