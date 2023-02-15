@@ -314,7 +314,6 @@ p {
   height: 100px !important;
   opacity: 1;
   position: absolute;
-  /* top: 40% !important; */
   top: calc(50% - 52px) !important;
   width: 47px !important;
   height: 104px !important;
