@@ -340,3 +340,29 @@ p {
   border-bottom: 8px solid red;
   content: '';
 }
+
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid var(--color-black) !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid var(--color-black) !important;
+}
+
+.css-eg0mwd-MuiSlider-thumb {
+  width: 12px !important;
+  color: #fff !important;
+  height: 12px !important;
+}
+
+/* CARD */
+.css-o69gx8-MuiCardMedia-root {
+  margin: 0 auto !important;
+  max-width: 250px !important;
+  height: 350px !important;
+  object-fit: fill !important;
+  padding: 20px !important;
+}
+.css-o4b71y-MuiAccordionSummary-content{
+  justify-content: space-between;
+}
