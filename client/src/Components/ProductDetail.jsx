@@ -13,7 +13,7 @@ const ProductDetail = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {products.map((product, index) => (
           <ProductCard product={product} key={index} />
