@@ -37,7 +37,6 @@ export const productFile = createAsyncThunk(
 export const getProduct = createAsyncThunk(
   "product/getProduct",
   (productType, thunkAPI) => {
-    console.log(productType);
     // console.log(thunkAPI.getState().product.filterQueryValue);
     return getProductThunk(`/product/${productType}`, productType, thunkAPI);
   }
