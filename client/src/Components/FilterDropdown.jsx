@@ -32,15 +32,17 @@ const FilterDropdown = memo(({ filter }) => {
 
   // const subFilters = useMemo(() => filter[1]?.flat(), [filter]);
 
+  // const handleFilterValue = (event, filter, subFilter) => {
+  //   // const { name, value } = event.target;
+  //   const query = `filterQueryValue[]=${filter}=${subFilter}`;
+  //   filterQueryValue = filterQueryValue + "&" + query;
+
+  //   dispatch(setFilterQueryParam(filterQueryValue));
+  //   dispatch(getProduct(productType + "?" + filterQueryValue));
+  // };
   const handleFilterValue = (event, filter, subFilter) => {
     // const { name, value } = event.target;
-    const query = `filterQueryValue[]=${filter}=${subFilter}`;
-    filterQueryValue = filterQueryValue + "&" + query;
-
-    dispatch(setFilterQueryParam(filterQueryValue));
-    dispatch(getProduct(productType + "?" + filterQueryValue));
   };
-
   if (filter[1].length === 0 || typeof filter[1] === "number") return;
   // if (filter[1].length === 1 || typeof filter[1] === "number") return;
   return (
