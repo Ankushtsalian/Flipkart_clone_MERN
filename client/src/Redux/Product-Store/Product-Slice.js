@@ -13,6 +13,7 @@ const initialState = {
   product: [],
   filterMenuValue: [],
   filterQueryValue: "",
+  subFilterStates: {},
 };
 
 export const createProduct = createAsyncThunk(
@@ -53,6 +54,17 @@ const productSlice = createSlice({
     setFilterQueryParam: (state, { payload }) => {
       state.filterQueryValue = payload;
     },
+    handleSubfilterChange: (state, { payload: { name, value, filter } }) => {
+      // console.log({ payload });
+      state.subFilterStates = {
+        ...state.subFilterStates,
+        [name]: !state.subFilterStates[name],
+      };
+    },
+    handleClearFilters: (state, { payload }) => {
+      state.subFilterStates = {};
+    },
+
     handleAdminMobileProductInput: (state, { payload }) => {
       state.mobile = {
         ...state.mobile,
@@ -133,5 +145,7 @@ export const {
   handleAdminMobileProductInput,
   ProductType,
   setFilterQueryParam,
+  handleSubfilterChange,
+  handleClearFilters,
 } = productSlice.actions;
 export default productSlice.reducer;
