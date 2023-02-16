@@ -64,8 +64,12 @@ const FilterDropdown = memo(({ filter }) => {
               <FilterInput key={i}>
                 <Checkbox
                   name={subFilter}
-                  // value={subFilterStates[subFilter]}
-                  checked={subFilterStates[subFilter]}
+                  value={subFilterStates[subFilter]}
+                  checked={
+                    !subFilterStates[subFilter]
+                      ? false
+                      : subFilterStates[subFilter]
+                  }
                   // value={false}
                   size="small"
                   onChange={(e) => handleFilterValue(e, filter[0], subFilter)}
