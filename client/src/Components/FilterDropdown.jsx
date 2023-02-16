@@ -40,9 +40,18 @@ const FilterDropdown = memo(({ filter }) => {
   //   dispatch(setFilterQueryParam(filterQueryValue));
   //   dispatch(getProduct(productType + "?" + filterQueryValue));
   // };
+  const handleFilterClear = () => {
+    dispatch(handleClearFilters());
+    dispatch(getProduct(productType));
+  };
   const handleFilterValue = (event, filter, subFilter) => {
     const { name, value } = event.target;
     dispatch(handleSubfilterChange({ name, value, filter }));
+    const query = `filterQueryValue[]=${filter}=${subFilter}`;
+    filterQueryValue = filterQueryValue + "&" + query;
+
+    dispatch(setFilterQueryParam(filterQueryValue));
+    dispatch(getProduct(productType + "?" + filterQueryValue));
   };
   if (filter[1].length === 0 || typeof filter[1] === "number") return;
   // if (filter[1].length === 1 || typeof filter[1] === "number") return;
@@ -57,7 +66,7 @@ const FilterDropdown = memo(({ filter }) => {
           <AccordionSummaryHeader>{filter[0]}</AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          <button onClick={() => dispatch(handleClearFilters())}>clear</button>
+          <button onClick={handleFilterClear}>clear</button>
           {filter[1]?.map((subFilter, i) => {
             if (subFilter.length === 0) return;
             return (
