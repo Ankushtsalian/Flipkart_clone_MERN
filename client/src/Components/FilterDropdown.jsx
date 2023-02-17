@@ -40,10 +40,10 @@ const FilterDropdown = memo(({ filter }) => {
   //   dispatch(setFilterQueryParam(filterQueryValue));
   //   dispatch(getProduct(productType + "?" + filterQueryValue));
   // };
-  const handleFilterClear = () => {
+  const handleFilterClear = useCallback(() => {
     dispatch(handleClearFilters());
     dispatch(getProduct(productType));
-  };
+  }, [dispatch, productType]);
   const handleFilterValue = (event, filter, subFilter) => {
     const { name, value } = event.target;
     dispatch(handleSubfilterChange({ name, value, filter }));
@@ -53,6 +53,8 @@ const FilterDropdown = memo(({ filter }) => {
     dispatch(setFilterQueryParam(filterQueryValue));
     dispatch(getProduct(productType + "?" + filterQueryValue));
   };
+
+  console.log(subFilterStates);
   if (filter[1].length === 0 || typeof filter[1] === "number") return;
   // if (filter[1].length === 1 || typeof filter[1] === "number") return;
   return (
