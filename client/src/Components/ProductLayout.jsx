@@ -19,7 +19,7 @@ const ProductLayout = memo(() => {
     () => Object.entries(filterMenuValue),
     [filterMenuValue]
   );
-
+  console.log("hello");
   return (
     <ProductMainContainer>
       <StyledProductMainWrapper>
