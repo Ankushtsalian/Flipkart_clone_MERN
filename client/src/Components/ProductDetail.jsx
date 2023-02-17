@@ -13,8 +13,8 @@ const ProductDetail = () => {
   return (
     <div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {product.map((productItem) => (
-          <ProductCard product={productItem} key={productItem.id} />
+        {product.map((productItem, i) => (
+          <ProductCard product={productItem} key={i} />
         ))}
       </div>
     </div>

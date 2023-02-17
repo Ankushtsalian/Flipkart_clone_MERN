@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   const {
     productImage,
     BRAND,
-    productDescription,
+    productSubType,
     productAbsolutePrice,
     productMaxPrice,
     productDiscount,
@@ -129,4 +129,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard);
