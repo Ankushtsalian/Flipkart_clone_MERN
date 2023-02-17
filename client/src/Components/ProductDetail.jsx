@@ -4,19 +4,17 @@ import { getProduct } from "../Redux/Product-Store/Product-Slice";
 import ProductCard from "./ProductCard";
 
 const ProductDetail = () => {
-  const { productType, product: products } = useSelector(
-    (state) => state.product
-  );
+  const { productType, product } = useSelector((state) => state.product);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct(productType));
-  }, []);
+  }, [dispatch, productType]);
 
   return (
     <div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {products.map((product, index) => (
-          <ProductCard product={product} key={index} />
+        {product.map((productItem) => (
+          <ProductCard product={productItem} key={productItem.id} />
         ))}
       </div>
     </div>
