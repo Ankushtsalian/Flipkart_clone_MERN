@@ -39,12 +39,6 @@ export const getProduct = createAsyncThunk(
   (productType, thunkAPI) => {
     let filterQuery = "";
     if (Object.keys(thunkAPI.getState().product.subFilterStates).length != 0) {
-      // const filterKeys = Object.keys(
-      //   thunkAPI.getState().product.subFilterStates
-      // );
-      // const filterValues = Object.values(
-      //   thunkAPI.getState().product.subFilterStates
-      // );
       let filter = "";
       let subFilter = "";
       let query = [];
@@ -60,7 +54,6 @@ export const getProduct = createAsyncThunk(
       filterQuery = query.join("&");
       thunkAPI.dispatch(setFilterQueryParam(filterQuery));
     }
-    // console.log(thunkAPI.getState().product.filterQueryValue);
     return getProductThunk(
       `/product/${productType}?${filterQuery}`,
       productType,
