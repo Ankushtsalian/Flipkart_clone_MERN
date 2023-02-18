@@ -1,11 +1,10 @@
-import { Checkbox } from "@mui/material";
 import React, { useCallback } from "react";
+import { Checkbox } from "@mui/material";
 import { useSelector } from "react-redux";
 import { FilterInput, FilterInputValue } from "../Styles/FilterDropdown";
 import {
   getProduct,
   handleSubfilterChange,
-  setFilterQueryParam,
 } from "../Redux/Product-Store/Product-Slice";
 import { useDispatch } from "react-redux";
 const FilterSubtypes = ({ subFilter, i, filter }) => {
@@ -20,11 +19,6 @@ const FilterSubtypes = ({ subFilter, i, filter }) => {
 
       dispatch(handleSubfilterChange({ name, value, filter }));
 
-      //   const query = `filterQueryValue[]=${filter}=${subFilter}`;
-      //   const newFilterQueryValue = filterQueryValue + "&" + query;
-
-      //   dispatch(setFilterQueryParam(newFilterQueryValue));
-      //   dispatch(getProduct(productType + "?" + newFilterQueryValue));
       dispatch(getProduct(productType));
     },
     [dispatch, filterQueryValue, productType]
