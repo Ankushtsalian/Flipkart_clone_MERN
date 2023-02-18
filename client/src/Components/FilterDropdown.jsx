@@ -15,6 +15,7 @@ import {
   setFilterQueryParam,
 } from "../Redux/Product-Store/Product-Slice";
 import { useDispatch, useSelector } from "react-redux";
+import FilterSubtypes from "./FilterSubtypes";
 
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
@@ -65,38 +66,17 @@ const FilterDropdown = memo(({ filter }) => {
         </AccordionSummary>
         <AccordionDetails>
           <button onClick={handleClear}>clear</button>
-          {filter[1]?.map((subFilter, i) => {
+          {filter[1]?.map((subFilter, index) => {
             if (subFilter.length === 0) {
               return null;
             }
 
-            console.log(
-              subFilterStates[filter[0]] &&
-                subFilterStates[filter[0]][subFilter]
-                ? subFilterStates[filter[0]][subFilter]
-                : false
-            );
             return (
-              <FilterInput key={i}>
-                <Checkbox
-                  name={subFilter}
-                  value={
-                    subFilterStates[filter[0]] &&
-                    subFilterStates[filter[0]][subFilter]
-                      ? subFilterStates[filter[0]][subFilter]
-                      : false
-                  }
-                  checked={
-                    subFilterStates[filter[0]] &&
-                    subFilterStates[filter[0]][subFilter]
-                      ? subFilterStates[filter[0]][subFilter]
-                      : false
-                  }
-                  size="small"
-                  onChange={(e) => handleFilter(e, filter[0], subFilter)}
-                />
-                <FilterInputValue>{subFilter}</FilterInputValue>
-              </FilterInput>
+              <FilterSubtypes
+                subFilter={subFilter}
+                i={index}
+                filter={filter[0]}
+              />
             );
           })}
         </AccordionDetails>
