@@ -1,8 +1,10 @@
 import { Checkbox } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 import { FilterInput, FilterInputValue } from "../Styles/FilterDropdown";
 
 const FilterSubtypes = ({ subFilter, i, filter }) => {
+  const { subFilterStates } = useSelector((state) => state.product);
   return (
     <FilterInput key={i}>
       <Checkbox

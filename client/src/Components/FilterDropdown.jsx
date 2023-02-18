@@ -1,11 +1,9 @@
 import React, { memo, useCallback, useState } from "react";
-import { Checkbox } from "@mui/material";
+
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   AccordionSummaryHeader,
-  FilterInput,
-  FilterInputValue,
   StyledFilterDropdownWrapper,
 } from "../Styles/FilterDropdown";
 import {
@@ -20,7 +18,7 @@ import FilterSubtypes from "./FilterSubtypes";
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
 
-  const { productType, subFilterStates, filterQueryValue } = useSelector(
+  const { productType, filterQueryValue } = useSelector(
     (state) => state.product
   );
 
