@@ -57,7 +57,10 @@ const productSlice = createSlice({
       // console.log({ payload });
       state.subFilterStates = {
         ...state.subFilterStates,
-        [name]: !state.subFilterStates[name],
+        [filter]: {
+          ...state.subFilterStates[name],
+          [name]: !state.subFilterStates[name],
+        },
       };
     },
     handleClearFilters: (state, { payload }) => {

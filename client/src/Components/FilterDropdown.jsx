@@ -70,15 +70,27 @@ const FilterDropdown = memo(({ filter }) => {
               return null;
             }
 
+            console.log(
+              subFilterStates[filter[0]] &&
+                subFilterStates[filter[0]][subFilter]
+                ? subFilterStates[filter[0]][subFilter]
+                : false
+            );
             return (
               <FilterInput key={i}>
                 <Checkbox
                   name={subFilter}
-                  value={subFilterStates[subFilter]}
+                  value={
+                    subFilterStates[filter[0]] &&
+                    subFilterStates[filter[0]][subFilter]
+                      ? subFilterStates[filter[0]][subFilter]
+                      : false
+                  }
                   checked={
-                    !subFilterStates[subFilter]
-                      ? false
-                      : subFilterStates[subFilter]
+                    subFilterStates[filter[0]] &&
+                    subFilterStates[filter[0]][subFilter]
+                      ? subFilterStates[filter[0]][subFilter]
+                      : false
                   }
                   size="small"
                   onChange={(e) => handleFilter(e, filter[0], subFilter)}
