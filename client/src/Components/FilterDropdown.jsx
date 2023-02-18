@@ -9,8 +9,6 @@ import {
 import {
   getProduct,
   handleClearFilters,
-  handleSubfilterChange,
-  setFilterQueryParam,
 } from "../Redux/Product-Store/Product-Slice";
 import { useDispatch, useSelector } from "react-redux";
 import FilterSubtypes from "./FilterSubtypes";
@@ -31,21 +29,6 @@ const FilterDropdown = memo(({ filter }) => {
     dispatch(getProduct(productType));
   }, [dispatch, productType]);
 
-  // const handleFilter = useCallback(
-  //   (event, filter, subFilter) => {
-  //     const { name, value } = event.target;
-
-  //     dispatch(handleSubfilterChange({ name, value, filter }));
-
-  //     const query = `filterQueryValue[]=${filter}=${subFilter}`;
-  //     const newFilterQueryValue = filterQueryValue + "&" + query;
-
-  //     dispatch(setFilterQueryParam(newFilterQueryValue));
-  //     dispatch(getProduct(productType + "?" + newFilterQueryValue));
-  //   },
-  //   [dispatch, filterQueryValue, productType]
-  // );
-  // console.log(subFilterStates);
   if (filter[1].length === 0 || typeof filter[1] === "number") {
     return null;
   }
@@ -72,6 +55,7 @@ const FilterDropdown = memo(({ filter }) => {
                 subFilter={subFilter}
                 i={index}
                 filter={filter[0]}
+                key={index}
               />
             );
           })}

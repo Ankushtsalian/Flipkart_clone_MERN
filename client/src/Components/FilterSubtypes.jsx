@@ -20,11 +20,12 @@ const FilterSubtypes = ({ subFilter, i, filter }) => {
 
       dispatch(handleSubfilterChange({ name, value, filter }));
 
-      const query = `filterQueryValue[]=${filter}=${subFilter}`;
-      const newFilterQueryValue = filterQueryValue + "&" + query;
+      //   const query = `filterQueryValue[]=${filter}=${subFilter}`;
+      //   const newFilterQueryValue = filterQueryValue + "&" + query;
 
-      dispatch(setFilterQueryParam(newFilterQueryValue));
-      dispatch(getProduct(productType + "?" + newFilterQueryValue));
+      //   dispatch(setFilterQueryParam(newFilterQueryValue));
+      //   dispatch(getProduct(productType + "?" + newFilterQueryValue));
+      dispatch(getProduct(productType));
     },
     [dispatch, filterQueryValue, productType]
   );
