@@ -18,9 +18,7 @@ import FilterSubtypes from "./FilterSubtypes";
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
 
-  const { productType, filterQueryValue } = useSelector(
-    (state) => state.product
-  );
+  const { productType } = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
 
@@ -33,20 +31,20 @@ const FilterDropdown = memo(({ filter }) => {
     dispatch(getProduct(productType));
   }, [dispatch, productType]);
 
-  const handleFilter = useCallback(
-    (event, filter, subFilter) => {
-      const { name, value } = event.target;
+  // const handleFilter = useCallback(
+  //   (event, filter, subFilter) => {
+  //     const { name, value } = event.target;
 
-      dispatch(handleSubfilterChange({ name, value, filter }));
+  //     dispatch(handleSubfilterChange({ name, value, filter }));
 
-      const query = `filterQueryValue[]=${filter}=${subFilter}`;
-      const newFilterQueryValue = filterQueryValue + "&" + query;
+  //     const query = `filterQueryValue[]=${filter}=${subFilter}`;
+  //     const newFilterQueryValue = filterQueryValue + "&" + query;
 
-      dispatch(setFilterQueryParam(newFilterQueryValue));
-      dispatch(getProduct(productType + "?" + newFilterQueryValue));
-    },
-    [dispatch, filterQueryValue, productType]
-  );
+  //     dispatch(setFilterQueryParam(newFilterQueryValue));
+  //     dispatch(getProduct(productType + "?" + newFilterQueryValue));
+  //   },
+  //   [dispatch, filterQueryValue, productType]
+  // );
   // console.log(subFilterStates);
   if (filter[1].length === 0 || typeof filter[1] === "number") {
     return null;
