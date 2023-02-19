@@ -37,8 +37,34 @@ export const productFile = createAsyncThunk(
 export const getProduct = createAsyncThunk(
   "product/getProduct",
   (productType, thunkAPI) => {
-    // console.log(thunkAPI.getState().product.filterQueryValue);
-    return getProductThunk(`/product/${productType}`, productType, thunkAPI);
+    let filterQuery = "";
+    if (Object.keys(thunkAPI.getState().product.subFilterStates).length != 0) {
+      let filter = "";
+      let subFilter = "";
+      let query = [];
+      // console.log(thunkAPI.getState().product.subFilterStates);
+      const filterKeys1 = Object.entries(
+        thunkAPI.getState().product.subFilterStates
+      );
+      filterKeys1.forEach((arr) => {
+        // NEED CHANGE subFilter NOT FOR ONE BUT HAS MULTIPLE
+        filter = arr[0];
+        subFilter = Object.keys(arr[1])[0];
+        let subFiltervalue = Object.values(arr[1])[0];
+
+        if (subFiltervalue === false) return;
+        query.push(`filterQueryValue[]=${filter}=${subFilter}`);
+
+        filterQuery = query.join("&");
+        thunkAPI.dispatch(setFilterQueryParam(filterQuery));
+        console.log(thunkAPI.getState().product.filterQueryValue);
+      });
+    }
+    return getProductThunk(
+      `/product/${productType}?${filterQuery}`,
+      productType,
+      thunkAPI
+    );
   }
 );
 
@@ -54,10 +80,19 @@ const productSlice = createSlice({
       state.filterQueryValue = payload;
     },
     handleSubfilterChange: (state, { payload: { name, value, filter } }) => {
-      // console.log({ payload });
-      state.subFilterStates = {
-        ...state.subFilterStates,
-        [name]: !state.subFilterStates[name],
+      // const { name, value, filter } = payload;
+      const subFilterState = state.subFilterStates[filter] || {};
+      const currentfilterState = subFilterState[name] || false;
+
+      return {
+        ...state,
+        subFilterStates: {
+          ...state.subFilterStates,
+          [filter]: {
+            ...subFilterState,
+            [name]: !currentfilterState,
+          },
+        },
       };
     },
     handleClearFilters: (state, { payload }) => {

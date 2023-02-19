@@ -1,27 +1,22 @@
 import React, { memo, useCallback, useState } from "react";
-import { Checkbox } from "@mui/material";
+
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
   AccordionSummaryHeader,
-  FilterInput,
-  FilterInputValue,
   StyledFilterDropdownWrapper,
 } from "../Styles/FilterDropdown";
 import {
   getProduct,
   handleClearFilters,
-  handleSubfilterChange,
-  setFilterQueryParam,
 } from "../Redux/Product-Store/Product-Slice";
 import { useDispatch, useSelector } from "react-redux";
+import FilterSubtypes from "./FilterSubtypes";
 
 const FilterDropdown = memo(({ filter }) => {
   const [open, setOpen] = useState(false);
 
-  const { productType, subFilterStates, filterQueryValue } = useSelector(
-    (state) => state.product
-  );
+  const { productType } = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
 
@@ -34,21 +29,6 @@ const FilterDropdown = memo(({ filter }) => {
     dispatch(getProduct(productType));
   }, [dispatch, productType]);
 
-  const handleFilter = useCallback(
-    (event, filter, subFilter) => {
-      const { name, value } = event.target;
-
-      dispatch(handleSubfilterChange({ name, value, filter }));
-
-      const query = `filterQueryValue[]=${filter}=${subFilter}`;
-      const newFilterQueryValue = filterQueryValue + "&" + query;
-
-      dispatch(setFilterQueryParam(newFilterQueryValue));
-      dispatch(getProduct(productType + "?" + newFilterQueryValue));
-    },
-    [dispatch, filterQueryValue, productType]
-  );
-  // console.log(subFilterStates);
   if (filter[1].length === 0 || typeof filter[1] === "number") {
     return null;
   }
@@ -65,26 +45,18 @@ const FilterDropdown = memo(({ filter }) => {
         </AccordionSummary>
         <AccordionDetails>
           <button onClick={handleClear}>clear</button>
-          {filter[1]?.map((subFilter, i) => {
+          {filter[1]?.map((subFilter, index) => {
             if (subFilter.length === 0) {
               return null;
             }
 
             return (
-              <FilterInput key={i}>
-                <Checkbox
-                  name={subFilter}
-                  value={subFilterStates[subFilter]}
-                  checked={
-                    !subFilterStates[subFilter]
-                      ? false
-                      : subFilterStates[subFilter]
-                  }
-                  size="small"
-                  onChange={(e) => handleFilter(e, filter[0], subFilter)}
-                />
-                <FilterInputValue>{subFilter}</FilterInputValue>
-              </FilterInput>
+              <FilterSubtypes
+                subFilter={subFilter}
+                i={index}
+                filter={filter[0]}
+                key={index}
+              />
             );
           })}
         </AccordionDetails>

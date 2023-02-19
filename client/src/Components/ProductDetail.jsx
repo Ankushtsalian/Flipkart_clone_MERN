@@ -4,12 +4,14 @@ import { getProduct } from "../Redux/Product-Store/Product-Slice";
 import ProductCard from "./ProductCard";
 
 const ProductDetail = () => {
-  const { productType, product } = useSelector((state) => state.product);
+  const { productType, product, subFilterStates } = useSelector(
+    (state) => state.product
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct(productType));
   }, [dispatch, productType]);
-
+  // console.log(subFilterStates);
   return (
     <div>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
