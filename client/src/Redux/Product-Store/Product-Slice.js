@@ -40,28 +40,30 @@ export const getProduct = createAsyncThunk(
     let filterQuery = "";
     if (Object.keys(thunkAPI.getState().product.subFilterStates).length != 0) {
       let filter = "";
-      let subFilter = "";
+
       let query = [];
-      // console.log(thunkAPI.getState().product.subFilterStates);
+
       const filterKeys1 = Object.entries(
         thunkAPI.getState().product.subFilterStates
       );
       filterKeys1.forEach((arr) => {
-        // NEED CHANGE subFilter NOT FOR ONE BUT HAS MULTIPLE
         filter = arr[0];
-        subFilter = Object.keys(arr[1])[0];
-        let subFiltervalue = Object.values(arr[1])[0];
 
-        if (subFiltervalue === false) return;
-        query.push(`filterQueryValue[]=${filter}=${subFilter}`);
+        //arr[1]= {Infinix: false, realme: true}
+        //just send or push query if value is true
 
+        Object.entries(arr[1]).forEach(([subFilterKey, subFilterValue]) => {
+          if (subFilterValue === true) {
+            query.push(`filterQueryValue[]=${filter}=${subFilterKey}`);
+          }
+        });
         filterQuery = query.join("&");
+        console.log(filterQuery);
         thunkAPI.dispatch(setFilterQueryParam(filterQuery));
-        console.log(thunkAPI.getState().product.filterQueryValue);
       });
     }
     return getProductThunk(
-      `/product/${productType}?${filterQuery}`,
+      `/product/${productType}${filterQuery && "?"}${filterQuery}`,
       productType,
       thunkAPI
     );
