@@ -51,7 +51,7 @@ export const getProduct = createAsyncThunk(
       );
       filterKeys1.forEach((arr) => {
         filter = arr[0];
-        // NEED CHANGE subFilter NOT FOR ONE BUT HAS MULTIPLE
+
         // subFilter = Object.keys(arr[1])[0];
         // let subFiltervalue = Object.values(arr[1])[0];
 
