@@ -52,9 +52,6 @@ export const getProduct = createAsyncThunk(
       filterKeys1.forEach((arr) => {
         filter = arr[0];
 
-        // subFilter = Object.keys(arr[1])[0];
-        // let subFiltervalue = Object.values(arr[1])[0];
-
         //arr[1]= {Infinix: false, realme: true}
         //just send or push query if value is true
 
