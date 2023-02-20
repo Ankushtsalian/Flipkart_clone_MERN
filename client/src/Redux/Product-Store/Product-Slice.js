@@ -40,7 +40,7 @@ export const getProduct = createAsyncThunk(
     let filterQuery = "";
     if (Object.keys(thunkAPI.getState().product.subFilterStates).length != 0) {
       let filter = "";
-      // let subFilter = "";
+
       let query = [];
 
       const filterKeys1 = Object.entries(
@@ -54,7 +54,6 @@ export const getProduct = createAsyncThunk(
 
         Object.entries(arr[1]).forEach(([subFilterKey, subFilterValue]) => {
           if (subFilterValue === true) {
-            // console.log({ subFilterKey, subFilterValue });
             query.push(`filterQueryValue[]=${filter}=${subFilterKey}`);
           }
         });
