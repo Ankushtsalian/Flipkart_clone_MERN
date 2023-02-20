@@ -45,7 +45,7 @@ export const getProduct = createAsyncThunk(
       let filter = "";
       // let subFilter = "";
       let query = [];
-      // console.log(thunkAPI.getState().product.subFilterStates);
+
       const filterKeys1 = Object.entries(
         thunkAPI.getState().product.subFilterStates
       );
