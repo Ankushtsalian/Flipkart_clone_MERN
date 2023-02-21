@@ -53,12 +53,11 @@ export const getProduct = createAsyncThunk(
         //just send or push query if value is true
 
         Object.entries(arr[1]).forEach(([subFilterKey, subFilterValue]) => {
-          if (subFilterValue === true) {
+          if (subFilterValue) {
             query.push(`filterQueryValue[]=${filter}=${subFilterKey}`);
           }
         });
         filterQuery = query.join("&");
-        console.log(filterQuery);
         thunkAPI.dispatch(setFilterQueryParam(filterQuery));
       });
     }
@@ -99,6 +98,7 @@ const productSlice = createSlice({
     },
     handleClearFilters: (state, { payload }) => {
       state.subFilterStates = {};
+      state.filterQueryValue = "";
     },
 
     handleAdminMobileProductInput: (state, { payload }) => {

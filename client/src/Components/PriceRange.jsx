@@ -1,10 +1,14 @@
 import { Slider } from "@mui/material";
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   handlePriceChange,
   handleResetPriceRange,
 } from "../Redux/Auth-Store/Auth-Slice";
+import {
+  getProduct,
+  handleClearFilters,
+} from "../Redux/Product-Store/Product-Slice";
 import {
   FilterSection,
   PriceClearContainer,
@@ -20,6 +24,10 @@ import {
 
 const PriceRange = () => {
   const { priceRange, isPriceChanged } = useSelector((state) => state.user);
+  const { filterQueryValue, productType } = useSelector(
+    (state) => state.product
+  );
+
   const dispatch = useDispatch();
 
   const minDistance = 10;
@@ -45,16 +53,23 @@ const PriceRange = () => {
       );
     }
   };
+
+  const handleClear = useCallback(() => {
+    dispatch(handleResetPriceRange());
+    dispatch(handleClearFilters());
+    dispatch(getProduct(productType));
+  }, [dispatch, productType]);
+
   return (
     <StyledPriceRangeWrapper>
       <FilterSection>Filters</FilterSection>
       <StyledPriceRangeContainer>
         <PriceRangeHeader>
           <span>PRICE</span>
-          {(priceRange[0] !== 0 || priceRange[1] !== 100) && (
-            <PriceClearContainer
-              onClick={() => dispatch(handleResetPriceRange())}
-            >
+          {(priceRange[0] !== 0 ||
+            priceRange[1] !== 100 ||
+            filterQueryValue != "") && (
+            <PriceClearContainer onClick={handleClear}>
               <span>CLEAR</span>
             </PriceClearContainer>
           )}
