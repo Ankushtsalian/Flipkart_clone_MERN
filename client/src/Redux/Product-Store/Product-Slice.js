@@ -98,6 +98,7 @@ const productSlice = createSlice({
     },
     handleClearFilters: (state, { payload }) => {
       state.subFilterStates = {};
+      state.filterQueryValue = "";
     },
 
     handleAdminMobileProductInput: (state, { payload }) => {
