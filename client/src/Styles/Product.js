@@ -28,6 +28,7 @@ const StyledProductMainWrapper = styled.nav`
 
 const AsideProductWrapper = styled.aside`
   min-width: 16.66%;
+  max-width: 16.66%;
 `;
 const AsideProductContainer = styled.aside`
   /* max-width: 40%; */
