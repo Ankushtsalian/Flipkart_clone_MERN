@@ -24,11 +24,6 @@ const FilterDropdown = memo(({ filter }) => {
     setOpen((open) => !open);
   }, []);
 
-  const handleClear = useCallback(() => {
-    dispatch(handleClearFilters());
-    dispatch(getProduct(productType));
-  }, [dispatch, productType]);
-
   if (filter[1].length === 0 || typeof filter[1] === "number") {
     return null;
   }
@@ -44,7 +39,6 @@ const FilterDropdown = memo(({ filter }) => {
           <AccordionSummaryHeader>{filter[0]}</AccordionSummaryHeader>
         </AccordionSummary>
         <AccordionDetails>
-          <button onClick={handleClear}>clear</button>
           {filter[1]?.map((subFilter, index) => {
             if (subFilter.length === 0) {
               return null;
