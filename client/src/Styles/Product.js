@@ -31,8 +31,6 @@ const AsideProductWrapper = styled.aside`
   max-width: 16.66%;
 `;
 const AsideProductContainer = styled.aside`
-  /* max-width: 40%; */
-  /* max-width: 100%; */
   background-color: #fff;
   /* flex-wrap: wrap; */
   /* margin: 0 auto; */
