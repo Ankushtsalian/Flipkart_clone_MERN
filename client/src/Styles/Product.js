@@ -32,8 +32,7 @@ const AsideProductWrapper = styled.aside`
 `;
 const AsideProductContainer = styled.aside`
   background-color: #fff;
-  /* flex-wrap: wrap; */
-  /* margin: 0 auto; */
+
   overflow-x: hidden;
   /* max-height: 100%; */
   padding: 0 0 20px;
