@@ -41,7 +41,6 @@ const SectionProductWrapper = styled.section`
 `;
 
 const SectionProductContainer = styled.div`
-  /* max-width: 100%; */
   background-color: #fff;
 
   padding: 10px 20px 20px 0;
