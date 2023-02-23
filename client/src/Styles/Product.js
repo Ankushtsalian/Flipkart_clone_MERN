@@ -23,7 +23,6 @@ const StyledProductMainWrapper = styled.nav`
   top: 7rem;
   margin-bottom: 30px;
   flex: 0 0 auto;
-  /* flex-wrap: wrap; */
 `;
 
 const AsideProductWrapper = styled.aside`
