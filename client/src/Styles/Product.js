@@ -7,10 +7,8 @@ const ProductMainContainer = styled.div`
 
 const StyledProductMainWrapper = styled.nav`
   min-width: 978px;
-  /* max-width: 1500px; */
   width: 100%;
   padding: 0 10px 10px;
-  /* max-width: 1680px; */
   font-size: 13px;
   display: flex;
   flex-direction: row;
