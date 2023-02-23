@@ -77,7 +77,6 @@ const ProductCard = ({ product }) => {
                     display: "flex",
                     justifyContent: "flex-start",
                     flexDirection: "row",
-                    // border: "1px solid red",
                     maxWidth: "90%",
                     flexWrap: "wrap",
                     fontSize: "16px",
