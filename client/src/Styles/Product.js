@@ -43,7 +43,6 @@ const SectionProductContainer = styled.div`
   background-color: #fff;
 
   padding: 10px 20px 20px 0;
-  /* border: 2px solid red; */
 `;
 
 export {
