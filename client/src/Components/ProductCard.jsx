@@ -64,14 +64,7 @@ const ProductCard = ({ product }) => {
                   src="images/Flipkart_assured.png"
                 />
               )}
-              <div
-                style={
-                  {
-                    // maxWidth: "120px",
-                    // border: "1px solid black",
-                  }
-                }
-              >
+              <div style={{}}>
                 <div
                   style={{
                     display: "flex",
