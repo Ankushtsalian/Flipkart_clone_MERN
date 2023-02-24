@@ -67,7 +67,6 @@ const ProductCard = ({ product }) => {
               <div
                 style={
                   {
-                    // maxWidth: "120px",
                     // border: "1px solid black",
                   }
                 }
