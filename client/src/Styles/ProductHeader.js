@@ -4,8 +4,6 @@ const StyledProductHeaderWrapper = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 1;
-  /* font-weight: bold; */
-
   font-size: large;
   left: 0;
   display: flex;
@@ -47,11 +45,6 @@ const ProductMenuContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
-
-  /* & > div {
-    min-width: 100px;
-    flex: 0 0 auto;
-  } */
 
   & button {
     font-weight: bold;

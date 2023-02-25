@@ -38,7 +38,6 @@ const NavbarInputMenu = styled.div`
 
   & .css-q0jhri-MuiInputBase-root-MuiInput-root {
     width: 100%;
-    /* margin: 0 auto 0 12px; */
     border-radius: 2px 0 0 2px;
     font-size: var(--font-size-10);
   }
@@ -52,7 +51,6 @@ const InputContainer = styled.div`
   justify-content: flex-start;
   height: 100%;
   min-width: 304px;
-  /* width: calc(100% - 540px); */
   width: 100%;
   margin: 0 auto 0 12px;
   align-items: center;
