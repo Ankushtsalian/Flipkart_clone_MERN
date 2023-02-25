@@ -4,8 +4,6 @@ const StyledProductHeaderWrapper = styled.nav`
   position: fixed;
   width: 100%;
   z-index: 1;
-  /* font-weight: bold; */
-
   font-size: large;
   left: 0;
   display: flex;
