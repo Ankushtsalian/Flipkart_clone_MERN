@@ -51,7 +51,6 @@ const InputContainer = styled.div`
   justify-content: flex-start;
   height: 100%;
   min-width: 304px;
-  /* width: calc(100% - 540px); */
   width: 100%;
   margin: 0 auto 0 12px;
   align-items: center;
