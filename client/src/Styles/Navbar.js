@@ -38,7 +38,6 @@ const NavbarInputMenu = styled.div`
 
   & .css-q0jhri-MuiInputBase-root-MuiInput-root {
     width: 100%;
-    /* margin: 0 auto 0 12px; */
     border-radius: 2px 0 0 2px;
     font-size: var(--font-size-10);
   }
