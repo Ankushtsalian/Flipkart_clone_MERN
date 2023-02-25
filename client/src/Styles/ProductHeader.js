@@ -46,11 +46,6 @@ const ProductMenuContainer = styled.div`
   justify-content: center;
   flex-grow: 1;
 
-  /* & > div {
-    min-width: 100px;
-    flex: 0 0 auto;
-  } */
-
   & button {
     font-weight: bold;
 
