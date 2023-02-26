@@ -45,44 +45,44 @@ const ProductCard = ({ product }) => {
                   src="images/Flipkart_assured.png"
                 />
               )}
-              <div style={{}}>
-                <div
+
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-start",
+                  flexDirection: "row",
+                  maxWidth: "90%",
+                  flexWrap: "wrap",
+                  fontSize: "16px",
+                }}
+              >
+                <p
                   style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    flexDirection: "row",
-                    maxWidth: "90%",
-                    flexWrap: "wrap",
-                    fontSize: "16px",
+                    marginRight: "5px",
+
+                    fontWeight: "bold",
                   }}
                 >
-                  <p
-                    style={{
-                      marginRight: "5px",
-
-                      fontWeight: "bold",
-                    }}
-                  >
-                    ₹{productAbsolutePrice}
-                  </p>
-                  <p
-                    style={{
-                      margin: "0 5px",
-                      textDecorationLine: "line-through",
-                    }}
-                  >
-                    ₹{productMaxPrice}
-                  </p>
-                  <p
-                    style={{
-                      marginLeft: "5px",
-                      color: "var( --color-offer-green)",
-                    }}
-                  >
-                    {productDiscount}%
-                  </p>
-                </div>
+                  ₹{productAbsolutePrice}
+                </p>
+                <p
+                  style={{
+                    margin: "0 5px",
+                    textDecorationLine: "line-through",
+                  }}
+                >
+                  ₹{productMaxPrice}
+                </p>
+                <p
+                  style={{
+                    marginLeft: "5px",
+                    color: "var( --color-offer-green)",
+                  }}
+                >
+                  {productDiscount}%
+                </p>
               </div>
+
               <div>
                 <p>{isFreeDeliveryEligible && "Free delivery"}</p>
               </div>
