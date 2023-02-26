@@ -40,6 +40,16 @@ const ProductCardBodyContainer = styled.div`
   font-size: 16px;
 `;
 
+const ProductCardAbsolutePriceContainer = styled.p`
+  margin-right: 5px;
+
+  font-weight: bold;
+`;
+const ProductCardMaxPriceContainer = styled.p`
+  margin: 0 5px;
+  text-decoration: line-through;
+`;
+
 export {
   ProductCardMainContainer,
   ProductCardContainer,
@@ -47,4 +57,6 @@ export {
   ProductCardContentTitle,
   ProductCardImageContainer,
   ProductCardBodyContainer,
+  ProductCardAbsolutePriceContainer,
+  ProductCardMaxPriceContainer,
 };

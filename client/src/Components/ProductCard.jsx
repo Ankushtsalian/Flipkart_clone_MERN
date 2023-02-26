@@ -5,11 +5,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import {
+  ProductCardAbsolutePriceContainer,
+  ProductCardBodyContainer,
   ProductCardContainer,
   ProductCardContentContainer,
   ProductCardContentTitle,
   ProductCardImageContainer,
   ProductCardMainContainer,
+  ProductCardMaxPriceContainer,
 } from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
@@ -40,33 +43,13 @@ const ProductCard = ({ product }) => {
                 <ProductCardImageContainer src="images/Flipkart_assured.png" />
               )}
 
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  flexDirection: "row",
-                  maxWidth: "90%",
-                  flexWrap: "wrap",
-                  fontSize: "16px",
-                }}
-              >
-                <p
-                  style={{
-                    marginRight: "5px",
-
-                    fontWeight: "bold",
-                  }}
-                >
+              <ProductCardBodyContainer>
+                <ProductCardAbsolutePriceContainer>
                   ₹{productAbsolutePrice}
-                </p>
-                <p
-                  style={{
-                    margin: "0 5px",
-                    textDecorationLine: "line-through",
-                  }}
-                >
+                </ProductCardAbsolutePriceContainer>
+                <ProductCardMaxPriceContainer>
                   ₹{productMaxPrice}
-                </p>
+                </ProductCardMaxPriceContainer>
                 <p
                   style={{
                     marginLeft: "5px",
@@ -75,7 +58,7 @@ const ProductCard = ({ product }) => {
                 >
                   {productDiscount}%
                 </p>
-              </div>
+              </ProductCardBodyContainer>
 
               <div>
                 <p>{isFreeDeliveryEligible && "Free delivery"}</p>
