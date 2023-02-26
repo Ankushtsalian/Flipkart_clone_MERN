@@ -12,4 +12,22 @@ const ProductCardContainer = styled(Card)`
   height: 100%;
 `;
 
-export { ProductCardMainContainer, ProductCardContainer };
+const ProductCardContentContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-size: 14px;
+`;
+
+const ProductCardContentTitle = styled.div`
+  & p {
+    margin: 0;
+  }
+`;
+
+export {
+  ProductCardMainContainer,
+  ProductCardContainer,
+  ProductCardContentContainer,
+  ProductCardContentTitle,
+};
