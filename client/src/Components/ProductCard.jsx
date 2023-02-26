@@ -8,6 +8,7 @@ import {
   ProductCardContainer,
   ProductCardContentContainer,
   ProductCardContentTitle,
+  ProductCardImageContainer,
   ProductCardMainContainer,
 } from "../Styles/ProductCard";
 
@@ -36,14 +37,7 @@ const ProductCard = ({ product }) => {
               </ProductCardContentTitle>
 
               {isFlipkartAssuredProduct && (
-                <img
-                  style={{
-                    width: "100px",
-                    margin: "10px 0",
-                    height: "30px",
-                  }}
-                  src="images/Flipkart_assured.png"
-                />
+                <ProductCardImageContainer src="images/Flipkart_assured.png" />
               )}
 
               <div
