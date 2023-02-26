@@ -5,10 +5,14 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import {
+  ProductCardAbsolutePriceContainer,
+  ProductCardBodyContainer,
   ProductCardContainer,
   ProductCardContentContainer,
   ProductCardContentTitle,
+  ProductCardImageContainer,
   ProductCardMainContainer,
+  ProductCardMaxPriceContainer,
 } from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
@@ -36,53 +40,26 @@ const ProductCard = ({ product }) => {
               </ProductCardContentTitle>
 
               {isFlipkartAssuredProduct && (
-                <img
-                  style={{
-                    width: "100px",
-                    margin: "10px 0",
-                    height: "30px",
-                  }}
-                  src="images/Flipkart_assured.png"
-                />
+                <ProductCardImageContainer src="images/Flipkart_assured.png" />
               )}
-              <div style={{}}>
-                <div
+
+              <ProductCardBodyContainer>
+                <ProductCardAbsolutePriceContainer>
+                  ₹{productAbsolutePrice}
+                </ProductCardAbsolutePriceContainer>
+                <ProductCardMaxPriceContainer>
+                  ₹{productMaxPrice}
+                </ProductCardMaxPriceContainer>
+                <p
                   style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    flexDirection: "row",
-                    maxWidth: "90%",
-                    flexWrap: "wrap",
-                    fontSize: "16px",
+                    marginLeft: "5px",
+                    color: "var( --color-offer-green)",
                   }}
                 >
-                  <p
-                    style={{
-                      marginRight: "5px",
+                  {productDiscount}%
+                </p>
+              </ProductCardBodyContainer>
 
-                      fontWeight: "bold",
-                    }}
-                  >
-                    ₹{productAbsolutePrice}
-                  </p>
-                  <p
-                    style={{
-                      margin: "0 5px",
-                      textDecorationLine: "line-through",
-                    }}
-                  >
-                    ₹{productMaxPrice}
-                  </p>
-                  <p
-                    style={{
-                      marginLeft: "5px",
-                      color: "var( --color-offer-green)",
-                    }}
-                  >
-                    {productDiscount}%
-                  </p>
-                </div>
-              </div>
               <div>
                 <p>{isFreeDeliveryEligible && "Free delivery"}</p>
               </div>
