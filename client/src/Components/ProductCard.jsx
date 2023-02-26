@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { ProductCardMainContainer } from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
   const {
@@ -19,13 +20,7 @@ const ProductCard = ({ product }) => {
   } = product;
 
   return (
-    <div
-      style={{
-        width: "25%",
-        Height: "500px",
-        padding: "1px",
-      }}
-    >
+    <ProductCardMainContainer>
       <Card
         sx={{
           width: "100%",
@@ -117,7 +112,7 @@ const ProductCard = ({ product }) => {
           </CardContent>
         </CardActionArea>
       </Card>
-    </div>
+    </ProductCardMainContainer>
   );
 };
 
