@@ -4,7 +4,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import { ProductCardMainContainer } from "../Styles/ProductCard";
+import {
+  ProductCardContainer,
+  ProductCardMainContainer,
+} from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
   const {
@@ -21,12 +24,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <ProductCardMainContainer>
-      <Card
-        sx={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
+      <ProductCardContainer>
         <CardActionArea>
           <CardMedia component="img" image={productImage} alt="green iguana" />
           <CardContent>
@@ -111,7 +109,7 @@ const ProductCard = ({ product }) => {
             </div>
           </CardContent>
         </CardActionArea>
-      </Card>
+      </ProductCardContainer>
     </ProductCardMainContainer>
   );
 };

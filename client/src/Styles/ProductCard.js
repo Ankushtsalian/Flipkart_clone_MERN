@@ -1,3 +1,4 @@
+import { Card } from "@mui/material";
 import styled from "styled-components";
 
 const ProductCardMainContainer = styled.div`
@@ -6,4 +7,9 @@ const ProductCardMainContainer = styled.div`
   padding: 1px;
 `;
 
-export { ProductCardMainContainer };
+const ProductCardContainer = styled(Card)`
+  width: 100%;
+  height: 100%;
+`;
+
+export { ProductCardMainContainer, ProductCardContainer };
