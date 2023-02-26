@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ProductCardMainContainer = styled.div`
   width: 25%;
-  height: 500px;
+  height: 600px;
   padding: 1px;
 `;
 
@@ -25,9 +25,26 @@ const ProductCardContentTitle = styled.div`
   }
 `;
 
+const ProductCardImageContainer = styled.img`
+  width: 100px;
+  margin: 10px 0;
+  height: 30px;
+`;
+
+const ProductCardBodyContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  max-width: 90%;
+  flex-wrap: wrap;
+  font-size: 16px;
+`;
+
 export {
   ProductCardMainContainer,
   ProductCardContainer,
   ProductCardContentContainer,
   ProductCardContentTitle,
+  ProductCardImageContainer,
+  ProductCardBodyContainer,
 };
