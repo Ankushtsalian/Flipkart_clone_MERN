@@ -4,6 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import {
+  ProductCardContainer,
+  ProductCardContentContainer,
+  ProductCardContentTitle,
+  ProductCardMainContainer,
+} from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
   const {
@@ -19,40 +25,15 @@ const ProductCard = ({ product }) => {
   } = product;
 
   return (
-    <div
-      style={{
-        width: "25%",
-        Height: "500px",
-        padding: "1px",
-      }}
-    >
-      <Card
-        sx={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
+    <ProductCardMainContainer>
+      <ProductCardContainer>
         <CardActionArea>
           <CardMedia component="img" image={productImage} alt="green iguana" />
           <CardContent>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexDirection: "column",
-                fontSize: "14px",
-                // height: "150px",
-              }}
-            >
-              <div>
-                <p
-                  style={{
-                    margin: "0",
-                  }}
-                >
-                  {BRAND}
-                </p>
-              </div>
+            <ProductCardContentContainer>
+              <ProductCardContentTitle>
+                <p>{BRAND}</p>
+              </ProductCardContentTitle>
 
               {isFlipkartAssuredProduct && (
                 <img
@@ -113,11 +94,11 @@ const ProductCard = ({ product }) => {
               >
                 <p>{isBankOfferEligible && "Bank Offer"}</p>
               </div>
-            </div>
+            </ProductCardContentContainer>
           </CardContent>
         </CardActionArea>
-      </Card>
-    </div>
+      </ProductCardContainer>
+    </ProductCardMainContainer>
   );
 };
 
