@@ -1,10 +1,10 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import {
+  ProductBankOfferContainer,
   ProductCardAbsolutePriceContainer,
   ProductCardBodyContainer,
   ProductCardContainer,
@@ -13,6 +13,7 @@ import {
   ProductCardImageContainer,
   ProductCardMainContainer,
   ProductCardMaxPriceContainer,
+  ProductDiscountContainer,
 } from "../Styles/ProductCard";
 
 const ProductCard = ({ product }) => {
@@ -50,27 +51,17 @@ const ProductCard = ({ product }) => {
                 <ProductCardMaxPriceContainer>
                   ₹{productMaxPrice}
                 </ProductCardMaxPriceContainer>
-                <p
-                  style={{
-                    marginLeft: "5px",
-                    color: "var( --color-offer-green)",
-                  }}
-                >
+                <ProductDiscountContainer>
                   {productDiscount}%
-                </p>
+                </ProductDiscountContainer>
               </ProductCardBodyContainer>
 
-              <div>
-                <p>{isFreeDeliveryEligible && "Free delivery"}</p>
-              </div>
-              <div
-                style={{
-                  fontWeight: "bold",
-                  color: "var( --color-offer-green)",
-                }}
-              >
+              {/* <div> */}
+              <p>{isFreeDeliveryEligible && "Free delivery"}</p>
+              {/* </div> */}
+              <ProductBankOfferContainer>
                 <p>{isBankOfferEligible && "Bank Offer"}</p>
-              </div>
+              </ProductBankOfferContainer>
             </ProductCardContentContainer>
           </CardContent>
         </CardActionArea>

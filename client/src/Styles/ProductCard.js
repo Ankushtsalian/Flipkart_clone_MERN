@@ -49,6 +49,14 @@ const ProductCardMaxPriceContainer = styled.p`
   margin: 0 5px;
   text-decoration: line-through;
 `;
+const ProductDiscountContainer = styled.p`
+  margin-left: 5px;
+  color: var(--color-offer-green);
+`;
+const ProductBankOfferContainer = styled.div`
+  font-weight: bold;
+  color: var(--color-offer-green);
+`;
 
 export {
   ProductCardMainContainer,
@@ -59,4 +67,6 @@ export {
   ProductCardBodyContainer,
   ProductCardAbsolutePriceContainer,
   ProductCardMaxPriceContainer,
+  ProductDiscountContainer,
+  ProductBankOfferContainer,
 };
