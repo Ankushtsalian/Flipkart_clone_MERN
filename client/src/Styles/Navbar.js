@@ -122,7 +122,10 @@ const NavbarMenu = styled.div`
   }
 `;
 
-const ShoppingCartIconContainer = styled.div``;
+const ShoppingCartIconContainer = styled.div`
+  cursor: pointer;
+`;
+
 const Cart = styled(ShoppingCartIcon)`
   padding-right: 0.25rem;
 `;
