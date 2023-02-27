@@ -44,7 +44,6 @@ const AdminProductForm = styled.form`
 const AdminProductFormRowContainer = styled.div`
   display: flex;
   width: 700px;
-  //   border: 1px solid black;
   justify-content: space-between;
 `;
 const AdminProductFormValue = styled.div`
