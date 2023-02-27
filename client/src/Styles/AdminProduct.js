@@ -52,8 +52,6 @@ const AdminProductFormValue = styled.div`
   font-weight: bold;
   padding-top: 15px;
   font-size: 14px;
-
-  /* text-align: center; */
 `;
 const AdminProductFormInputContainer = styled.div`
   margin: 10px;
