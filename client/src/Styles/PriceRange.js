@@ -13,14 +13,12 @@ const FilterSection = styled.section`
 const StyledPriceRangeContainer = styled.section`
   padding: 1rem;
   font-weight: bold;
-  /* width: 100%; */
   border-bottom: 1px solid var(--color-white);
 `;
 const PriceRangeHeader = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  /* padding: 10px 0; */
 `;
 const PriceRangeDropdownWrapper = styled.div`
   display: flex;

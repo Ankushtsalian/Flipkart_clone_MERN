@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const FooterWrapper = styled.footer`
-  /* position: sticky; */
   margin-top: 56px;
   border: 1px solid black;
   bottom: 0;
@@ -16,7 +15,6 @@ const FooterContainer = styled.div`
   margin: 0 auto;
   height: 100%;
   max-width: 1548px;
-  /* max-width: calc(100%-1068px); */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
