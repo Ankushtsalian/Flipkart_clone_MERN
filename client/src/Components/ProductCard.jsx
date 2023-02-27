@@ -48,17 +48,18 @@ const ProductCard = ({ product }) => {
                 <ProductCardAbsolutePriceContainer>
                   ₹{productAbsolutePrice}
                 </ProductCardAbsolutePriceContainer>
+
                 <ProductCardMaxPriceContainer>
                   ₹{productMaxPrice}
                 </ProductCardMaxPriceContainer>
+
                 <ProductDiscountContainer>
                   {productDiscount}%
                 </ProductDiscountContainer>
               </ProductCardBodyContainer>
 
-              {/* <div> */}
               <p>{isFreeDeliveryEligible && "Free delivery"}</p>
-              {/* </div> */}
+
               <ProductBankOfferContainer>
                 <p>{isBankOfferEligible && "Bank Offer"}</p>
               </ProductBankOfferContainer>
